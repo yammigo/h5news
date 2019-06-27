@@ -8,11 +8,11 @@ cnpm install
 ```
 cnpm install -g gulp
 ```
-#创建渠道
+# 创建渠道
 ```
 gulp build
 ```
-#添加渠道配置
+# 添加渠道配置
 ```
 gulp config
 ```
