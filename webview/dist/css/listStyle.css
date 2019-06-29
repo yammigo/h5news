@@ -49,6 +49,10 @@
 }
 .container .img.fixed-size .content {
     height: 0;
+    background: url(dist/img/imgloading.png);
+    background-origin: center;
+    background-position: center;
+    background-size: cover;
 }
 .container .img.fixed-size.size-2-1 .content, .container .img.fixed-size[class*=-to-2-1] .content {
     padding-bottom:60%;

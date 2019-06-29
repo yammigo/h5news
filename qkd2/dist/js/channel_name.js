@@ -1,1 +1,1 @@
-var CHANNEL_NAME="webview";
+var CHANNEL_NAME="qkd2";
