@@ -334,11 +334,11 @@
             // 重组数据列表（以数据渲染视图，提升广告载入效率）
             if (data.length > 0) {
                 for (i; i < data.length; i++) {
-                    if (data[i].pics && data[i].pics.length < 3) {
+                    if (data[i].pics && data[i].pics.length < 3 && data[i].category!="图片") {
                     
                         str += this.styleDetail(data[i]);
 
-                    } else if (data[i].pics && data[i].pics.length >= 3 && !data[i].type) {
+                    } else if (data[i].pics && data[i].pics.length >= 3 && !data[i].type && data[i].category!="图片") {
 
                         str += this.styleDetail(data[i]);
 
