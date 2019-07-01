@@ -568,6 +568,7 @@
 
     //初始化创建广告类型
     var crateAd = new ZZJKAD();
+
     //渲染详情红包链接
     $('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
 
@@ -597,6 +598,7 @@
         //缓存数据
         sessionStorage.setItem("scrollTop",$('.mescroll').scrollTop())
     }
+    
     //拓展方法在此处去继承完成新模块，新功能的添加尽量别去修改原代码
     // function removeItem(){
     //     if(sessionStorage.getItem("Dcontent")&&sessionStorage.getItem("Dcontent")!==""){

@@ -136,13 +136,9 @@ const config = {
                 { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' },
                 { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' },
                 { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' },
-                { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' },
-                { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' },
-                { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' },
-                { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' },
+                { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' }
             ],
             picAdIdsList: [
-                // { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
                 { uId: { id: 'u4021548', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021548' },
                 { uId: { id: 'u4021548', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021548' },
                 { uId: { id: 'u4021548', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021548' },
@@ -278,8 +274,8 @@ const config = {
         //图片详情
         picDetails: {
             picGroomIdsList: [
-                { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
-                { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
+                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
+                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
             ],
             picBottomAdId: [
                 { uId: { id: 'u4021335', h: "20:4" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021335' },
@@ -290,12 +286,12 @@ const config = {
                 { uId: { id: 'u4021335', h: "20:4" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021335' },
             ],
             picAdIdsList: [
-                { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
-                { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
-                { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
-                { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
-                { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
-                { uId: { id: 'u4021427', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021427' },
+                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
+                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
+                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
+                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
+                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
+                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
             ],
             linkList: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=272681',
             linkDetail: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=272682',
