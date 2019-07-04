@@ -280,10 +280,14 @@
     //调用逻辑 getdata(数据）->readAD(插广告数据)->render(渲染ui)
     var template = {
         readAd: function (isAD, data, adIndex) {
-
+            // var arr=[23,56,1,8,32,4,13,28,7,3,60,103];
+            // var arr1=arr.sort(function(){return 0.5-Math.random()}).slice(0,5);
+            // console.log(arr1);
             var adIndex = adIndex || 1
             //读取广告配置并插入广告数据
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
+            console.log(adlist.sort(function(){return 0.5-Math.random()}).slice(0,5),"抽取的代码位");
+            console.log(adlist,"原始代码位数据");
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {
@@ -313,7 +317,7 @@
                         callback.call(that, res.newsEntityList);
 
                     } else {
-                        console.log(res);
+                       
                         mescroll.endSuccess();
                     }
                 },
@@ -381,9 +385,8 @@
             }
           
             //加入误点后的操作数据
-            
-
             try {
+                //读取误点配置
                 var probability=adConfig[CHANNEL_NAME].probability.newsList;
             } catch (error) {
                 console.warn(error);
@@ -391,6 +394,7 @@
             }
           
             if(probability&&typeof probability!=="{}"){
+                //误点操作
                 var newdom=this.mistakeClick.call(this,{ dom: $(str), data: data });
                 return {dom:newdom,data:data}
             }else{
@@ -593,6 +597,7 @@
 
     //初始化创建广告类型
     var crateAd = new ZZJKAD();
+    
     //渲染详情红包链接
     $('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
 

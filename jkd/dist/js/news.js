@@ -371,7 +371,7 @@
                         str += this.styleimg3(data[i],i);
                     } else if (data[i].category == "图片") {
 
-                        str += this.pricImg(data[i],i);
+                        // str += this.pricImg(data[i],i);
                     } else if (data[i].type = 'ad') {
 
                         str += this.adStyle(data[i],i,async);

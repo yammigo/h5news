@@ -8,9 +8,9 @@ var gulp = require('gulp'),
 	px2rem = require('gulp-px2rem-plugin'),
 	cssUglify = require('gulp-minify-css'),
 	autoprefixer = require('gulp-autoprefixer');
-var fs = require('fs');
-var config_c = require('./config.js');
-var channelList = ['wcb'];
+	var fs = require('fs');
+	var config_c = require('./config.js');
+	var channelList = ['webview'];
 gulp.task('comless', function () {
 	gulp.src('webview/src/less/*.less')
 		.pipe(less())
@@ -87,7 +87,14 @@ gulp.task("build", function () {
 	})
 	console.log('记得执行config任务😯');
 })
+//更新js文件
+gulp.task('v-js',function(){
 
+})
+//更新指定的渠道版本号
+gulp.task('v-html',function(){
+
+})
 //生成渠道配置文件
 gulp.task('config', function () {
 	channelList.forEach(function (dir) {

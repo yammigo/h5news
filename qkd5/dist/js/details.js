@@ -345,6 +345,7 @@
                     } else if (data[i].type = 'ad') {
 
                         str += this.adStyle(data[i]);
+                        
                     }
                 }
 
