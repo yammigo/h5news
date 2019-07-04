@@ -773,6 +773,85 @@ const config = {
         //     newsList: 0.3,
         //     details: 0.2,
         // }
+    },
+    toutiao: {
+        //新闻频道
+        newsListAD: [
+            { type: 'ad', s:"xcAD",  smua: "d=m&s=b&u=u4141985&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141983&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141979&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141973&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141970&h=120" },
+
+        ],
+        priclist: [
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141944&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141946&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141948&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141950&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141953&h=220" },
+
+        ],
+        //新闻详情
+        details: {
+            //顶部广告
+            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141117&h=120" },
+            //内容底部广告
+            bottomAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4142288&h=220" },
+            //猜你喜欢5图广告
+            IlickAd: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4142247&h=400" },
+            //推荐阅读列表广告
+            RecommendList: [
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141427&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141497&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141537&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141542&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141546&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141557&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141610&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141625&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141632&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141635&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141642&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141651&h=120" },
+            ]
+
+        },
+        //图片详情
+        picDetails: {
+            picGroomIdsList: [
+                { uId: { id: 'u4141933', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141933' },
+                { uId: { id: 'u4141933', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141933' },
+                { uId: { id: 'u4141933', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141933' },
+                { uId: { id: 'u4141933', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141933' },
+            ],
+            picBottomAdId: [
+                { uId: { id: 'u4141882', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141882' },
+                { uId: { id: 'u4141882', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141882' },
+                { uId: { id: 'u4141882', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141882' },
+                { uId: { id: 'u4141882', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141882' }, 
+            ],
+            picAdIdsList: [
+                { uId: { id: 'u4141933', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141933' },
+                { uId: { id: 'u4141933', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141933' },
+                { uId: { id: 'u4141933', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141933' },
+                { uId: { id: 'u4141933', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141933' },
+            ],
+            linkList: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=296213',
+            linkDetail: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=296214',
+        },
+        //红包链接
+        linkAD: {
+            newslist: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=296213',
+            details: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=296214',
+        },
+        //密钥相关
+        appKey: '001100-toutiaoFile',
+        appSecret: '001100-toutiaoFile',
+        probability: {
+            newsList: 0.1,
+            details: 0.2,
+        }
     }
 }
 
