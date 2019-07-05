@@ -313,7 +313,7 @@
                     // idate = cha+'秒之前';
                     idate = '刚刚';
                 }else if(cha>60 && cha<=3600){
-                    idate = parseInt(cha/60)+'分钟前';
+                    idate = parseInt(cha/60)+'分前';
                 }else if(cha>3600){
                     idate = parseInt(cha/3600)+'小时前';
                 }
@@ -416,7 +416,7 @@
                         str += this.styleimg3(data[i],i);
                     } else if (data[i].category == "图片") {
 
-                        str += this.pricImg(data[i],i);
+                        // str += this.pricImg(data[i],i);
                     } else if (data[i].type = 'ad') {
 
                         str += this.adStyle(data[i],i,async);

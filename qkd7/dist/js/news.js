@@ -313,7 +313,7 @@
                     // idate = cha+'秒之前';
                     idate = '刚刚';
                 }else if(cha>60 && cha<=3600){
-                    idate = parseInt(cha/60)+'分钟前';
+                    idate = parseInt(cha/60)+'分前';
                 }else if(cha>3600){
                     idate = parseInt(cha/3600)+'小时前';
                 }
