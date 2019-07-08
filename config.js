@@ -1152,7 +1152,7 @@ const config = {
         //密钥相关
         appKey: '001100-kh1File',
         appSecret: '001100-kh1File'
-    },
+    }
 }
 
 module.exports = config;
