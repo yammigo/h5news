@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer');
 	var fs = require('fs');
 	var config_c = require('./config.js');
-	var channelList = [];
+	var channelList = ["index"];
 gulp.task('comless', function () {
 	gulp.src('webview/src/less/*.less')
 		.pipe(less())
@@ -77,8 +77,8 @@ gulp.task("build", function () {
 			gulp.src('webview/dist/js/*')
 				.pipe(gulp.dest(dir + '/dist/js'));
 			//打包渠道html
-			gulp.src('webview/*.html')
-				.pipe(gulp.dest(dir + '/'));
+			// gulp.src('webview/*.html')
+			// 	.pipe(gulp.dest(dir + '/'));
 			//生成测试html
 			gulp.src('webview/testHTML/*.html')
 				.pipe(gulp.dest(dir+'/testHTML/'));

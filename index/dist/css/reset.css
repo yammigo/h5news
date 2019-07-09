@@ -1,0 +1,197 @@
+a, abbr, acronym, address, applet, article, aside, audio,
+b, blockquote, big, body,
+center, canvas, caption, cite, code, command,
+datalist, dd, del, details, dfn, dl, div, dt,
+em, embed,
+fieldset, figcaption, figure, font, footer, form,
+h1, h2, h3, h4, h5, h6, header, hgroup, html,
+i, iframe, img, ins,
+kbd,
+keygen,
+label, legend, li,
+meter,
+nav,
+object, ol, output,
+p, pre, progress,
+q,
+s, samp, section, small, span, source, strike, strong, sub, sup,
+table, tbody, tfoot, thead, th, tr, tdvideo, tt,
+u, ul,
+var{
+  background: transparent;
+  border: 0 none;
+  font-size: 100%;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+}
+html {
+  -webkit-text-size-adjust: none;
+  word-break: break-word;
+  font-family: Microsoft YaHei,Helvetica Neue For Number, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+div,p{
+  font-size: initial;
+}
+.clearFix:after,.clearFix:before{
+  content: '';
+  display: block;
+  clear: both;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+table, table td {
+  padding:0;
+  border:none;
+  border-collapse:collapse;
+}
+embed {
+  vertical-align:top;
+}
+
+/* Getting the new tags to behave */
+article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video {display:block;}
+mark, rp, rt, ruby, summary, time {display:inline;}
+
+/*公共样式修改*/
+*{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+@media only screen and (min-width: 600px){
+  html{
+    font-size: 50px !important;
+  }
+  .container{
+    width: 10rem;
+    margin: 0 auto;
+    border-left: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+  }
+}
+.new-container .mint-loadmore{
+  background-color: rgb(238, 238, 238);
+}
+/*x详情页样式*/
+.detail-text{
+  font-size: 0.36rem;
+  line-height: 0.55rem;
+  word-wrap: break-word;
+}
+.detail-text > p {
+  font-size: 0.36rem;
+  word-wrap: break-word;
+  margin-bottom: 0.4rem;
+}
+.detail-text > p:last-child {
+  margin-bottom: 0.24rem;
+}
+.detail-text img {
+  width: 100%;
+  display: block;
+  /*height: 4.45rem;*/
+  margin-bottom: 0.24rem;
+}
+.detail-text>p>img {
+  width: 100%;
+  display: block;
+}
+/*分割线*/
+.cut-off-rule{
+  width: 100%;
+  height: 0.23rem;
+  background-color: #eee;
+}
+/*下拉样式*/
+.dropload-up,.dropload-down{
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  font-size: 12px;
+  /* 开启硬件加速 */
+  -webkit-transform:translateZ(0);
+  transform:translateZ(0);
+}
+.dropload-down{
+  height: 50px;
+}
+.dropload-refresh,.dropload-update,.dropload-load,.dropload-noData{
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+.dropload-load .loading{
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  margin: 6px;
+  border: 2px solid #666;
+  border-bottom-color: transparent;
+  vertical-align: middle;
+  -webkit-animation: rotate 0.75s linear infinite;
+  animation: rotate 0.75s linear infinite;
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotate {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  50% {
+    -moz-transform: rotate(180deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+  50% {
+    -o-transform: rotate(180deg);
+  }
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+/*cnzz*/
+#cnzz_stat_icon_1274686033{
+  width: 0;
+  height: 0;
+  display: block;
+  overflow: hidden;
+}
+#cnzz_stat_icon_1274686033 a{
+  color:#fff;
+  text-decoration: none;
+}

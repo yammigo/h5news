@@ -327,8 +327,6 @@
             var adIndex = adIndex || 1
             //读取广告配置并插入广告数据
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
-            console.log(adlist.sort(function(){return 0.5-Math.random()}).slice(0,5),"抽取的代码位");
-            console.log(adlist,"原始代码位数据");
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {
@@ -385,7 +383,6 @@
                           item.style.width="100%";
                           //执行后删除被替换广告的的dom节点
                           listDom.splice(index,1);
-                          console.log(index,"标识");
                     }
                 });
                 //返回新的信息流列表
