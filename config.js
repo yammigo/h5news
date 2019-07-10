@@ -147,11 +147,11 @@ const config = {
                 { uId: { id: 'u3794541', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3794541' }
             ],
             picAdIdsList: [
-                { uId: { id: 'u4141880', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141880' },
-                { uId: { id: 'u4141880', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141880' },
-                { uId: { id: 'u4141880', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141880' },
-                { uId: { id: 'u4141880', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141880' },
-                { uId: { id: 'u4141880', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4141880' },
+                { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' },
+                { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' },
+                { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' },
+                { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' },
+                { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' }
             ],
             linkList: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=292165',
             linkDetail: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=292167',
@@ -295,10 +295,10 @@ const config = {
                 { uId: { id: 'u4021335', h: "20:4" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4021335' },
             ],
             picAdIdsList: [
-                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
-                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
-                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
-                { uId: { id: 'u4115846', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4115846' },
+                { uId: { id: 'u4142272', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4142272' },
+                { uId: { id: 'u4142272', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4142272' },
+                { uId: { id: 'u4142272', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4142272' },
+                { uId: { id: 'u4142272', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4142272' }
             ],
             linkList: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=272681',
             linkDetail: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=272682',
@@ -607,10 +607,10 @@ const config = {
                 
             ],
             picAdIdsList: [
-                { uId: { id: 'u3678357', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3678357' },
-                { uId: { id: 'u3678357', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3678357' },
-                { uId: { id: 'u3678357', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3678357' },
-                { uId: { id: 'u3678357', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3678357' },
+                { uId: { id: 'u3689779', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3689779' },
+                { uId: { id: 'u3689779', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3689779' },
+                { uId: { id: 'u3689779', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3689779' },
+                { uId: { id: 'u3689779', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3689779' }
             ],
             linkList: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=292168',
             linkDetail: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=292174',
@@ -1160,7 +1160,7 @@ const config = {
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4155106&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4155108&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4155110&h=120" },
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4155116&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4155116&h=120" }
 
         ],
         priclist: [
@@ -1168,7 +1168,7 @@ const config = {
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154847&h=220" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154849&h=220" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154852&h=220" },
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154855&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154855&h=220" }
 
         ],
         //新闻详情
@@ -1192,7 +1192,7 @@ const config = {
                 { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154415&h=120" },
                 { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154418&h=120" },
                 { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154421&h=120" },
-                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154427&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154427&h=120" }
             ]
 
         },
@@ -1202,28 +1202,28 @@ const config = {
                 { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' },
                 { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' },
                 { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' },
-                { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' },
+                { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' }
          
             ],
             picBottomAdId: [
-                { uId: { id: 'u4154557', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154557' },
-                { uId: { id: 'u4154557', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154557' },
-                { uId: { id: 'u4154557', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154557' },
-                { uId: { id: 'u4154557', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154557' }, 
+                { uId: { id: 'u4145293', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4145293' },
+                { uId: { id: 'u4145293', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4145293' },
+                { uId: { id: 'u4145293', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4145293' },
+                { uId: { id: 'u4145293', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4145293' },
             ],
             picAdIdsList: [
-                { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' },
-                { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' },
-                { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' },
-                { uId: { id: 'u4154566', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4154566' },
+                { uId: { id: 'u4144390', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144390' },
+                { uId: { id: 'u4144390', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144390' },
+                { uId: { id: 'u4144390', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144390' },
+                { uId: { id: 'u4144390', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144390' }
             ],
             linkList: 'https://i.fawulu.com/activities/?appKey=2c54107a85474325aa9c6b6f39eb31fe&appEntrance=5&business=money',
-            linkDetail: 'https://i.fawulu.com/activities/?appKey=2c54107a85474325aa9c6b6f39eb31fe&appEntrance=6&business=money',
+            linkDetail: 'https://i.fawulu.com/activities/?appKey=2c54107a85474325aa9c6b6f39eb31fe&appEntrance=6&business=money'
         },
         //红包链接
         linkAD: {
             newslist: 'https://i.fawulu.com/activities/?appKey=2c54107a85474325aa9c6b6f39eb31fe&appEntrance=5&business=money',
-            details: 'https://i.fawulu.com/activities/?appKey=2c54107a85474325aa9c6b6f39eb31fe&appEntrance=6&business=money',
+            details: 'https://i.fawulu.com/activities/?appKey=2c54107a85474325aa9c6b6f39eb31fe&appEntrance=6&business=money'
         },
         //密钥相关
         appKey: '336981',
