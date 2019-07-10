@@ -8,9 +8,9 @@ var gulp = require('gulp'),
 	px2rem = require('gulp-px2rem-plugin'),
 	cssUglify = require('gulp-minify-css'),
 	autoprefixer = require('gulp-autoprefixer');
-	var fs = require('fs');
-	var config_c = require('./config.js');
-	var channelList = ["gxwy"];
+var fs = require('fs');
+var config_c = require('./config.js');
+var channelList = ["gxwy"];
 gulp.task('comless', function () {
 	gulp.src('webview/src/less/*.less')
 		.pipe(less())
@@ -81,18 +81,18 @@ gulp.task("build", function () {
 			// 	.pipe(gulp.dest(dir + '/'));
 			//生成测试html
 			gulp.src('webview/testHTML/*.html')
-				.pipe(gulp.dest(dir+'/testHTML/'));
+				.pipe(gulp.dest(dir + '/testHTML/'));
 
 		})(dir);
 	})
 	console.log('记得执行config任务😯');
 })
 //更新js文件
-gulp.task('v-js',function(){
+gulp.task('v-js', function () {
 
 })
 //更新指定的渠道版本号
-gulp.task('v-html',function(){
+gulp.task('v-html', function () {
 
 })
 //生成渠道配置文件
@@ -101,30 +101,30 @@ gulp.task('config', function () {
 		//写入渠道名称
 		(function (dir) {
 			//渠道名称
-			var w_data = 'var CHANNEL_NAME="'+dir+'";';
+			var w_data = 'var CHANNEL_NAME="' + dir + '";';
 			//渠道代码位
-			var w_config='var ZZJK_adConfig={"'+dir+'":'+JSON.stringify(config_c[dir])+'};'
+			var w_config = 'var ZZJK_adConfig={"' + dir + '":' + JSON.stringify(config_c[dir]) + '};'
 			//写入渠道名称
-			fs.open(dir+"/dist/js/channel_name.js","w",function(err,fd){
-				fs.write(fd, w_data, { 'flag': 'a' }, function(err) {
+			fs.open(dir + "/dist/js/channel_name.js", "w", function (err, fd) {
+				fs.write(fd, w_data, { 'flag': 'a' }, function (err) {
 					if (err) {
 						throw err;
 					}
-					console.log('渠道名'+dir+'写入成功');
-					
+					console.log('渠道名' + dir + '写入成功');
+
 				});
 			});
 			//写入渠道配置文件
-			fs.open(dir+"/dist/js/config.js","w",function(err,fd){
-				fs.write(fd, w_config, { 'flag': 'a' }, function(err) {
+			fs.open(dir + "/dist/js/config.js", "w", function (err, fd) {
+				fs.write(fd, w_config, { 'flag': 'a' }, function (err) {
 					if (err) {
 						throw err;
 					}
-					console.log('渠道'+dir+'广告配置写入成功');
+					console.log('渠道' + dir + '广告配置写入成功');
 				});
-				
+
 			})
-		
+
 		})(dir);
 		//写入读取渠道配置然后写入
 
