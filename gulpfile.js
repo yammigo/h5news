@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer');
 	var fs = require('fs');
 	var config_c = require('./config.js');
-	var channelList = ["index"];
+	var channelList = ["gxwy"];
 gulp.task('comless', function () {
 	gulp.src('webview/src/less/*.less')
 		.pipe(less())

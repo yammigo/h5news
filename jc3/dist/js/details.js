@@ -284,7 +284,7 @@
         },
         //读取广告位信息插入列表
         readAd: function (isAD, data, adIndex) {
-            var adIndex = adIndex || 2
+            var adIndex = adIndex || 2;
             //读取广告配置并插入广告数据
             var data = data.slice(), len = data.length, adlist = adConfig[CHANNEL_NAME].details.RecommendList;//拷贝一份数据进行操作
             isAD && (function (that, data, adlist) {
@@ -294,8 +294,8 @@
                         data.splice(adIndex * i, 0, adlist[i]);
                     }
                 }
-            }(this, data, adlist))
-
+            }(this, data, adlist));
+           
             return data;
         },
         //读取列表数据
@@ -334,20 +334,23 @@
             // 重组数据列表（以数据渲染视图，提升广告载入效率）
             if (data.length > 0) {
                 for (i; i < data.length; i++) {
-                    if (data[i].pics && data[i].pics.length < 3) {
+                    if (data[i].category != "图片" && data[i].pics && data[i].pics.length < 3) {
                     
-                        str += this.styleDetail(data[i]);
+                         str += this.styleDetail(data[i]);
 
-                    } else if (data[i].pics && data[i].pics.length >= 3 && !data[i].type) {
+                    } else if (data[i].category != "图片" && data[i].pics && data[i].pics.length >= 3 && !data[i].type) {
 
-                        str += this.styleDetail(data[i]);
+                         str += this.styleDetail(data[i]);
 
-                    } else if (data[i].type = 'ad') {
+                    } else if(data[i].category == "图片"){
+                        
+                         str+= this.removeStyle();
 
-                        str += this.adStyle(data[i]);
+                    }else if (data[i].type = 'ad') {
+
+                         str += this.adStyle(data[i]);
                     }
                 }
-
             }
             //返回插入广告后的dom,和载入广告后的数据
             return { dom: $(str), data: data }
@@ -402,6 +405,9 @@
                 '            </li>';
         },
         //广告容器模版
+        removeStyle:function(){
+            return '<div></div>'
+        },
         adStyle: function (data) {
             var domid=data.s+"_"+Math.random();
             data.domid=domid;

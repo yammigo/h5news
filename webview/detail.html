@@ -101,17 +101,16 @@
     <script src="dist/js/jquery.js?v=1.0.2"></script>
     <script src="dist/js/details.js?v=1.0.2"></script>
     <script>
-            $(function(){
-               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.details;
-               //var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
+       $(function(){
+               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
+            //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
                if(parseInt(Math.random()*100)>10&&parseInt(Math.random()*100)<20){
-                 console.log('b');
                   $("body").on('click',function(){
                           window.location.href=linkUrl;
                           return false;
                   })
                 }
-           })
+        })
     </script>
     <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.2" async="async"
         defer="defer"></script>

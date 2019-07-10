@@ -1,0 +1,226 @@
+html body {
+  font-family: Microsoft Yahei, arial, helvetica, sans-serif;
+}
+.header-nav {
+  height: 37PX;
+  width: 100%;
+  background: #eee;
+}
+.mescroll {
+  position: fixed;
+  top: 45PX;
+  bottom: 0;
+  height: auto;
+  overflow-y: auto;
+  /* z-index: 9; */
+  max-width: 640PX;
+  -webkit-overflow-scrolling: touch;
+}
+.find_nav {
+  width: 100%;
+  height: 45PX;
+  background-color: #f9f9f9;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  -webkit-box-shadow: 0px 0px 0.266667rem #e6e0e0;
+  box-shadow: 0px 0px 0.266667rem #e6e0e0;
+}
+.find_nav_left {
+  height: 46PX;
+  position: relative;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+.find_nav_list {
+  position: absolute;
+  left: 0;
+}
+.find_nav_list ul {
+  position: relative;
+  white-space: nowrap;
+  font-size: 0;
+}
+.find_nav_list ul li {
+  display: inline-block;
+  padding: 0 13PX;
+}
+.find_nav_list ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 46PX;
+  font-size: 18PX;
+  text-align: center;
+  color: #666;
+}
+.find_nav_cur a {
+  color: #b42222 !important;
+}
+.sideline {
+  display: block;
+  position: absolute;
+  border: 0;
+  height: 2PX;
+  background-color: #b42222;
+  left: 0;
+  top: 43PX;
+  pointer-events: none;
+}
+.search_logo {
+  display: block;
+  width: 44PX;
+  height: 45PX;
+  line-height: 45PX;
+  text-align: center;
+  font-size: 14PX;
+  color: #48a5f4;
+}
+/* 悬浮区域样式 */
+#pu-widget .pu-widget-ctn {
+  z-index: 1000;
+  position: fixed;
+  right: 10PX;
+  bottom: 50PX;
+}
+#pu-widget .pu-widget-ctn > * {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#pu-widget .pu-widget-ctn > * {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#pu-widget .icon-home {
+  background: url(../img/link.png) no-repeat;
+  background-size: 100%;
+  width: 70PX;
+  height: 60PX;
+  padding: 0;
+}
+#pu-widget .icon-share {
+  margin-top: 20PX;
+  width: 55PX;
+  height: 60PX;
+  background: url(//cpucdn.baidu.com/static/assets/a0a7a1f9.png) no-repeat;
+  background-size: 100%;
+  padding: 0;
+  display: none;
+}
+#pu-widget .scroll-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-top: 20PX;
+}
+#pu-widget .icon-backTop {
+  background: url(../img/gotop.png) no-repeat;
+  background-size: 100%;
+  width: 45PX;
+  height: 50PX;
+  padding: 0;
+}
+.freshtip {
+  display: none;
+  font-size: 12PX;
+  position: absolute;
+  width: 100%;
+  z-index: 98;
+  top: 45PX;
+  padding: 4PX 0;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  color: #1ea0ff;
+  -webkit-transition-timing-function: linear;
+  transition-timing-function: linear;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-property: color;
+  transition-property: color;
+  opacity: 1;
+}
+@-webkit-keyframes selected {
+  0% {
+    opacity: 0;
+    background: rgba(207, 230, 255, 0.9);
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+  20% {
+    opacity: 0.2;
+    -webkit-transform: scaleX(0.3);
+    transform: scaleX(0.3);
+  }
+  50% {
+    opacity: 0.5;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+  }
+  80% {
+    opacity: 0.6;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8);
+  }
+  100% {
+    opacity: 1;
+    background: rgba(207, 230, 255, 0.9);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+@keyframes selected {
+  0% {
+    opacity: 0;
+    background: rgba(207, 230, 255, 0.9);
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+  20% {
+    opacity: 0.2;
+    -webkit-transform: scaleX(0.3);
+    transform: scaleX(0.3);
+  }
+  50% {
+    opacity: 0.5;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+  }
+  80% {
+    opacity: 0.6;
+    -webkit-transform: scaleX(0.8);
+    transform: scaleX(0.8);
+  }
+  100% {
+    opacity: 1;
+    background: rgba(207, 230, 255, 0.9);
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+}
+.freshtip::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-animation: selected 0.35s linear forwards;
+  animation: selected 0.35s linear forwards;
+}
+.successF .freshtip {
+  display: block;
+}
