@@ -151,11 +151,9 @@ const config = {
                 { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' },
                 { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' },
                 { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' },
-<<<<<<< HEAD
                 { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' },
-=======
                 { uId: { id: 'u4144374', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4144374' }
->>>>>>> f92e61971338bdcf7234763fb2200b501a6c0ebf
+
             ],
             linkList: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=292165',
             linkDetail: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=292167',
@@ -398,7 +396,7 @@ const config = {
     qkd3: {
         //新闻频道
         newsListAD: [
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3821991&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141985&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3741342&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3821982&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4128938&h=120" },
