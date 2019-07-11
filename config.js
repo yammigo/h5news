@@ -554,7 +554,7 @@ const config = {
     qkd6: {
         //新闻频道
         newsListAD: [
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4132144&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4117796&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4117688&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4117692&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4117695&h=120" },
