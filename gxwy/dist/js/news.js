@@ -5,7 +5,7 @@
         pageConfig = {
             s: 0,
             l: 5,
-            c: 1,
+            c: 21,
             t: "asdf",
             sign: 'asdf',
             math: Math.random().toString(36).slice(2),
@@ -641,8 +641,8 @@
 
     //检测频道id是否存在
     if (!sessionStorage.getItem("crateId") ||sessionStorage.getItem("crateId") == '') {
-        sessionStorage.setItem("crateId",1);
-        pageConfig.c = 1;
+        sessionStorage.setItem("crateId",21);
+        pageConfig.c = 21;
     }
 
     //初始化滚动容器

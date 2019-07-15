@@ -116,18 +116,17 @@
             </a>
         </div>
     </div>
+    <script src="dist/js/report.js?v=1.0.2"></script>
     <script src="dist/js/channel_name.js?v=1.0.2"></script>
     <script src="dist/js/adtype.js?v=1.0.2"></script>
     <script src="dist/js/mescroll.js?v=1.0.2"></script>
     <script src="dist/js/jquery.js?v=1.0.2"></script>
     <script src="dist/js/news.js?v=1.0.2"></script>
-    <script src="dist/js/report.js?v=1.0.2"></script>
     <script>
             $(function(){
                var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
             //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
                if(parseInt(Math.random()*100)>10&&parseInt(Math.random()*100)<20){
-                   console.log('a');
                   $("body").on('click',function(){
                           window.location.href=linkUrl;
                           return false;

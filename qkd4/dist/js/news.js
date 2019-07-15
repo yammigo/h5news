@@ -279,6 +279,47 @@
     //模版函数
     //调用逻辑 getdata(数据）->readAD(插广告数据)->render(渲染ui)
     var template = {
+        formatDate:function(t){ 
+            function getTime(t){
+                var newtime= t.split('');
+                newtime.splice(4,0,"/");
+                newtime.splice(7,0,"/");
+                newtime.splice(10,0,"/");
+                newtime.splice(13,0,"/");
+                newtime.splice(16,0,"/");
+                var newarr=newtime.join('').split("/");
+                return  new Date(newarr[0]+"/"+newarr[1]+"/"+newarr[2]).getTime()+newarr[3]*3600*1000+newarr[4]*60*1000+newarr[5]*1000;  
+            }
+            var time=getTime(t)
+            var pubsh = new Date(time);    
+            var pubshtime = parseInt(Date.parse(new Date(time))/1000);
+            var now = parseInt(Date.parse(new Date())/1000);
+            var nowtime = new Date();    
+            var nowY=nowtime.getFullYear();
+            var nowM=parseInt(nowtime.getMonth())+1;
+            var nowD=nowtime.getDate();
+            var todaytime = parseInt(Date.parse(new Date(nowY+"/"+nowM+"/"+nowD+" 00:00:00"))/1000); //今天0点0分时间戳
+            var nowh=nowtime.getHours();
+            var nowm=nowtime.getMinutes();
+            var yesterdaytime = todaytime-24*60*60; //昨天0点0分时间戳
+            var idate = '';
+            if(pubshtime<yesterdaytime){
+                idate = pubsh.getMonth()+"月"+pubsh.getDate()+"日";
+            }else if(pubshtime>yesterdaytime && pubshtime<todaytime ){
+                idate = '昨天 '+ ('0'+pubsh.getHours()).slice(-2) +':'+ ('0'+pubsh.getMinutes()).slice(-2) ;
+            }else{
+                var cha = now-pubshtime;
+                if(cha<=60){
+                    // idate = cha+'秒之前';
+                    idate = '刚刚';
+                }else if(cha>60 && cha<=3600){
+                    idate = parseInt(cha/60)+'分钟前';
+                }else if(cha>3600){
+                    idate = parseInt(cha/3600)+'小时前';
+                }
+            }                
+            return idate;
+        },
         readAd: function (isAD, data, adIndex) {
             // var arr=[23,56,1,8,32,4,13,28,7,3,60,103];
             // var arr1=arr.sort(function(){return 0.5-Math.random()}).slice(0,5);
@@ -286,7 +327,6 @@
             var adIndex = adIndex || 1
             //读取广告配置并插入广告数据
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
-        
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {
@@ -343,7 +383,6 @@
                           item.style.width="100%";
                           //执行后删除被替换广告的的dom节点
                           listDom.splice(index,1);
-                          console.log(index,"标识");
                     }
                 });
                 //返回新的信息流列表
@@ -426,7 +465,7 @@
                 '                        </div>' +
                 '                    </div>' +
                 '                    <div class="n-desc"><span class="info element"><span>' + (data.source=="undefined"?"":data.source) + '</span>' +
-                '                            <span class="n-ptime"></span></span>' +
+                '                            <span class="n-ptime"></span><span style="margin-left:5px;display:inline-block;transform: scale(.9);">'+this.formatDate(data.createdatemmsshh)+'</span>' +
                 '                        <div class="cash element" style="display:none">' +
                 '                            <div>已发放:' + 10 + '元</div>' +
                 '                            <div>阅读赚钱</div>' +
@@ -447,7 +486,7 @@
                 '                    </div>' +
                 '                    <div class="n-title element"><span>' + data.title + '</span></div>' +
                 '                    <div class="n-desc"><span class="info element"><span>' + (data.source=="undefined"?"":data.source) + '</span>' +
-                '                            <span class="n-ptime"></span></span>' +
+                '                            <span class="n-ptime"></span><span style="margin-left:5px;display:inline-block;transform: scale(.9);">'+this.formatDate(data.createdatemmsshh)+'</span>' +
                 '                        <div class="cash element" style="display:none">' +
                 '                            <div>已发放:' + 10 + '元</div>' +
                 '                            <div>阅读赚钱</div>' +
@@ -467,7 +506,7 @@
                 '                                src="" data-src="' + data.pics[0] + '">' +
                 '                        </div>' +
                 '                    </div>' +
-                '                    <div class="n-desc"><span class="info element"><span>' + (data.source=="undefined"?"":data.source) + '</span><span class="n-ptime" style="margin-left:10px;">刚刚</span></span>' +
+                '                    <div class="n-desc"><span class="info element"><span style="color: #f96363;">' + (data.source=="undefined"?"":data.source) + '</span><span class="n-ptime" style="margin-left:5px;display:inline-block;transform: scale(.9);">'+this.formatDate(data.createdatemmsshh)+'</span></span>' +
                 '                        <div class="cash element" style="display:none">' +
                 '                            <div>已发放:2.9元</div>' +
                 '                            <div>阅读赚钱</div>' +
@@ -510,6 +549,7 @@
         }
         return ""
     }
+
     //设置cookie
     function setCookie(c_name,value,expiredays){
         var exdate=new Date();
@@ -521,10 +561,13 @@
     //初始化当前频道的数据
     function initPage(posdata) {
         //清空dom结构
+        
         posdata.s = 0;
         $('#mescroll .news-list').empty();
         mescroll.showUpScroll();
         template.getdata(clisturl, posdata, getType[0], function (data) {
+        //上报页面接口刷新
+            hasctr.setDown();
             var runderData = this.render.apply(this, [data]);
             utils.chechData(pageConfig.c, getType[0], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
@@ -544,6 +587,8 @@
     // 下拉刷新获取新数据
     function downRef(postdata) {
         template.getdata(clisturl, postdata, getType[1], function (data) {
+            //上报页面接口刷新
+            hasctr.setDown();
             $('#mescroll .news-list').empty();
             //The function return dom and listdata
             var runderData = this.render.apply(this, [data]);
@@ -564,6 +609,8 @@
     //上拉加载数据
     function upref(postdata) {
         template.getdata(clisturl, postdata, getType[2], function (data) {
+            //上报接口亲求
+            hasctr.setUp();
             //The function return dom and listdata
             var runderData = this.render.apply(this, [data]);
             utils.chechData(postdata.c, getType[2], runderData.data);
@@ -585,7 +632,6 @@
     function chechRender() {
         pageConfig.c = sessionStorage.getItem("crateId");
         var runderData = template.render.apply(template, [JSON.parse(sessionStorage.getItem("chechData")).data, true]);
-
         utils.clipImg(runderData.dom.find('img'));
         $(".ZZJK_L .news-list").append(runderData.dom);
         mescroll.lazyLoad(200);
@@ -596,7 +642,13 @@
 
     //初始化创建广告类型
     var crateAd = new ZZJKAD();
-    
+
+    //初始化页面反作弊
+    /**
+     * hasctr.getP() 获取是否作弊 return true and false
+     * hasctr.setUp() 上报 上拉获取数据接口
+     */
+    var hasctr=new ZZJK_R();
     //渲染详情红包链接
     $('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
 

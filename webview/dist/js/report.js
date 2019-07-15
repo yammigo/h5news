@@ -91,23 +91,24 @@
           function ctr(){
                 var isc=false;
                 var CTR=rD.list.nT-rD.list.sT;
-                //单位时间内页面展现异常
+                console.log(rD,CTR);
+                //单位时间内页面刷新异常
                 if(CTR>=config.ctr.page){
-                    rD.list.s/(CTR/config.ctr.page)>=config.ctr.show?isc=true:isc=false;
+                    if(rD.list.s/(CTR/config.ctr.page)>=config.ctr.show){
+                        console.log("单位时间内页面刷新异常");
+                        isc=true;
+                        rD.list.isc=isc;
+                    }
+                    if(rD.list.g/(CTR/config.ctr.api)>=config.ctr.show){
+                        console.log("单位时间内接口亲求异常");
+                        isc=true;
+                        rD.list.isc=isc;
+                       
+                    }
                     rD.list.s=1;
-                    rD.list.sT=new Date().getTime();
-                    rD.list.nT=new Date().getTime(); 
-                    console.log("单位时间页面展现监控");
-                    rD.list.isc=isc;
-                }
-                //单位时间内api亲求异常
-                if(CTR>=config.ctr.page){
-                    rD.list.g/(CTR/config.ctr.api)>=config.ctr.show?isc=true:isc=false;
                     rD.list.g=1;
                     rD.list.sT=new Date().getTime();
                     rD.list.nT=new Date().getTime(); 
-                    console.log("单位时间接口请求监控");
-                    rD.list.isc=isc;
                 }
                 setCookie('postData',JSON.stringify(rD));
                 setCookie('ZZJK_userID',cookieId);
@@ -115,6 +116,7 @@
                 isCheat=isc;
                 return isc;
           }
+
           return ctr();
           
           //单位时间内接口请求次数
@@ -126,7 +128,8 @@
         //注入用户标识
         cookieId: (function () {
             var cookieId = getCookie("ZZJK_userID");
-            if (!cookieId) {
+            var c_data = getCookie('postData');
+            if (!cookieId || !c_data) {
                 cookieId = uuid(20, 10);
                 setCookie('ZZJK_userID', cookieId);
                 //注入cookie
@@ -196,32 +199,34 @@
     function ZZJK_R(){}
     //记录接口（基础数据+1）
     ZZJK_R.prototype.setP=function(o){
-        var cookieId = getCookie("ZZJK_userID");
-            if (!cookieId) {
-                cookieId = uuid(20, 10);
-                setCookie('ZZJK_userID', cookieId);
-                //注入cookie
-                var startD={list:{s:1,isc:false,g:0,sT:new Date().getTime(),nT:new Date().getTime()}};
-                setCookie('postData',JSON.stringify(startD));
-            }
+                var cookieId = getCookie("ZZJK_userID");
+                var c_data = getCookie('postData');
+                if (!cookieId || !c_data) {
+                    cookieId = uuid(20, 10);
+                    setCookie('ZZJK_userID', cookieId);
+                    //注入cookie
+                    var startD={list:{s:1,isc:false,g:0,sT:new Date().getTime(),nT:new Date().getTime()}};
+                    setCookie('postData',JSON.stringify(startD));
+                }
                 var rD=JSON.parse(getCookie('postData'));
-                rD.list[o]=rD.list[o]+1;
+                rD.list[o]+= 1;
                 rD.list.nT=new Date().getTime();
                 setCookie('postData',JSON.stringify(rD));
+               
                 //去检测是否触发限制       
     }
     //获取是否触发反作弊规则
     ZZJK_R.prototype.getP=function(){
+        
         return isCheat;
     }
     ZZJK_R.prototype.setUp=function(){
         //上报接口获取
         this.setP("g");
     }
-    //上报下拉
-    ZZJK_R.prototype.setUp=function(){
-        this.setP("g");
+    ZZJK_R.prototype.setDown=function(){
+        //下拉或者页面首屏展现
+        this.setP("s");
     }
-    
     return ZZJK_R
 })
