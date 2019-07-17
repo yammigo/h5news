@@ -4,7 +4,7 @@
         adConfig = ZZJK_adConfig,//导入配置文件
         pageConfig = {
             s: 0,
-            l: 5,
+            l: 10,
             c: 1,
             t: "asdf",
             sign: 'asdf',
@@ -155,13 +155,13 @@
         });
         //下拉刷新回调
         function downCallback() {
-            pageConfig.s +=5;
+            pageConfig.s +=10;
             downRef(pageConfig);
 
         }
         //上拉加载回调
         function upCallback(page) {
-            pageConfig.s += 5;
+            pageConfig.s += 10;
             upref(pageConfig);
         }
         //滚动监听回调
@@ -325,8 +325,9 @@
             // var arr1=arr.sort(function(){return 0.5-Math.random()}).slice(0,5);
             // console.log(arr1);
             var adIndex = adIndex || 1
-            //读取广告配置并插入广告数据
+            //读取广告配置并插入广告数据(列表轮换取代码)；
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
+            var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {
@@ -368,6 +369,7 @@
         },
         mistakeClick:function(){
             //读取配置概率
+            console.log("执行广告误点");
             var probability=adConfig[CHANNEL_NAME].probability.newsList;
             //信息流误点处理
             var arg_data=""
@@ -400,7 +402,7 @@
                 data = this.readAd(true, data);//插入广告后的数据
             }
             //广告列表单页长度超过40启用懒加载加载广告
-            var async=data.length>15?true:false;
+            var async=data.length>20?true:false;
             // console.log(data.length>30,'是否异步');
             //判断列表图片
             if (data.length > 0) {
@@ -431,13 +433,14 @@
                 var probability="";
             }
           
-            if(probability&&typeof probability!=="{}"){
+            if(probability && typeof probability!=="{}"){
                 //误点操作
                 var newdom=this.mistakeClick.call(this,{ dom: $(str), data: data });
                 return {dom:newdom,data:data}
             }else{
                 return { dom: $(str), data: data }
             }
+
             //返回插入广告后的dom,和载入广告后的数据
             // return { dom: $(str), data: data }
         },

@@ -313,7 +313,7 @@
                     // idate = cha+'秒之前';
                     idate = '刚刚';
                 }else if(cha>60 && cha<=3600){
-                    idate = parseInt(cha/60)+'分前';
+                    idate = parseInt(cha/60)+'分钟前';
                 }else if(cha>3600){
                     idate = parseInt(cha/3600)+'小时前';
                 }
@@ -325,10 +325,9 @@
             // var arr1=arr.sort(function(){return 0.5-Math.random()}).slice(0,5);
             // console.log(arr1);
             var adIndex = adIndex || 1
-            //读取广告配置并插入广告数据
+            //读取广告配置并插入广告数据(列表轮换取代码)；
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
-            console.log(adlist.sort(function(){return 0.5-Math.random()}).slice(0,5),"抽取的代码位");
-            console.log(adlist,"原始代码位数据");
+            var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {
@@ -370,6 +369,7 @@
         },
         mistakeClick:function(){
             //读取配置概率
+            console.log("执行广告误点");
             var probability=adConfig[CHANNEL_NAME].probability.newsList;
             //信息流误点处理
             var arg_data=""
@@ -385,7 +385,6 @@
                           item.style.width="100%";
                           //执行后删除被替换广告的的dom节点
                           listDom.splice(index,1);
-                          console.log(index,"标识");
                     }
                 });
                 //返回新的信息流列表
@@ -434,13 +433,14 @@
                 var probability="";
             }
           
-            if(probability&&typeof probability!=="{}"){
+            if(probability && typeof probability!=="{}"){
                 //误点操作
                 var newdom=this.mistakeClick.call(this,{ dom: $(str), data: data });
                 return {dom:newdom,data:data}
             }else{
                 return { dom: $(str), data: data }
             }
+
             //返回插入广告后的dom,和载入广告后的数据
             // return { dom: $(str), data: data }
         },
@@ -552,6 +552,7 @@
         }
         return ""
     }
+
     //设置cookie
     function setCookie(c_name,value,expiredays){
         var exdate=new Date();
@@ -563,10 +564,13 @@
     //初始化当前频道的数据
     function initPage(posdata) {
         //清空dom结构
+        
         posdata.s = 0;
         $('#mescroll .news-list').empty();
         mescroll.showUpScroll();
         template.getdata(clisturl, posdata, getType[0], function (data) {
+        //上报页面接口刷新
+            hasctr.setDown();
             var runderData = this.render.apply(this, [data]);
             utils.chechData(pageConfig.c, getType[0], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
@@ -586,6 +590,8 @@
     // 下拉刷新获取新数据
     function downRef(postdata) {
         template.getdata(clisturl, postdata, getType[1], function (data) {
+            //上报页面接口刷新
+            hasctr.setDown();
             $('#mescroll .news-list').empty();
             //The function return dom and listdata
             var runderData = this.render.apply(this, [data]);
@@ -606,6 +612,8 @@
     //上拉加载数据
     function upref(postdata) {
         template.getdata(clisturl, postdata, getType[2], function (data) {
+            //上报接口亲求
+            hasctr.setUp();
             //The function return dom and listdata
             var runderData = this.render.apply(this, [data]);
             utils.chechData(postdata.c, getType[2], runderData.data);
@@ -627,7 +635,6 @@
     function chechRender() {
         pageConfig.c = sessionStorage.getItem("crateId");
         var runderData = template.render.apply(template, [JSON.parse(sessionStorage.getItem("chechData")).data, true]);
-
         utils.clipImg(runderData.dom.find('img'));
         $(".ZZJK_L .news-list").append(runderData.dom);
         mescroll.lazyLoad(200);
@@ -638,7 +645,13 @@
 
     //初始化创建广告类型
     var crateAd = new ZZJKAD();
-    
+
+    //初始化页面反作弊
+    /**
+     * hasctr.getP() 获取是否作弊 return true and false
+     * hasctr.setUp() 上报 上拉获取数据接口
+     */
+    var hasctr=new ZZJK_R();
     //渲染详情红包链接
     $('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
 

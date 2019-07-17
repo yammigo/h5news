@@ -218,6 +218,9 @@
     /* height: 105px !important; */
     overflow: hidden !important;
     background:#eee;
+    background: url(../img/adloading.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 .ZZJK_L .single-pic-item.container.splitter,

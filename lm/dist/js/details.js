@@ -245,10 +245,10 @@
             //渲染详情内容
             //将详情内容图片转化位懒加载节省网络请求暂时不用
             var contentDom=$('<div>'+data.entity.content+'</div>');
-            //  contentDom.find('img').each(function(index,item){
-            //      $(item).attr('data-src',item.src);
-            //       item.src='';
-            // });
+             contentDom.find('img').each(function(index,item){
+                 $(item).attr('data-src',item.src);
+                  item.src='dist/img/imgloading.jpg';
+            });
             $('.article.container .a-art').html(contentDom);
             //渲染详情来源
             $('.page-info.container.splitter').html('<span class="element"><em class="source_name">来源：'+data.entity.source+'</em></span><span class="element">刚刚</span>');
@@ -264,7 +264,8 @@
                 $('._1Dz8F').hide();
 
             }
-
+            //初始化详情懒加载
+            mescroll.lazyLoad(200);
             //展开按钮的处理
             $('._1Dz8F').on('click',function(){
                     $(this).hide();
@@ -277,7 +278,6 @@
             })
             //给页面加上css动画处理闪屏问题
             $('body').addClass('pageShow');
-
             //返回原始数据
             return data;
             

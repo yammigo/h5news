@@ -128,7 +128,8 @@
         //注入用户标识
         cookieId: (function () {
             var cookieId = getCookie("ZZJK_userID");
-            if (!cookieId) {
+            var c_data = getCookie('postData');
+            if (!cookieId || !c_data) {
                 cookieId = uuid(20, 10);
                 setCookie('ZZJK_userID', cookieId);
                 //注入cookie
@@ -199,7 +200,8 @@
     //记录接口（基础数据+1）
     ZZJK_R.prototype.setP=function(o){
                 var cookieId = getCookie("ZZJK_userID");
-                if (!cookieId) {
+                var c_data = getCookie('postData');
+                if (!cookieId || !c_data) {
                     cookieId = uuid(20, 10);
                     setCookie('ZZJK_userID', cookieId);
                     //注入cookie
@@ -215,6 +217,7 @@
     }
     //获取是否触发反作弊规则
     ZZJK_R.prototype.getP=function(){
+        
         return isCheat;
     }
     ZZJK_R.prototype.setUp=function(){

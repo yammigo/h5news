@@ -10,7 +10,7 @@ var gulp = require('gulp'),
 	autoprefixer = require('gulp-autoprefixer');
 var fs = require('fs');
 var config_c = require('./config.js');
-var channelList = ["qkd7"];
+var channelList = ["yys2"];
 gulp.task('comless', function () {
 	gulp.src('webview/src/less/*.less')
 		.pipe(less())
@@ -56,10 +56,8 @@ gulp.task('htmlmin', function () {
 		.pipe(htmlmin())
 		.pipe(gulp.dest('webview/dist/'));
 });
-
 //默认任务
 gulp.task('default', ['comless']);
-
 //gulp.task(name[, deps], fn) 定义任务  name：任务名称 deps：依赖任务名称 fn：回调函数
 //gulp.src(globs[, options]) 执行任务处理的文件  globs：处理的文件路径(字符串或者字符串数组) 
 //gulp.dest(path[, options]) 处理完后文件生成路径
@@ -129,5 +127,4 @@ gulp.task('config', function () {
 		//写入读取渠道配置然后写入
 
 	})
-
 })

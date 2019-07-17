@@ -226,18 +226,18 @@
 
             //添加内容底部广告
             adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
-            utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
+            utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,true));
 
             //渲染猜你喜欢5列表广告
             adConfig[CHANNEL_NAME].details.IlickAd.domid="AD_Ilick";
-            utils.appendAD('#AD_Ilick',crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd,false));
+            utils.appendAD('#AD_Ilick',crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd,true));
 
             //渲染详情红包链接
             $('#pu-widget .linkAD').attr("href",adConfig[CHANNEL_NAME].linkAD.details);   
         },
         runderDetails:function(){
             //添加非列表区域广告
-            this.runderAD();
+            //this.runderAD();
             var data=arguments[0];
             //渲染详情title
             window.document.title=data.entity.title;
@@ -245,10 +245,10 @@
             //渲染详情内容
             //将详情内容图片转化位懒加载节省网络请求暂时不用
             var contentDom=$('<div>'+data.entity.content+'</div>');
-            //  contentDom.find('img').each(function(index,item){
-            //      $(item).attr('data-src',item.src);
-            //       item.src='';
-            // });
+             contentDom.find('img').each(function(index,item){
+                 $(item).attr('data-src',item.src);
+                  item.src='/dist/img/imgloading.jpg';
+            });
             $('.article.container .a-art').html(contentDom);
             //渲染详情来源
             $('.page-info.container.splitter').html('<span class="element"><em class="source_name">来源：'+data.entity.source+'</em></span><span class="element">刚刚</span>');
@@ -264,7 +264,8 @@
                 $('._1Dz8F').hide();
 
             }
-
+            //初始化详情内容懒加载
+            mescroll.lazyLoad(200);
             //展开按钮的处理
             $('._1Dz8F').on('click',function(){
                     $(this).hide();
@@ -408,7 +409,7 @@
             return '<li class="n-item will-active news-item splitter container AD-box"><a target="_self"' +
                 '                    href="javascript:;"' +
                 '                    class="n-item-link n-multipic" style="overflow:hidden;">' +
-                '                    <div data-ZZJK-s=' + data.s + ' style="height:104px;" id="'+domid+'">' + crateAd.init(data,false) + '</div> ' +
+                '                    <div data-ZZJK-s=' + data.s + ' style="height:104px;" id="'+domid+'">' + crateAd.init(data,true) + '</div> ' +
                 '                    <div class="n-desc" style="display:none;"><span class="info element"><span></span>' +
                 '                            <span class="n-ptime">刚刚</span></span>' +
                 '                        <div class="cash element" style="display:none">' +
@@ -481,7 +482,8 @@
 
     //初始化广告加载器 使用方法在模版渲染方法内（支持传入异步参数）
     var crateAd=new ZZJKAD();
-
+    //初始化加载非列表页广告
+    template.runderAD();
     //初始化滚动容器
     configmescroll();//初始化下拉
     

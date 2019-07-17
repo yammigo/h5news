@@ -49,7 +49,7 @@
 }
 .container .img.fixed-size .content {
     height: 0;
-    background: url(dist/img/imgloading.png);
+    background: url(../img/imgloading.jpg);
     background-origin: center;
     background-position: center;
     background-size: cover;
@@ -218,6 +218,9 @@
     /* height: 105px !important; */
     overflow: hidden !important;
     background:#eee;
+    background: url(../img/adloading.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 .ZZJK_L .single-pic-item.container.splitter,
@@ -245,7 +248,7 @@
 .ZZJK_L .single-pic-item.container .img[data-img-width="1/3"],
 .ZZJK_L .single-pic-item .container .img[data-img-width="1/3"] {
     width: 33.33333333333333%;
-    width: calc(33.33333333333333%+6.666666666666666px)
+    width: calc(33.33333333333333%+6.666666666666666px);
 }
 
 .ZZJK_L .news-list .n-single-pic .img {

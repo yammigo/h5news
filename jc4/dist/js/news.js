@@ -4,7 +4,7 @@
         adConfig = ZZJK_adConfig,//导入配置文件
         pageConfig = {
             s: 0,
-            l: 5,
+            l: 10,
             c: 1,
             t: "asdf",
             sign: 'asdf',
@@ -327,8 +327,7 @@
             var adIndex = adIndex || 1
             //读取广告配置并插入广告数据
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
-            console.log(adlist.sort(function(){return 0.5-Math.random()}).slice(0,5),"抽取的代码位");
-            console.log(adlist,"原始代码位数据");
+            adlist=adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {
@@ -337,6 +336,7 @@
                     }
                 }
             }(this, data, adlist))
+
 
             return data;
 
@@ -355,7 +355,7 @@
                     if (res.code == errCode) {
 
                         //返回加载后的数据
-                        callback.call(that, res.newsEntityList);
+                        callback.call(that, res.newsEntityList.slice(0,6));
 
                     } else {
                        
@@ -398,7 +398,7 @@
         },
         render: function () {
             var data = arguments[0], i = 0, str = "";
-            
+            console.log(data);
             if (!arguments[1]) {
                 data = this.readAd(true, data);//插入广告后的数据
             }
@@ -415,8 +415,8 @@
 
                         str += this.styleimg3(data[i],i);
                     } else if (data[i].category == "图片") {
-
-                        // str += this.pricImg(data[i],i);
+                        //屏蔽美女图片
+                        str += this.styleimg1(data[data.length-1],i);
                     } else if (data[i].type = 'ad') {
 
                         str += this.adStyle(data[i],i,async);

@@ -1030,7 +1030,7 @@
             temp.dom = dom;
           }
           //如果加载的是脚本的话
-          if(dom.tagName==="SCRIPT"){
+          if(dom.tagName==="SCRIPT" && dom.getAttribute("data-src")){
                 var smua=dom.getAttribute("smua");
                 var ad=document.createElement('script');
                 ad.type="text/javascript";
