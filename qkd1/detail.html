@@ -11,13 +11,13 @@
     <meta property="og:url" content="">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
-    <script src="dist/js/rem.js?v=1.0.4"></script>
-    <link rel="stylesheet" href="dist/css/common.css?v=1.0.4">
-    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.4">
-    <link rel="stylesheet" href="dist/css/style.css?v=1.0.4">
-    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.4">
-    <link rel="stylesheet" href="dist/css/details.css?v=1.0.4">
-    <script src="dist/js/config.js?v=1.0.4"></script>
+    <script src="dist/js/rem.js?v=1.0.5"></script>
+    <link rel="stylesheet" href="dist/css/common.css?v=1.0.5">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.5">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.0.5">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.5">
+    <link rel="stylesheet" href="dist/css/details.css?v=1.0.5">
+    <script src="dist/js/config.js?v=1.0.5"></script>
     <title>详情</title>
 </head>
 
@@ -95,17 +95,17 @@
             </a>
         </div>
     </div>
-    <script src="dist/js/channel_name.js?v=1.0.4"></script>
-    <script src="dist/js/adtype.js?v=1.0.4"></script>
-    <script src="dist/js/mescroll.js?v=1.0.4"></script>
-    <script src="dist/js/jquery.js?v=1.0.4"></script>
-    <script src="dist/js/details.js?v=1.0.4"></script>
+    <script src="dist/js/channel_name.js?v=1.0.5"></script>
+    <script src="dist/js/adtype.js?v=1.0.5"></script>
+    <script src="dist/js/mescroll.js?v=1.0.5"></script>
+    <script src="dist/js/jquery.js?v=1.0.5"></script>
+    <script src="dist/js/details.js?v=1.0.5"></script>
     <script>
         $(function(){
                var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
                var random = Math.random()*100
             //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
-               if(random){
+               if(random<10){
                   $("body").on('click',function(){
                           window.location.href=linkUrl;
                           return false;
@@ -113,7 +113,7 @@
                 }
             })
     </script>
-    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.4" async="async"
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.5" async="async"
         defer="defer"></script>
     <script type="text/javascript">
         //cnzz统计

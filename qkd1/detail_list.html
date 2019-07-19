@@ -127,7 +127,7 @@
                var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
                var random = Math.random()*100
             //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
-               if(random){
+               if(random<10){
                   $("body").on('click',function(){
                           window.location.href=linkUrl;
                           return false;
