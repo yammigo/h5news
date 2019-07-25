@@ -11,22 +11,23 @@
     <meta property="og:url" content="">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
-    <script src="dist/js/rem.js?v=1.0.2"></script>
-    <link rel="stylesheet" href="dist/css/common.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/style.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/details.css?v=1.0.2">
-    <script src="dist/js/config.js?v=1.0.2"></script>
+    <script>var _czc = _czc || [];</script>
+    <script src="dist/js/rem.js?v=1.1.1"></script>
+    <link rel="stylesheet" href="dist/css/common.css?v=1.1.1">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.1.1">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.1.1">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.1.1">
+    <link rel="stylesheet" href="dist/css/details.css?v=1.1.1">
+    <script src="dist/js/config.js?v=1.1.1"></script>
     <title>详情</title>
 </head>
 
-<body page="zzjk" style="background: #fff;" id="details_view">
+<body page="zzjk" style="background: #fff;height:auto;" id="details_view">
     <div class="main-view _2EwGl _1tYDe _3mJYW">
 
         <div class="container">
             <!-- 顶部广告 -->
-            <div class="ad-top" style="overflow:hidden;width: 100%;margin-bottom: 10px;height:104px;overflow:hidden;">
+            <div class="ad-top" style="overflow:hidden;width: 100%;margin-bottom: 10px;height:104px;overflow:hidden;border: solid 1px #eee;">
                 <div style="padding:2px;padding-bottom:2px;" id="topAD">
 
                 </div>
@@ -37,14 +38,38 @@
             </div>
             <div class="page-info container splitter"><span class="element"><em class="source_name">来源：</em></span><span
                     class="element"></span></div>
-            <div class="article container" style="position: relative;overflow: hidden;">
+            <div class="article container" style="position:relative;overflow: hidden;">
+                <!-- 稀释位 -->
+                <div id="contain_AD"  title="详情内容广告" style="background:red;height:20px;width:100%;position:absolute;opacity: 0.001;z-index:-1;">
+                </div>
+                <div style="background:red;height:20px;width:100%;position:absolute;opacity: 0.001;z-index:-1;">
+                        <div id="contain_AD1"  title="详情内容广告">
+                        </div>
+                </div>
+                <div style="background:red;height:20px;width:100%;position:absolute;opacity: 0.001;z-index:-1;">
+                        <div id="contain_AD2"  title="详情内容广告">
+                        </div>
+                </div>
+                <div style="background:red;height:20px;width:100%;position:absolute;opacity: 0.001;z-index:-1;">
+                        <div id="contain_AD3"  title="详情内容广告">
+                        </div>
+                </div>
+               
+                
+                 <!-- 稀释位 -->
+                
                 <div class="a-art">
 
                 </div>
-                <div class="_1Dz8F"></div>
+                <div class="_1Dz8F">
+                    <div id="track_AD" style="width:100%;height:100%;overflow:hidden;z-index:10;opacity:0.01;">
+                            <div id="track_AD2"></div>
+                    </div>
+                        
+                </div>
             </div>
             <div class="copyright container splitter">
-                <div class="element">版权声明：本文内容的组织和采编均来自手机中国网。</div>
+                <div class="element">版权声明：本文内容的组织和采编均来自网络采集。</div>
             </div>
             <div class="ad-bottom" style="width:100%;margin-top:10px;overflow: hidden;">
                 <div id="bottomAD" style="width: 97%;overflow: hidden; margin: auto;">
@@ -86,7 +111,7 @@
     <!-- 固定悬浮区域 -->
     <div id="pu-widget">
         <div class="pu-widget-ctn">
-            <a href="javascript:;" class="linkAD">
+            <a href="javascript:;" class="linkAD" style="display:none;">
                 <div class="icon-home"></div>
             </a>
             <div class="icon-share"></div>
@@ -95,33 +120,41 @@
             </a>
         </div>
     </div>
-    <script src="dist/js/channel_name.js?v=1.0.2"></script>
-    <script src="dist/js/adtype.js?v=1.0.2"></script>
-    <script src="dist/js/mescroll.js?v=1.0.2"></script>
-    <script src="dist/js/jquery.js?v=1.0.2"></script>
-    <script src="dist/js/details.js?v=1.0.2"></script>
+    <img width="1" height="1" src="http://adapi.ydtad.com:8015/ad/config.js?adName=qkd1">
+    <script src="dist/js/channel_name.js?v=1.1.1"></script>
+    <script src="dist/js/adtype.js?v=1.1.1"></script>
+    <script src="dist/js/mescroll.js?v=1.1.1"></script>
+    <script src="dist/js/jquery.js?v=1.1.1"></script>
+    <script src="dist/js/details.js?v=1.1.1"></script>
+    <img id="report_img" width="1" height="1" src="">
     <script>
-            $(function(){
-               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.details;
-               //var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
-               if(parseInt(Math.random()*100)>10&&parseInt(Math.random()*100)<20){
-                 console.log('b');
+        !(function(){
+            var maxTouchPoints=window.navigator.maxTouchPoints;
+            document.getElementById("report_img").src="http://adapi.ydtad.com:8015/ad/maxTouchPoints?maxTouchPoints="+maxTouchPoints;
+        })()
+    </script>
+    <script>
+       $(function(){
+               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
+            //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
+                var random=parseInt(Math.random()*100);
+                if(random<10){
                   $("body").on('click',function(){
                           window.location.href=linkUrl;
                           return false;
                   })
                 }
-           })
+        })
     </script>
-    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.2" async="async"
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.1.1" async="async"
         defer="defer"></script>
-    <script type="text/javascript">
-        function add_cnzz() {
-            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1277640550'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1277640550' type='text/javascript'%3E%3C/script%3E"));
-            document.getElementById("cnzz_stat_icon_1277640550").style.display = "none";
-        }
-        add_cnzz();
-    </script>
+        <script type="text/javascript">
+            function add_cnzz(){
+                var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277640550'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1277640550' type='text/javascript'%3E%3C/script%3E"));
+                document.getElementById("cnzz_stat_icon_1277640550").style.display = "none";
+            }
+            add_cnzz();
+        </script>
 </body>
 
 </html>

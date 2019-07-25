@@ -1,7 +1,9 @@
+
+
 /**fanjiantao */
 !function (window, undefined) {
     var mescroll, errCode = 200, getType = ['page', 'down', 'up'],adIdList=[],
-        adConfig = ZZJK_adConfig
+        adConfig = ZZJK_adConfig,font_index=1;
         pageConfig = {
             s: 0,
             l:10,
@@ -231,20 +233,20 @@
             //添加头部广告
             // adConfig[CHANNEL_NAME].details.topAD.domid="topAD";
             // utils.appendAD('#topAD',crateAd.init(adConfig[CHANNEL_NAME].details.topAD,false));
+            
             //详情内容顶部广告
-            adConfig[CHANNEL_NAME].details.containAD.domid="contain_AD";
-            utils.appendAD('#contain_AD',crateAd.init(adConfig[CHANNEL_NAME].details.containAD,false));
+            // adConfig[CHANNEL_NAME].details.containAD.domid="contain_AD";
+            // utils.appendAD('#contain_AD',crateAd.init(adConfig[CHANNEL_NAME].details.containAD,false));
 
-            if(Math.random()<0.2){
-                dom.style.position="absolute";
-                adConfig[CHANNEL_NAME].details.bottomAD.domid="track_AD";
-                utils.appendAD('#track_AD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
-                console.log("触发误点");
-            }else{
-                dom.style.position="";
+            // if(Math.random()<0.01){
+            //     dom.style.position="absolute";
+            //     adConfig[CHANNEL_NAME].details.bottomAD.domid="track_AD";
+            //     utils.appendAD('#track_AD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
+            // }else{
+            //     dom.style.position="";
                 adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
                 utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
-            }
+            // }
 
             //添加内容底部广告
             // adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
@@ -255,7 +257,7 @@
 
             //渲染猜你喜欢5列表广告
             adConfig[CHANNEL_NAME].details.IlickAd.domid="AD_Ilick";
-            utils.appendAD('#AD_Ilick',crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd,true));
+            utils.appendAD('#AD_Ilick',crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd,false));
             
         
             
@@ -277,17 +279,18 @@
                  $(item).attr('data-src',item.src);
                   item.src='/dist/img/imgloading.jpg';
             });
+            contentDom.find('br').remove();
             //插入内容广告
             contentDom.find('p').eq(2).before("<div>"+crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false)+"</div>");
            
             $('.article.container .a-art').html(contentDom);
             //渲染详情来源
-            $('.page-info.container.splitter').html('<span class="element"><em class="source_name">来源：'+data.entity.source+'</em></span><span class="element"></span>');
+            $('.page-info.container.splitter').html('</span><span class="element">'+data.entity.createdatemmsshh.substr(4,2)+"/"+data.entity.createdatemmsshh.substr(6,2)+'&nbsp;&nbsp;'+data.entity.createdatemmsshh.substr(8,2)+":"+data.entity.createdatemmsshh.substr(10,2)+'</span><span class="element"><em class="source_name">'+data.entity.source+'</em><div style="padding-left:10px;padding-right:10px;height: 20px;position: absolute;right: 10px;color: #2196F3;top: 50%;margin-top: -10px;font-size: 12px;line-height: 20px;text-align:right;cursor: pointer" id="select_font">Aa</div>');
             $('.copyright .element').html('<div class="element">版权声明：本文内容的组织和采编均来自'+data.entity.source+'。</div>');
              //处理点击展开全文
             if(!data.ready){
                
-               $('.article.container').height()>500?$('.article.container').css({height:'500px',display:'block'}):($('.article.container').css({height:"auto",display:'block'}),$('._1Dz8F').hide());
+               $('.article.container').height()>600?$('.article.container').css({height:'600px',display:'block'}):($('.article.container').css({height:"auto",display:'block'}),$('._1Dz8F').hide());
             
             }else{
 
@@ -316,7 +319,7 @@
         },
         //读取广告位信息插入列表
         readAd: function (isAD, data, adIndex) {
-            var adIndex = adIndex || 2
+            var adIndex = adIndex || 3
             //读取广告配置并插入广告数据
             var data = data.slice(), len = data.length, adlist = adConfig[CHANNEL_NAME].details.RecommendList;//拷贝一份数据进行操作
             isAD && (function (that, data, adlist) {
@@ -440,7 +443,7 @@
             return '<li class="n-item will-active news-item splitter container AD-box"><a target="_self"' +
                 '                    href="javascript:;"' +
                 '                    class="n-item-link n-multipic" style="overflow:hidden;">' +
-                '                    <div data-ZZJK-s=' + data.s + ' style="height:104px;" id="'+domid+'"></div> ' +
+                '                    <div data-ZZJK-s=' + data.s + ' style="height:104px;" id="'+domid+'">'+crateAd.init(data,false)+'</div> ' +
                 '                    <div class="n-desc" style="display:none;"><span class="info element"><span></span>' +
                 '                            <span class="n-ptime">刚刚</span></span>' +
                 '                        <div class="cash element" style="display:none">' +
@@ -479,20 +482,20 @@
             $("#dataList").prepend(runderData.dom);
 
             //添加广告
-            for(var i=0,len=adConfig[CHANNEL_NAME].details.RecommendList.length;i<len;i++){
-                if(adConfig[CHANNEL_NAME].details.RecommendList[i].hasOwnProperty('domid')){
-                    var node=$(crateAd.init(adConfig[CHANNEL_NAME].details.RecommendList[i],true));
-                    (function(id,node){
-                        setTimeout(function(){
-                            document.getElementById(id).appendChild(node[0]);
-                        },20+i*10);
-                    })(adConfig[CHANNEL_NAME].details.RecommendList[i].domid,node)
-                    // setTimeout(function(){
+            // for(var i=0,len=adConfig[CHANNEL_NAME].details.RecommendList.length;i<len;i++){
+            //     if(adConfig[CHANNEL_NAME].details.RecommendList[i].hasOwnProperty('domid')){
+            //         var node=$(crateAd.init(adConfig[CHANNEL_NAME].details.RecommendList[i],false));
+            //         (function(id,node){
+            //             setTimeout(function(){
+            //                 document.getElementById(id).appendChild(node[0]);
+            //             },20+i*10);
+            //         })(adConfig[CHANNEL_NAME].details.RecommendList[i].domid,node)
+            //         // setTimeout(function(){
                         
-                    // });
+            //         // });
                     
-                }      
-            }
+            //     }      
+            // }
             //完成下拉刷新；
             // mescroll.endUpScroll();
             //直接显示暂无相关
@@ -558,6 +561,17 @@
         sessionStorage.removeItem("DchechData");
         sessionStorage.removeItem("DscrollTop");
     }
+
+    $('.a-art').css({fontSize:"0.5rem"});
+    $('.a-art p').css({fontSize:"0.5rem"});
+    //设置字体大小
+    $(".container").on('click','#select_font',function(){
+        var font=["0.45rem","0.5rem","0.55rem"];
+            font_index>=3?font_index=0:font_index++;
+            $('.a-art').css({fontSize:font[font_index]});
+            $('.a-art p').css({fontSize:font[font_index]});
+        
+    })
     //离开当前页时存储数据
     // window.onbeforeunload = function (){
         //缓存上次数据浏览的高度

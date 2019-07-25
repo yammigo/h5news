@@ -1,6 +1,13 @@
-/**fanjiantao */
+/*
+ * @Description: In User Settings Edit
+ * @Author: fanjiantao
+ * @Date: 2019-07-04 18:38:44
+ * @LastEditTime: 2019-07-22 20:29:27
+ * @LastEditors: Please set LastEditors
+ */
+
 !function (window, $, undefined) {
-    var mescroll, errCode = 200, getType = ['page', 'down', 'up'],
+    var mescroll, errCode = 200, getType = ['page', 'down', 'up'], BOXADID = [], ADCODE = [],
         adConfig = ZZJK_adConfig,//导入配置文件
         pageConfig = {
             s: 0,
@@ -18,18 +25,18 @@
         clisturl = (function () {
             return "http://www.huashengtoutiao.com/search/news/clistNew";
         })(),
-        isStore=(function(){
-            if(typeof sessionStorage === 'object'){
-                 try{
-                     sessionStorage.setItem('isStore',1);
-                     sessionStorage.removeItem('isStore');
-                     return true;
-                 }catch(e){
-                      alert('您正处于无痕模式浏览本站');
-                      return false;
-                 }
-            }else{
-                 return false;
+        isStore = (function () {
+            if (typeof sessionStorage === 'object') {
+                try {
+                    sessionStorage.setItem('isStore', 1);
+                    sessionStorage.removeItem('isStore');
+                    return true;
+                } catch (e) {
+                    alert('您正处于无痕模式浏览本站');
+                    return false;
+                }
+            } else {
+                return false;
             }
         })()
     //导航区域
@@ -38,8 +45,8 @@
         function navName(c_nav, crateId) {
             //缓存当前阅读频道频道
             pageConfig.c = crateId;
-            sessionStorage.setItem("pagecount",c_nav);
-            sessionStorage.setItem("crateId",crateId);
+            sessionStorage.setItem("pagecount", c_nav);
+            sessionStorage.setItem("crateId", crateId);
         }
 
         $(".find_nav_list").css("left", sessionStorage.getItem("left") + "px");
@@ -88,7 +95,7 @@
             $(".find_nav_list").animate({
                 "left": fnl_l
             }, 300);
-            sessionStorage.setItem("left",fnl_l);
+            sessionStorage.setItem("left", fnl_l);
             var c_nav = $(this).find("a").text();
             var c_id = $(this).find("a").attr('data-zzjkc-crate')
             navName(c_nav, c_id);
@@ -144,8 +151,8 @@
 
                 },
                 //监听滚动
-                onScroll:onScroll, 
-                
+                onScroll: onScroll,
+
             },
             htmlNodata: '<p class="upwarp-nodata">-- 无更多相关了 --</p>',
             scrollbar: {
@@ -155,7 +162,7 @@
         });
         //下拉刷新回调
         function downCallback() {
-            pageConfig.s +=5;
+            pageConfig.s += 5;
             downRef(pageConfig);
 
         }
@@ -165,37 +172,37 @@
             upref(pageConfig);
         }
         //滚动监听回调
-        function onScroll(e){
-            if(e.preScrollY>100){
+        function onScroll(e) {
+            if (e.preScrollY > 100) {
                 $('.scroll-top .icon-backTop').show();
-            }else{
+            } else {
                 $('.scroll-top .icon-backTop').hide();
             }
-            
+
         }
     }
     //工具函数
     var utils = {
-        showtips:function(msg){
+        showtips: function (msg) {
             console.log(msg);
-    
+
             $(".freshtip").html(msg).show();
-            if(!$(".freshtip").is(':hidden')){
-                setTimeout(function(){
+            if (!$(".freshtip").is(':hidden')) {
+                setTimeout(function () {
                     $(".freshtip").hide();
-                },1000);
-            }              
+                }, 1000);
+            }
         },
         //formmate
-        timestampToTime:function(timestamp) {
-                var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
-                var Y = date.getFullYear() + '-';
-                var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-                var D = date.getDate() < 10 ?  '0'+date.getDate()+ ' ' : date.getDate()+ ' ';
-                var h = date.getHours() < 10 ? '0'+date.getHours()+ ':' : date.getHours()+ ':';
-                var m = date.getMinutes() < 10 ? '0'+date.getMinutes()+ ':' : date.getMinutes()+ ':';
-                var s = date.getSeconds()< 10 ? '0'+date.getSeconds() : date.getSeconds();
-                return Y+M+D+h+m+s;
+        timestampToTime: function (timestamp) {
+            var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+            var Y = date.getFullYear() + '-';
+            var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            var D = date.getDate() < 10 ? '0' + date.getDate() + ' ' : date.getDate() + ' ';
+            var h = date.getHours() < 10 ? '0' + date.getHours() + ':' : date.getHours() + ':';
+            var m = date.getMinutes() < 10 ? '0' + date.getMinutes() + ':' : date.getMinutes() + ':';
+            var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+            return Y + M + D + h + m + s;
         },
         //合并对象
         mergeObj: function (a, b) {
@@ -260,13 +267,13 @@
                     olddata.push.apply(olddata, data);
 
                 }
-                sessionStorage.setItem("chechData",JSON.stringify({
+                sessionStorage.setItem("chechData", JSON.stringify({
                     key: key,
                     data: type == getType[0] ? data : type == getType[1] ? data : olddata,
                 }));
             } else {
 
-                sessionStorage.setItem("chechData",JSON.stringify({
+                sessionStorage.setItem("chechData", JSON.stringify({
                     key: key,
                     data: data,
                 }));
@@ -279,45 +286,45 @@
     //模版函数
     //调用逻辑 getdata(数据）->readAD(插广告数据)->render(渲染ui)
     var template = {
-        formatDate:function(t){ 
-            function getTime(t){
-                var newtime= t.split('');
-                newtime.splice(4,0,"/");
-                newtime.splice(7,0,"/");
-                newtime.splice(10,0,"/");
-                newtime.splice(13,0,"/");
-                newtime.splice(16,0,"/");
-                var newarr=newtime.join('').split("/");
-                return  new Date(newarr[0]+"/"+newarr[1]+"/"+newarr[2]).getTime()+newarr[3]*3600*1000+newarr[4]*60*1000+newarr[5]*1000;  
+        formatDate: function (t) {
+            function getTime(t) {
+                var newtime = t.split('');
+                newtime.splice(4, 0, "/");
+                newtime.splice(7, 0, "/");
+                newtime.splice(10, 0, "/");
+                newtime.splice(13, 0, "/");
+                newtime.splice(16, 0, "/");
+                var newarr = newtime.join('').split("/");
+                return new Date(newarr[0] + "/" + newarr[1] + "/" + newarr[2]).getTime() + newarr[3] * 3600 * 1000 + newarr[4] * 60 * 1000 + newarr[5] * 1000;
             }
-            var time=getTime(t)
-            var pubsh = new Date(time);    
-            var pubshtime = parseInt(Date.parse(new Date(time))/1000);
-            var now = parseInt(Date.parse(new Date())/1000);
-            var nowtime = new Date();    
-            var nowY=nowtime.getFullYear();
-            var nowM=parseInt(nowtime.getMonth())+1;
-            var nowD=nowtime.getDate();
-            var todaytime = parseInt(Date.parse(new Date(nowY+"/"+nowM+"/"+nowD+" 00:00:00"))/1000); //今天0点0分时间戳
-            var nowh=nowtime.getHours();
-            var nowm=nowtime.getMinutes();
-            var yesterdaytime = todaytime-24*60*60; //昨天0点0分时间戳
+            var time = getTime(t)
+            var pubsh = new Date(time);
+            var pubshtime = parseInt(Date.parse(new Date(time)) / 1000);
+            var now = parseInt(Date.parse(new Date()) / 1000);
+            var nowtime = new Date();
+            var nowY = nowtime.getFullYear();
+            var nowM = parseInt(nowtime.getMonth()) + 1;
+            var nowD = nowtime.getDate();
+            var todaytime = parseInt(Date.parse(new Date(nowY + "/" + nowM + "/" + nowD + " 00:00:00")) / 1000); //今天0点0分时间戳
+            var nowh = nowtime.getHours();
+            var nowm = nowtime.getMinutes();
+            var yesterdaytime = todaytime - 24 * 60 * 60; //昨天0点0分时间戳
             var idate = '';
-            if(pubshtime<yesterdaytime){
-                idate = pubsh.getMonth()+"月"+pubsh.getDate()+"日";
-            }else if(pubshtime>yesterdaytime && pubshtime<todaytime ){
-                idate = '昨天 '+ ('0'+pubsh.getHours()).slice(-2) +':'+ ('0'+pubsh.getMinutes()).slice(-2) ;
-            }else{
-                var cha = now-pubshtime;
-                if(cha<=60){
+            if (pubshtime < yesterdaytime) {
+                idate = pubsh.getMonth() + "月" + pubsh.getDate() + "日";
+            } else if (pubshtime > yesterdaytime && pubshtime < todaytime) {
+                idate = '昨天 ' + ('0' + pubsh.getHours()).slice(-2) + ':' + ('0' + pubsh.getMinutes()).slice(-2);
+            } else {
+                var cha = now - pubshtime;
+                if (cha <= 60) {
                     // idate = cha+'秒之前';
                     idate = '刚刚';
-                }else if(cha>60 && cha<=3600){
-                    idate = parseInt(cha/60)+'分钟前';
-                }else if(cha>3600){
-                    idate = parseInt(cha/3600)+'小时前';
+                } else if (cha > 60 && cha <= 3600) {
+                    idate = parseInt(cha / 60) + '分钟前';
+                } else if (cha > 3600) {
+                    idate = parseInt(cha / 3600) + '小时前';
                 }
-            }                
+            }
             return idate;
         },
         readAd: function (isAD, data, adIndex) {
@@ -327,7 +334,7 @@
             var adIndex = adIndex || 1
             //读取广告配置并插入广告数据(列表轮换取代码)；
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
-            var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
+            var adlist = adlist.sort(function () { return 0.5 - Math.random() }).slice(0, 5);
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {
@@ -357,97 +364,99 @@
                         callback.call(that, res.newsEntityList);
 
                     } else {
-                       
+
                         mescroll.endSuccess();
                     }
                 },
                 error: function (e) {
                     mescroll.endErr();
-                   
+
                 }
             })
         },
-        mistakeClick:function(){
+        mistakeClick: function () {
             //读取配置概率
             console.log("执行广告误点");
-            var probability=adConfig[CHANNEL_NAME].probability.newsList;
+            var probability = adConfig[CHANNEL_NAME].probability.newsList;
             //信息流误点处理
-            var arg_data=""
-            if(arguments.length==1){
-                arg_data=arguments[0];
-                var listDom=arg_data.dom; 
-                listDom.each(function(index,item){
-                    if($(item).is('.AD-box')&&(Math.random()<=probability)&&index!==0){
-                         $(listDom[index]).prev().append(item);
-                          item.style.opacity="0.001";
-                          item.style.position="absolute";
-                          item.style.top="0px";
-                          item.style.width="100%";
-                          //执行后删除被替换广告的的dom节点
-                          listDom.splice(index,1);
+            var arg_data = ""
+            if (arguments.length == 1) {
+                arg_data = arguments[0];
+                var listDom = arg_data.dom;
+                listDom.each(function (index, item) {
+                    if ($(item).is('.AD-box') && (Math.random() <= probability) && index !== 0) {
+                        $(listDom[index]).prev().append(item);
+                        item.style.opacity = "0.001";
+                        item.style.position = "absolute";
+                        item.style.top = "0px";
+                        item.style.width = "100%";
+                        //执行后删除被替换广告的的dom节点
+                        listDom.splice(index, 1);
                     }
                 });
                 //返回新的信息流列表
                 return listDom
 
-            }else{
+            } else {
                 return false;
             }
-            
+
         },
         render: function () {
+            BOXADID = [], ADCODE = [];
             var data = arguments[0], i = 0, str = "";
-            
+
             if (!arguments[1]) {
                 data = this.readAd(true, data);//插入广告后的数据
             }
             //广告列表单页长度超过40启用懒加载加载广告
-            var async=data.length>15?true:false;
+            var async = data.length > 40 ? true : false;
+
             // console.log(data.length>30,'是否异步');
             //判断列表图片
             if (data.length > 0) {
                 for (i; i < data.length; i++) {
                     if (data[i].category != "图片" && data[i].pics && data[i].pics.length < 3) {
 
-                        str += this.styleimg1(data[i],i);
+                        str += this.styleimg1(data[i], i);
                     } else if (data[i].category != "图片" && data[i].pics && data[i].pics.length >= 3 && !data[i].type) {
 
-                        str += this.styleimg3(data[i],i);
+                        str += this.styleimg3(data[i], i);
                     } else if (data[i].category == "图片") {
 
-                        str += this.pricImg(data[i],i);
+                        str += this.pricImg(data[i], i);
                     } else if (data[i].type = 'ad') {
 
-                        str += this.adStyle(data[i],i,async);
+                        str += this.adStyle(data[i], i, async);
                     }
                 }
 
             }
-          
+
             //加入误点后的操作数据
             try {
                 //读取误点配置
-                var probability=adConfig[CHANNEL_NAME].probability.newsList;
+                var probability = adConfig[CHANNEL_NAME].probability.newsList;
             } catch (error) {
                 console.warn(error);
-                var probability="";
+                var probability = "";
             }
-          
-            if(probability && typeof probability!=="{}"){
+
+            if (probability && typeof probability !== "{}") {
                 //误点操作
-                var newdom=this.mistakeClick.call(this,{ dom: $(str), data: data });
-                return {dom:newdom,data:data}
-            }else{
+                var newdom = this.mistakeClick.call(this, { dom: $(str), data: data });
+                return { dom: newdom, data: data }
+            } else {
                 return { dom: $(str), data: data }
             }
 
             //返回插入广告后的dom,和载入广告后的数据
             // return { dom: $(str), data: data }
         },
-        styleimg3: function (data,i) {
-            var url="http://news.zizhengjiankang.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
-            return '<li class="n-item will-active news-item splitter container newsBox"><a tagid="'+i+'"' +
-                '                    href="'+ url + '"' +
+        styleimg3: function (data, i) {
+            var url = "http://news.zizhengjiankang.com/" + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
+            return '<li class="n-item will-active news-item splitter container newsBox"><a tagid="' + i + '"' +
+                '                    href="' + url + '"' +
                 '                    class="n-item-link n-multipic" title="' + data.title + '">' +
                 '                    <div class="n-title element"><span>' + data.title + '</span></div>' +
                 '                    <div class="n-img-wrapper">' +
@@ -467,8 +476,8 @@
                 '                            </div>' +
                 '                        </div>' +
                 '                    </div>' +
-                '                    <div class="n-desc"><span class="info element"><span>' + (data.source=="undefined"?"":data.source) + '</span>' +
-                '                            <span class="n-ptime"></span><span style="margin-left:5px;display:inline-block;transform: scale(.9);">'+this.formatDate(data.createdatemmsshh)+'</span>' +
+                '                    <div class="n-desc"><span class="info element"><span>' + (data.source == "undefined" ? "" : data.source) + '</span>' +
+                '                            <span class="n-ptime"></span><span style="margin-left:5px;display:inline-block;transform: scale(.9);">' + this.formatDate(data.createdatemmsshh) + '</span>' +
                 '                        <div class="cash element" style="display:none">' +
                 '                            <div>已发放:' + 10 + '元</div>' +
                 '                            <div>阅读赚钱</div>' +
@@ -477,9 +486,9 @@
                 '                </a>' +
                 '            </li>';
         },
-        styleimg1: function (data,i) {
-            var url="http://news.zizhengjiankang.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
-            return '<li class="n-item will-active news-item splitter container single-pic-item newsBox"><a tagid="'+i+'" ' +
+        styleimg1: function (data, i) {
+            var url = "http://news.zizhengjiankang.com/" + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
+            return '<li class="n-item will-active news-item splitter container single-pic-item newsBox"><a tagid="' + i + '" ' +
                 '                    href="' + url + '"' +
                 '                    class="n-item-link n-single-pic" title="' + data.title + '">' +
                 '                    <div class="img fixed-size size-3-2" data-img-width="1/3">' +
@@ -488,8 +497,8 @@
                 '                        </div>' +
                 '                    </div>' +
                 '                    <div class="n-title element"><span>' + data.title + '</span></div>' +
-                '                    <div class="n-desc"><span class="info element"><span>' + (data.source=="undefined"?"":data.source) + '</span>' +
-                '                            <span class="n-ptime"></span><span style="margin-left:5px;display:inline-block;transform: scale(.9);">'+this.formatDate(data.createdatemmsshh)+'</span>' +
+                '                    <div class="n-desc"><span class="info element"><span>' + (data.source == "undefined" ? "" : data.source) + '</span>' +
+                '                            <span class="n-ptime"></span><span style="margin-left:5px;display:inline-block;transform: scale(.9);">' + this.formatDate(data.createdatemmsshh) + '</span>' +
                 '                        <div class="cash element" style="display:none">' +
                 '                            <div>已发放:' + 10 + '元</div>' +
                 '                            <div>阅读赚钱</div>' +
@@ -498,18 +507,18 @@
                 '                </a>' +
                 '  </li>';
         },
-        pricImg: function (data,i) {
-            var url="http://news.zizhengjiankang.com/"+CHANNEL_NAME+"File/webview/detail_img.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+        pricImg: function (data, i) {
+            var url = "http://news.zizhengjiankang.com/" + CHANNEL_NAME + "File/webview/detail_img.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
             return '<li class="n-item container will-active splitter image-item big-pic-item"><a' +
                 '                    href="' + url + '?type=pic"  class="n-item-link"' +
-                '                    title="' + data.title + '" tagid="'+i+'">' +
+                '                    title="' + data.title + '" tagid="' + i + '">' +
                 '                    <div class="n-title element"><span>' + data.title + '</span></div>' +
                 '                    <div class="image-img img fixed-size size-2-1">' +
                 '                        <div class="content"  data-image-count="' + data.imageCount + '"><img class="thumbnail-box"' +
                 '                                src="" data-src="' + data.pics[0] + '">' +
                 '                        </div>' +
                 '                    </div>' +
-                '                    <div class="n-desc"><span class="info element"><span style="color: #f96363;">' + (data.source=="undefined"?"":data.source) + '</span><span class="n-ptime" style="margin-left:5px;display:inline-block;transform: scale(.9);">'+this.formatDate(data.createdatemmsshh)+'</span></span>' +
+                '                    <div class="n-desc"><span class="info element"><span style="color: #f96363;">' + (data.source == "undefined" ? "" : data.source) + '</span><span class="n-ptime" style="margin-left:5px;display:inline-block;transform: scale(.9);">' + this.formatDate(data.createdatemmsshh) + '</span></span>' +
                 '                        <div class="cash element" style="display:none">' +
                 '                            <div>已发放:2.9元</div>' +
                 '                            <div>阅读赚钱</div>' +
@@ -517,13 +526,15 @@
                 '                    </div>' +
                 '                </a></li>';
         },
-        adStyle: function (data,i,async) {
-            var domid = data.s + "_" + Math.random();
+        adStyle: function (data, i, async) {
+            var domid = data.s + "_" + Math.random().toString(16).slice(2);
             data.domid = domid;
+            BOXADID.push(domid);
+            ADCODE.push(crateAd.init(data, async));
             return '<li class="n-item will-active news-item splitter container AD-box"><a' +
                 '                    href="javascript:;"' +
-                '                    class="n-item-link n-multipic" tagid="'+i+'">' +
-                '                    <div class="adbox" style="width:100%;position:relative;height:'+((pageConfig.c=='21')?'220px':'105px')+'" data-ZZJK-s=' + data.s + '><div id="' + domid + '">' + crateAd.init(data,async) + '</div></div> ' +
+                '                    class="n-item-link n-multipic" tagid="' + i + '">' +
+                '                    <div class="adbox" style="width:100%;position:relative;height:' + ((pageConfig.c == '21') ? '220px' : '105px') + '" data-ZZJK-s=' + data.s + '><div id="' + domid + '">' + "" + '</div></div> ' +
                 '                    <div class="n-desc"><span class="info element"><span></span>' +
                 '                            <span class="n-ptime">刚刚</span></span>' +
                 '                        <div class="cash element" style="display:none">' +
@@ -536,57 +547,64 @@
         }
 
     };
-   
+
     //获取cookie
-    function getCookie(c_name){
-        if (document.cookie.length>0)
-        {
-            c_start=document.cookie.indexOf(c_name + "=");
-            if (c_start!=-1)
-            {
-                c_start=c_start + c_name.length+1;
-                c_end=document.cookie.indexOf(";",c_start);
-                if (c_end==-1) c_end=document.cookie.length;
-                return unescape(document.cookie.substring(c_start,c_end))
+    function getCookie(c_name) {
+        if (document.cookie.length > 0) {
+            c_start = document.cookie.indexOf(c_name + "=");
+            if (c_start != -1) {
+                c_start = c_start + c_name.length + 1;
+                c_end = document.cookie.indexOf(";", c_start);
+                if (c_end == -1) c_end = document.cookie.length;
+                return unescape(document.cookie.substring(c_start, c_end))
             }
         }
         return ""
     }
 
     //设置cookie
-    function setCookie(c_name,value,expiredays){
-        var exdate=new Date();
-        exdate.setTime(exdate.getTime()+expiredays*24*60*60*1000);
-        document.cookie=c_name+ "=" +escape(value)+
-            ((expiredays==null) ? "" : "; expires="+exdate.toGMTString())
+    function setCookie(c_name, value, expiredays) {
+        var exdate = new Date();
+        exdate.setTime(exdate.getTime() + expiredays * 24 * 60 * 60 * 1000);
+        document.cookie = c_name + "=" + escape(value) +
+            ((expiredays == null) ? "" : "; expires=" + exdate.toGMTString())
+    }
+    //异步渲染js广告
+    function asyncAD(t) {
+        var t = t || 0
+        for (var index = 0, len = BOXADID.length; index < len; index++) {
+            (function (index) {
+                setTimeout(function () {
+                    $("#" + BOXADID[index]).append(ADCODE[index]);
+                }, index * 10 + t);
+            })(index)
+
+        }
     }
 
     //初始化当前频道的数据
     function initPage(posdata) {
         //清空dom结构
-        
+
         posdata.s = 0;
         $('#mescroll .news-list').empty();
         mescroll.showUpScroll();
         template.getdata(clisturl, posdata, getType[0], function (data) {
-        //上报页面接口刷新
+            //上报页面接口刷新
             hasctr.setDown();
             var runderData = this.render.apply(this, [data]);
             utils.chechData(pageConfig.c, getType[0], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
             $(".ZZJK_L .news-list").prepend(runderData.dom);
-            // runderData.dom.each(function(index,item){
-            //     // console.log(item,"dom元素");
-            //     $(".ZZJK_L .news-list").append(item);
-            // })
+            asyncAD();
             //完成下拉刷新；
             mescroll.endUpScroll();
             mescroll.lazyLoad(200);
+            
             //处理首屏数据无法懒加载BUG
             // $('.mescroll').scrollTop(1);
         });
     }
-
     // 下拉刷新获取新数据
     function downRef(postdata) {
         template.getdata(clisturl, postdata, getType[1], function (data) {
@@ -598,13 +616,10 @@
             utils.chechData(postdata.c, getType[1], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
             $(".ZZJK_L .news-list").prepend(runderData.dom);
-            // runderData.dom.each(function(index,item){
-            //     // console.log(item,"dom元素");
-            //     $(".ZZJK_L .news-list").append(item);
-            // })
+            asyncAD();
             mescroll.lazyLoad(200);
             mescroll.endSuccess();
-            utils.showtips('为你更新'+(runderData.data.length)+'条内容');
+            utils.showtips('为你更新' + (runderData.data.length) + '条内容');
         });
 
     }
@@ -620,10 +635,7 @@
             utils.clipImg(runderData.dom.find('img'));
 
             $(".ZZJK_L .news-list").append(runderData.dom);
-            // runderData.dom.each(function(index,item){
-            //     // console.log(item,"dom元素");
-            //     $(".ZZJK_L .news-list").append(item);
-            // })
+            asyncAD();
             mescroll.lazyLoad(200);
 
             // //完成下拉刷新；
@@ -637,6 +649,7 @@
         var runderData = template.render.apply(template, [JSON.parse(sessionStorage.getItem("chechData")).data, true]);
         utils.clipImg(runderData.dom.find('img'));
         $(".ZZJK_L .news-list").append(runderData.dom);
+        asyncAD();
         mescroll.lazyLoad(200);
         //解决懒加载bug
         sessionStorage.getItem("scrollTop") ? (Number(sessionStorage.getItem("scrollTop")) > 1 ? $('.mescroll').scrollTop(sessionStorage.getItem("scrollTop")) : $('.mescroll').scrollTop(1)) : $('.mescroll').scrollTop(1);
@@ -651,13 +664,13 @@
      * hasctr.getP() 获取是否作弊 return true and false
      * hasctr.setUp() 上报 上拉获取数据接口
      */
-    var hasctr=new ZZJK_R();
+    var hasctr = new ZZJK_R();
     //渲染详情红包链接
     $('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
 
     //检测频道id是否存在
-    if (!sessionStorage.getItem("crateId") ||sessionStorage.getItem("crateId") == '') {
-        sessionStorage.setItem("crateId",1);
+    if (!sessionStorage.getItem("crateId") || sessionStorage.getItem("crateId") == '') {
+        sessionStorage.setItem("crateId", 1);
         pageConfig.c = 1;
     }
 
@@ -666,11 +679,11 @@
 
     //初始化数据
     !sessionStorage.getItem("chechData") ? initPage(pageConfig) : chechRender();
-    
-    $("#mescroll .news-list").on('click',"li a",function(){
+
+    $("#mescroll .news-list").on('click', "li a", function () {
         //记录滚动的位置
-        sessionStorage.setItem("scrollTop",$('.mescroll').scrollTop())
- 
+        sessionStorage.setItem("scrollTop", $('.mescroll').scrollTop())
+
     })
 
     //离开当前页时存储数据
@@ -679,27 +692,9 @@
         // alert($('.mescroll').scrollTop());
         // console.log()
         //缓存数据
-        sessionStorage.setItem("scrollTop",$('.mescroll').scrollTop())
+        sessionStorage.setItem("scrollTop", $('.mescroll').scrollTop())
     }
-    //拓展方法在此处去继承完成新模块，新功能的添加尽量别去修改原代码
-    // function removeItem(){
-    //     if(sessionStorage.getItem("Dcontent")&&sessionStorage.getItem("Dcontent")!==""){
-    //         sessionStorage.Dcontent=""
-    //         sessionStorage.removeItem("Dcontent");
-           
-    //     }
-    //     if(sessionStorage.getItem("DchechData")&&sessionStorage.getItem("DchechData")!==""){
-    //         sessionStorage.DchechData=""
-    //         sessionStorage.removeItem("DchechData");
-            
-    //     }
-    //     if(sessionStorage.getItem("DscrollTop")&&sessionStorage.getItem("DscrollTop")!==""){
-    //         sessionStorage.DscrollTop=""
-    //         sessionStorage.removeItem("DscrollTop");
-    //     }
-    // }
-    // //销毁详情页缓存
-    // removeItem();
-   
-    
+
+
+
 }(window, jQuery, undefined)

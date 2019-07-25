@@ -324,10 +324,21 @@
             // var arr=[23,56,1,8,32,4,13,28,7,3,60,103];
             // var arr1=arr.sort(function(){return 0.5-Math.random()}).slice(0,5);
             // console.log(arr1);
-            var adIndex = adIndex || 1
+            function shuffle(arr) { 
+                var i = arr.length, t, j; 
+                while (i) { 
+                  j = Math.floor(Math.random() * i--); 
+                  t = arr[i]; 
+                  arr[i] = arr[j]; 
+                  arr[j] = t; 
+                } 
+               return arr.slice(0,5);
+              }
+            var adIndex = adIndex || 1;
             //读取广告配置并插入广告数据(列表轮换取代码)；
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
-            var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
+            //var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
+            var adlist = shuffle(adlist);
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {

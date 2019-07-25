@@ -11,55 +11,59 @@
     <meta property="og:url" content="">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
-    <script src="dist/js/rem.js?v=1.0.2"></script>
-    <link rel="stylesheet" href="dist/css/common.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/style.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.2">
+    <script src="dist/js/rem.js?v=1.0.6"></script>
+    <link rel="stylesheet" href="dist/css/common.css?v=1.0.6">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.6">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.0.6">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.6">
     <!-- 加载渠道配置文件 -->
-    <script src="dist/js/config.js?v=1.0.2"></script>
+    <script src="dist/js/config.js?v=1.0.6"></script>
     <title>推荐</title>
     <style>
-            .pic_nav{
-                display: block;
-                width:100%;
-                height:40px;
-                background:#f9f9f9;
-                position: absolute;
-                top:45px;
-                z-index:1;
-                clear: both;
-                zoom: 1;
-                box-sizing:border-box;
-                transform: translate3d(0,-100%,0);
-                transition:transform ease 0.5s;
-            }
-            .pic_nav ul{
-                height:100%;
-                padding:0px 10px;
-                display: flex;
-                direction:row;
-                align-items: center;
-            }
-            .pic_nav ul li{
-                font-size:14px;
-                display:block;
-                padding:2px 10px;
-                margin:0px 10px;
-                border-radius:30px;
-                cursor: pointer;
-                color:#666;
-                background: #eeee;
-            }
-            .pic_nav ul li.active{
-                    background:#ef4747;
-                    color:#fff;
-            }
-            .pic_nav.show{
-                transform: translate3d(0,0,0);
-                transition:transform 0.5s ease;
-            }
-        </style>
+        .pic_nav {
+            display: block;
+            width: 100%;
+            height: 40px;
+            background: #f9f9f9;
+            position: absolute;
+            top: 45px;
+            z-index: 1;
+            clear: both;
+            zoom: 1;
+            box-sizing: border-box;
+            transform: translate3d(0, -100%, 0);
+            transition: transform ease 0.5s;
+        }
+
+        .pic_nav ul {
+            height: 100%;
+            padding: 0px 10px;
+            display: flex;
+            direction: row;
+            align-items: center;
+        }
+
+        .pic_nav ul li {
+            font-size: 14px;
+            display: block;
+            padding: 2px 10px;
+            margin: 0px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+            color: #666;
+            background: #eeee;
+        }
+
+        .pic_nav ul li.active {
+            background: #ef4747;
+            color: #fff;
+        }
+
+        .pic_nav.show {
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.5s ease;
+        }
+    </style>
 </head>
 
 <body page="phoneList" style="background: #fff;" id="news_list">
@@ -68,7 +72,7 @@
             <div class="find_nav_list" style="left: 0px;">
                 <ul>
                     <li class="find_nav_cur"><a data-zzjkc-crate="1" href="javascript:void(0)">推荐</a></li>
-                    <!-- <li><a href="javascript:void(0)" data-zzjkc-crate="21">美女</a></li> -->
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="21">美女</a></li>
                     <li><a href="javascript:void(0)" data-zzjkc-crate="22">奇趣</a></li>
                     <li><a href="javascript:void(0)" data-zzjkc-crate="24">搞笑</a></li>
                     <li><a href="javascript:void(0)" data-zzjkc-crate="3">娱乐</a></li>
@@ -116,30 +120,32 @@
             </a>
         </div>
     </div>
-    <script src="dist/js/channel_name.js?v=1.0.2"></script>
-    <script src="dist/js/adtype.js?v=1.0.2"></script>
-    <script src="dist/js/mescroll.js?v=1.0.2"></script>
-    <script src="dist/js/jquery.js?v=1.0.2"></script>
-    <script src="dist/js/news.js?v=1.0.2"></script>
-    <script src="dist/js/report.js?v=1.0.2"></script>
+    <script src="dist/js/report.js?v=1.0.6"></script>
+    <script src="dist/js/channel_name.js?v=1.0.6"></script>
+    <script src="dist/js/adtype.js?v=1.0.6"></script>
+    <script src="dist/js/mescroll.js?v=1.0.6"></script>
+    <script src="dist/js/jquery.js?v=1.0.6"></script>
+    <script src="dist/js/news.js?v=1.0.6"></script>
     <script>
-            $(function(){
-               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
+        $(function () {
+            var linkUrl = ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
             //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
-               if(parseInt(Math.random()*100)>10&&parseInt(Math.random()*100)<20){
-                   console.log('a');
-                  $("body").on('click',function(){
-                          window.location.href=linkUrl;
-                          return false;
-                  })
-                }
-            })
+
+            if (Math.random() <= 0.1) {
+                console.log('a');
+                $("body").on('click', function () {
+                    window.location.href = linkUrl;
+                    return false;
+                })
+            }
+        })
     </script>
     <!-- 载入百度广告 -->
-    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.2" async="async" defer="defer"></script>
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.6" async="async"
+        defer="defer"></script>
     <script type="text/javascript">
-        function add_cnzz(){
-            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277784974'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277784974' type='text/javascript'%3E%3C/script%3E"));
+        function add_cnzz() {
+            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1277784974'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277784974' type='text/javascript'%3E%3C/script%3E"));
             document.getElementById("cnzz_stat_icon_1277784974").style.display = "none";
         }
         add_cnzz();

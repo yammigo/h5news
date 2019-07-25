@@ -220,24 +220,48 @@
         },
         //渲染详情页非列表区域广告;
         runderAD:function(){
+            var dom=document.getElementById("track_AD");
             //添加头部广告
             adConfig[CHANNEL_NAME].details.topAD.domid="topAD";
             utils.appendAD('#topAD',crateAd.init(adConfig[CHANNEL_NAME].details.topAD,false));
-
+            var track_ADList=[adConfig[CHANNEL_NAME].details.bottomAD,
+            { type: 'ad', s: 'baiduAD', adid: "u4273384"},
+            { type: 'ad', s: 'baiduAD', adid: "u4273381"},
+            { type: 'ad', s: 'baiduAD', adid: "u4273376"}];
+            var track_AD_index=Math.floor(Math.random()*4)
+            var track_AD=track_ADList[track_AD_index];
             //添加内容底部广告
-            adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
-            utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
+            if(Math.random()<0.4){
+                dom.style.position="absolute";
+                track_AD.domid="track_AD2";
+                utils.appendAD('#track_AD2',crateAd.init(track_AD,false));
+            }else{
+                dom.style.position="";
+                track_AD.domid="bottomAD";
+                utils.appendAD('#bottomAD',crateAd.init(track_AD,false));
+            }
+           
+            track_ADList.splice(track_AD_index,1);
 
+            //内容广告展现曝光稀释点击稀释
+            track_ADList[0].domid="contain_AD1";
+            track_ADList[1].domid="contain_AD2";
+            track_ADList[2].domid="contain_AD3";
+            utils.appendAD('#contain_AD1',crateAd.init(track_ADList[0],false));
+            utils.appendAD('#contain_AD2',crateAd.init(track_ADList[1],false));
+            utils.appendAD('#contain_AD3',crateAd.init(track_ADList[2],false));
+            // adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
+            // utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,true));
             //渲染猜你喜欢5列表广告
             adConfig[CHANNEL_NAME].details.IlickAd.domid="AD_Ilick";
-            utils.appendAD('#AD_Ilick',crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd,false));
+            utils.appendAD('#AD_Ilick',crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd,true));
 
             //渲染详情红包链接
             $('#pu-widget .linkAD').attr("href",adConfig[CHANNEL_NAME].linkAD.details);   
         },
         runderDetails:function(){
             //添加非列表区域广告
-            this.runderAD();
+            //this.runderAD();
             var data=arguments[0];
             //渲染详情title
             window.document.title=data.entity.title;
@@ -245,10 +269,10 @@
             //渲染详情内容
             //将详情内容图片转化位懒加载节省网络请求暂时不用
             var contentDom=$('<div>'+data.entity.content+'</div>');
-            //  contentDom.find('img').each(function(index,item){
-            //      $(item).attr('data-src',item.src);
-            //       item.src='';
-            // });
+             contentDom.find('img').each(function(index,item){
+                 $(item).attr('data-src',item.src);
+                  item.src='/dist/img/imgloading.jpg';
+            });
             $('.article.container .a-art').html(contentDom);
             //渲染详情来源
             $('.page-info.container.splitter').html('<span class="element"><em class="source_name">来源：'+data.entity.source+'</em></span><span class="element">刚刚</span>');
@@ -264,7 +288,8 @@
                 $('._1Dz8F').hide();
 
             }
-
+            //初始化详情内容懒加载
+            mescroll.lazyLoad(200);
             //展开按钮的处理
             $('._1Dz8F').on('click',function(){
                     $(this).hide();
@@ -353,7 +378,7 @@
             return { dom: $(str), data: data }
         },
         styleDetail: function (data) {
-            var url="http://news.zizhengjiankang.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://bjyuedu.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             //详情页推荐列表左图右文模版
             return '  <li class="n-item will-active news-item splitter container single-pic-item"><a' +
                 '                href="'+url+(data.category=="图片"?"?type=pic":"")+'"' +
@@ -369,7 +394,7 @@
                 '            </a></li>';
         },
         styleimg3: function (data,i) {
-            var url="http://news.zizhengjiankang.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://bjyuedu.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             return '<li class="n-item will-active news-item splitter container newsBox"><a tagid="'+i+'"' +
                 '                    href="' + url + '"' +
                 '                    class="n-item-link n-multipic" title="' + data.title + '">' +
@@ -408,7 +433,7 @@
             return '<li class="n-item will-active news-item splitter container AD-box"><a target="_self"' +
                 '                    href="javascript:;"' +
                 '                    class="n-item-link n-multipic" style="overflow:hidden;">' +
-                '                    <div data-ZZJK-s=' + data.s + ' style="height:104px;" id="'+domid+'">' + crateAd.init(data,false) + '</div> ' +
+                '                    <div data-ZZJK-s=' + data.s + ' style="height:104px;" id="'+domid+'">' + crateAd.init(data,true) + '</div> ' +
                 '                    <div class="n-desc" style="display:none;"><span class="info element"><span></span>' +
                 '                            <span class="n-ptime">刚刚</span></span>' +
                 '                        <div class="cash element" style="display:none">' +
@@ -481,7 +506,8 @@
 
     //初始化广告加载器 使用方法在模版渲染方法内（支持传入异步参数）
     var crateAd=new ZZJKAD();
-
+    //初始化加载非列表页广告
+    template.runderAD();
     //初始化滚动容器
     configmescroll();//初始化下拉
     

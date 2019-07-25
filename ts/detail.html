@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -11,15 +12,16 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
     <script>var _czc = _czc || [];</script>
-    <script src="dist/js/rem.js?v=1.0.6"></script>
-    <link rel="stylesheet" href="dist/css/common.css?v=1.0.6">
-    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.6">
-    <link rel="stylesheet" href="dist/css/style.css?v=1.0.6">
-    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.6">
-    <link rel="stylesheet" href="dist/css/details.css?v=1.0.6">
-    <script src="dist/js/config.js?v=1.0.6"></script>
+    <script src="dist/js/rem.js?v=1.1.2"></script>
+    <link rel="stylesheet" href="dist/css/common.css?v=1.1.2">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.1.2">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.1.2">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.1.2">
+    <link rel="stylesheet" href="dist/css/details.css?v=1.1.2">
+    <script src="dist/js/config.js?v=1.1.2"></script>
     <title>详情</title>
 </head>
+
 <body page="zzjk" style="background: #fff;height:auto" id="details_view">
     <div class="main-view _2EwGl _1tYDe _3mJYW">
         <div class="container">
@@ -33,17 +35,20 @@
             <div class="article-main main-view">
                 <h1 class="page-title container"></h1>
             </div>
-            <div class="page-info container splitter"><span class="element"><em class="source_name">来源：</em></span><span
-                    class="element" style="display:none;"></span></div>
+            <div style="position: relative" class="page-info container splitter"><span class="element"><em class="source_name">来源：</em></span><span
+                    class="element" style="display:none;"></span>
+            </div>
             <div class="article container" style="position: relative;overflow: hidden;">
                 <div id="contain_AD" style="width:100%;" title="详情内容广告">
-                    
+
                 </div>
-                <div class="a-art">
+                <div class="a-art" style="font-size: 0.5rem;">
 
                 </div>
                 <div class="_1Dz8F">
-                    <div id="track_AD" style="width: 100%;height: 100%;background: red;overflow: hidden;z-index:10;opacity:0.01;"></div>
+                    <div id="track_AD"
+                        style="width: 100%;height: 100%;overflow: hidden;z-index:10;opacity:0.01;">
+                    </div>
                 </div>
             </div>
             <div class="copyright container splitter">
@@ -79,7 +84,7 @@
         </ul>
     </div>
     <!-- 猜你喜欢 end-->
-    <div class="module-header-default container top-border bottom-border"><b class="title-content element">想关推荐</b>
+    <div class="module-header-default container top-border bottom-border"><b class="title-content element">推荐阅读</b>
     </div>
     <div class="news-layout news-wrapper recommend-layout">
         <ul class="news-list container left-img-list" id="dataList">
@@ -89,20 +94,20 @@
     <!-- 固定悬浮区域 -->
     <div id="pu-widget">
         <div class="pu-widget-ctn">
-            <a href="javascript:;" class="linkAD">
+            <!-- <a href="javascript:;" class="linkAD">
                 <div class="icon-home"></div>
-            </a>
+            </a> -->
             <div class="icon-share"></div>
             <a class="scroll-top" href="javascript:;" onclick="window.scrollTo(0,0)">
                 <div class="icon-backTop" style="display:none;"></div>
             </a>
         </div>
     </div>
-    <script src="dist/js/channel_name.js?v=1.0.6"></script>
-    <script src="dist/js/adtype.js?v=1.0.6"></script>
-    <script src="dist/js/mescroll.js?v=1.0.6"></script>
-    <script src="dist/js/jquery.js?v=1.0.6"></script>
-    <script src="dist/js/details.js?v=1.0.6"></script>
+    <script src="dist/js/channel_name.js?v=1.1.2"></script>
+    <script src="dist/js/adtype.js?v=1.1.2"></script>
+    <script src="dist/js/mescroll.js?v=1.1.2"></script>
+    <script src="dist/js/jquery.js?v=1.1.2"></script>
+    <script src="dist/js/details.js?v=1.1.2"></script>
     <!-- <script>
     //    $(function(){
     //            var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
@@ -116,15 +121,16 @@
     //             }
     //     })
     </script> -->
-    <!-- <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.6" async="async"
+    <!-- <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.1.2" async="async"
         defer="defer"></script> -->
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
         function add_cnzz() {
-            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1277640550'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/z_stat.php%3Fid%3D1277640550' type='text/javascript'%3E%3C/script%3E"));
-            document.getElementById("cnzz_stat_icon_1277640550").style.display = "none";
+            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1277837902'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277837902' type='text/javascript'%3E%3C/script%3E"));
+            document.getElementById("cnzz_stat_icon_1277837902").style.display = "none";
         }
         add_cnzz();
-    </script> -->
+
+    </script>
 </body>
 
 </html>

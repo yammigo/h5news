@@ -583,7 +583,7 @@
             mescroll.endUpScroll();
             mescroll.lazyLoad(200);
             //处理首屏数据无法懒加载BUG
-            // $('.mescroll').scrollTop(1);
+            $('.mescroll').scrollTop(1);
         });
     }
 
