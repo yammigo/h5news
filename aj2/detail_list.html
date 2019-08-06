@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta property="og:url" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <script>var _czc = _czc || [];</script>
+    <script src="dist/js/rem.js?v=1.0.0"></script>
+    <link rel="stylesheet" href="dist/css/common.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.0">
+    <!-- 加载渠道配置文件 -->
+    <script type="text/javascript" src="dist/js/config.js?v=1.0.0"></script>
+    <!-- <script type="text/javascript" src="http://adapi.ydtad.com:8015/ad/config2.js?adName=kh2"></script> -->
+    <title>推荐</title>
+    <style>
+            .pic_nav{
+                display: block;
+                width:100%;
+                height:40px;
+                background:#f9f9f9;
+                position: absolute;
+                top:45px;
+                z-index:1;
+                clear: both;
+                zoom: 1;
+                box-sizing:border-box;
+                transform: translate3d(0,-100%,0);
+                transition:transform ease 0.5s;
+            }
+            .pic_nav ul{
+                height:100%;
+                padding:0px 10px;
+                display: flex;
+                direction:row;
+                align-items: center;
+            }
+            .pic_nav ul li{
+                font-size:14px;
+                display:block;
+                padding:2px 10px;
+                margin:0px 10px;
+                border-radius:30px;
+                cursor: pointer;
+                color:#666;
+                background: #eeee;
+            }
+            .pic_nav ul li.active{
+                    background:#ef4747;
+                    color:#fff;
+            }
+            .pic_nav.show{
+                transform: translate3d(0,0,0);
+                transition:transform 0.5s ease;
+            }
+    </style>
+</head>
+<body page="phoneList" style="background: #fff;" id="news_list">
+    <div class="find_nav">
+        <div class="find_nav_left">
+            <div class="find_nav_list" style="left: 0px;">
+                <ul>
+                    <li class="find_nav_cur"><a data-zzjkc-crate="1" href="javascript:void(0)">推荐</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="21">美女</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="22">奇趣</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="24">搞笑</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="3">娱乐</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="23">情感</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="10">健康</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="20">社会</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="13">教育</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="2">热点</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="12">历史</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="8">军事</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="9">国际</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="7">财经</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="6">体育</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="11">时尚</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="16">游戏</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="19">家居</a></li>
+                    <li><a href="javascript:void(0)" data-zzjkc-crate="5">汽车</a></li>
+                    <li class="sideline" style="left:13px;"></li>
+                </ul>
+            </div>
+        </div>
+        <!-- <a class="search_logo" href="">搜索</a> -->
+    </div>
+    <div class="freshtip">
+        为你推荐10条新闻
+    </div>
+    <!-- 二级导航 -->
+    <!-- <div class="pic_nav"><ul><li class="active">推荐</li></ul></div> -->
+    <div id="mescroll" class="mescroll ZZJK_L">
+        <ul class="news-list container no-top-gap">
+
+        </ul>
+    </div>
+    <!-- 固定悬浮区域 -->
+    <div id="pu-widget">
+        <div class="pu-widget-ctn">
+            <a href="javascript:;" class="linkAD" style="display:none;">
+                <div class="icon-home"></div>
+            </a>
+            <div class="icon-share">
+
+            </div>
+            <a class="scroll-top" href="javascript:;" onclick="document.getElementById('mescroll').scrollTo(0,0)">
+                <div class="icon-backTop" style="display:none;"></div>
+            </a>
+        </div>
+    </div>
+    <!-- <img width="1" height="1" src="http://adapi.ydtad.com:8015/ad/config.js?adName=kh2"> -->
+    <script src="dist/js/report.js?v=1.0.0"></script>
+    <script src="dist/js/channel_name.js?v=1.0.0"></script>
+    <script src="dist/js/adtype.js?v=1.0.0"></script>
+    <script src="dist/js/mescroll.js?v=1.0.0"></script>
+    <script src="dist/js/jquery.js?v=1.0.0"></script>
+    <script src="dist/js/news.js?v=1.0.0"></script>
+    <!-- 载入百度广告 -->
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.0" async="async" defer="defer"></script>
+    <script type="text/javascript">
+        function add_cnzz(){
+            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277868472'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s9.cnzz.com/z_stat.php%3Fid%3D1277868472' type='text/javascript'%3E%3C/script%3E"));
+            document.getElementById("cnzz_stat_icon_1277868472").style.display = "none";
+        }
+        Math.floor(Math.random()*100)>15 && add_cnzz();
+    </script>
+     <script>
+            $(function(){
+               var linkUrl=ZZJK_adConfig.hasOwnProperty('isc')?"":ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
+             // var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
+                var random=parseInt(Math.random()*100);
+                if(random<10){
+                  $("body").on('click',function(){
+                          window.location.href=linkUrl;
+                          return false;
+                  })
+                }
+            })
+    </script>
+     <!-- <img id="report_img" width="1" height="1" src="">
+     <script>
+         !(function(){
+             var maxTouchPoints=window.navigator.maxTouchPoints;
+             document.getElementById("report_img").src="http://adapi.ydtad.com:8015/ad/maxTouchPoints?maxTouchPoints="+maxTouchPoints+"&c=kh2";
+         })()
+     </script> -->
+</body>
+</html>

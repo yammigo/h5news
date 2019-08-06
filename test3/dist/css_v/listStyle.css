@@ -1,0 +1,346 @@
+.content-main {
+    position: fixed;
+    top: 40px;
+    bottom: 0;
+    height: auto;
+    overflow-y: auto;
+    /*z-index: 9;*/
+    max-width: 640px;
+    margin:auto;
+    -webkit-overflow-scrolling: touch;
+}
+.ZZJK_L .news-list li a:visited .n-title span {
+    color: #999 !important
+}
+
+.ZZJK_L .container.no-top-gap {
+    padding-top: 0
+}
+
+.ZZJK_L .container {
+    padding: 7px;
+    margin: 0
+}
+
+.ZZJK_L .content {
+    position: relative;
+    height: 100%;
+    width: 100%
+}
+
+.ZZJK_L .container.no-top-gap {
+    padding-top: 0
+}
+
+.ZZJK_L .news-list {
+    position: relative;
+    width: 100%
+}
+
+.ZZJK_L .container,
+.ZZJK_L .container * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+/* 美女图模版相关 */
+.news-list .image-img {
+    position: relative;
+}
+.container .img.fixed-size .content {
+    height: 0;
+    background: url(../img/imgloading.jpg);
+    background-origin: center;
+    background-position: center;
+    background-size: cover;
+}
+.container .img.fixed-size.size-2-1 .content, .container .img.fixed-size[class*=-to-2-1] .content {
+    padding-bottom:60%;
+  
+}
+.container .img .content {
+    overflow: hidden;
+}
+.news-list .image-img .content:after {
+    content: attr(data-image-count) "\56FE";
+    position: absolute;
+    right: 6PX;
+    bottom: 6PX;
+    display: block;
+    padding: 0 12PX;
+    font-size: 13PX;
+    font-weight: 100;
+    line-height: 28PX;
+    color: #fff;
+    background-color: rgba(0,0,0,.6);
+    border-radius: 15PX;
+    padding-left:30PX;
+    -webkit-transform: scale(.75);
+    -ms-transform: scale(.75);
+    transform: scale(.75);
+    -webkit-transform-origin: right bottom;
+    -ms-transform-origin: right bottom;
+    transform-origin: right bottom;
+    background-image:url(../img/icon-small.svg);
+    background-size: 16PX 16PX;
+    background-position: 10PX;
+    background-repeat: no-repeat;
+    letter-spacing:1PX;
+
+    
+}
+/* 美女图模版end */
+
+.ZZJK_L .container.splitter {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #e9e9e9), color-stop(50%, #e9e9e9), color-stop(50%, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(bottom, #e9e9e9, #e9e9e9 50%, transparent 0, transparent);
+    background-image: -o-linear-gradient(bottom, #e9e9e9 0, #e9e9e9 50%, transparent 50%, transparent);
+    background-image: linear-gradient(0deg, #e9e9e9 0, #e9e9e9 50%, transparent 0, transparent);
+    background-size: 100% 1px;
+    background-size: calc(100% - 14px) 1px;
+    background-position: bottom;
+    background-repeat: no-repeat
+}
+
+.ZZJK_L a,
+.ZZJK_L a:hover {
+    text-decoration: none;
+    color: #333
+}
+
+.ZZJK_L a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline
+}
+
+.ZZJK_L .news-list .a-item,
+.ZZJK_L .news-list .n-item {
+    position: relative;
+    line-height: 0;
+    background-color: #fff;
+    list-style: none
+}
+
+.ZZJK_L .news-list .n-multipic .n-title {
+    width: 100%
+}
+
+.ZZJK_L .news-list .n-title {
+    -webkit-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+    display: block
+}
+
+.ZZJK_L .element {
+    padding: 4px 1px;
+}
+
+.ZZJK_L .news-list a {
+    color: #414141;
+    text-decoration: none
+}
+
+.ZZJK_L .news-list .n-title span {
+    width: 100%;
+    max-height: 48px;
+
+    font-size: 16px;
+    /* letter-spacing:1.2px; */
+    line-height: 24px;
+    color: #212121;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    overflow: hidden;
+    word-break: break-word
+}
+
+.ZZJK_L .news-list .n-multipic .n-img-wrapper {
+    margin-bottom: 0;
+    font-size: 0;
+    line-height: 1
+}
+
+.ZZJK_L .news-list .n-multipic .img {
+    position: relative;
+    display: inline-block;
+    overflow: hidden
+}
+
+.ZZJK_L .container .img[data-img-width="1/3"] {
+    width: 33.33333333333333%
+}
+
+.ZZJK_L .container .img {
+    padding: 4px 1px;
+    background-clip: content-box;
+    background-color: #eee
+}
+
+.ZZJK_L .container .img.fixed-size.size-3-2 .content,
+.ZZJK_L .container .img.fixed-size[class*=-to-3-2] .content {
+    padding-bottom: 66.666667%;
+    position: relative
+}
+
+.ZZJK_L .container .img.fixed-size .content {
+    height: 0
+}
+
+.ZZJK_L .container .img .content {
+    overflow: hidden
+}
+
+.ZZJK_L .container .img img {
+    display: block;
+    /* width: 100%; */
+    position: absolute;
+    /* height: 100% */
+}
+
+.ZZJK_L .newsBox iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .001
+}
+
+.ZZJK_L .newsBox>div {
+    position: absolute;
+    top: 0
+}
+
+.ZZJK_L .AD-box>a>div:nth-child(1) {
+    /* height: 105px !important; */
+    overflow: hidden !important;
+    background:#eee;
+    background: url(../img/adloading.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.ZZJK_L .single-pic-item.container.splitter,
+.ZZJK_L .single-pic-item .container.splitter {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #e9e9e9), color-stop(50%, #e9e9e9), color-stop(50%, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(bottom, #e9e9e9, #e9e9e9 50%, transparent 0, transparent);
+    background-image: -o-linear-gradient(bottom, #e9e9e9 0, #e9e9e9 50%, transparent 50%, transparent);
+    background-image: linear-gradient(0deg, #e9e9e9 0, #e9e9e9 50%, transparent 0, transparent);
+    background-size: 100% 1px;
+    background-size: calc(100% - 14px) 1px;
+    background-position: bottom;
+    background-repeat: no-repeat
+}
+
+.ZZJK_L .single-pic-item.container,
+.ZZJK_L .single-pic-item .container {
+    padding: 7px 2px
+}
+
+.ZZJK_L .news-list .n-single-pic {
+    display: inline-block;
+    width: 100%
+}
+
+.ZZJK_L .single-pic-item.container .img[data-img-width="1/3"],
+.ZZJK_L .single-pic-item .container .img[data-img-width="1/3"] {
+    width: 33.33333333333333%;
+    width: calc(33.33333333333333%+6.666666666666666px);
+}
+
+.ZZJK_L .news-list .n-single-pic .img {
+    float: right
+}
+
+.ZZJK_L .single-pic-item.container .img,
+.ZZJK_L .single-pic-item .container .img {
+    padding: 4px 6px;
+    background-clip: content-box;
+    background-color: #eee
+}
+
+.ZZJK_L .news-list .n-single-pic .n-title {
+    display: table-cell;
+    height: 48px;
+
+}
+
+.ZZJK_L .single-pic-item .element {
+    padding: 4px 6px
+}
+
+.ZZJK_L .n-desc {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%
+}
+
+.ZZJK_L .news-list .info {
+    display: inline-block;
+    line-height: 1.6
+}
+
+.ZZJK_L .news-list .n-desc {
+    font-size: 12px;
+    color: #999
+}
+
+.ZZJK_L .cash {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 !important
+}
+
+.ZZJK_L .cash div {
+    padding: 0 6px;
+    line-height: 1.6;
+    border-radius: 15px;
+    -ms-flex-item-align: center;
+    align-self: center
+}
+
+.ZZJK_L .cash div:first-child {
+    color: #d5ae8f;
+    border: 1px solid #d5ae8f
+}
+
+.ZZJK_L .cash div:last-child {
+    margin-left: 5px;
+    color: #cc4947;
+    border: 1px solid #cc4947
+}
+
+ .iMGAUTOwidth{
+    position: absolute !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    /* top: 50% !important; */
+    /* transform: translateY(-50%) !important;
+    -ms-transform: translateY(-50%) !important;
+    -moz-transform: translateY(-50%) !important;
+    -webkit-transform: translateY(-50%) !important;
+    -o-transform: translateY(-50%) !important; */
+    display: block;
+    transform: translate3d(0,-20%,0);
+    /* transition:all ease 0.5s; */
+   }
+   .iMGAUTOheight{
+    position: absolute !important;
+    height: 100% !important;
+    min-width: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    -ms-transform: translateX(-50%) !important;
+    -moz-transform: translateX(-50%) !important;
+    -webkit-transform: translateX(-50%) !important;
+    -o-transform: translateX(-50%) !important;
+    display: block;
+   }

@@ -224,7 +224,7 @@
             //添加头部广告
             adConfig[CHANNEL_NAME].details.topAD.domid="topAD";
             utils.appendAD('#topAD',crateAd.init(adConfig[CHANNEL_NAME].details.topAD,false));
-            var track_ADList=[adConfig[CHANNEL_NAME].details.bottomAD];
+            var track_ADList=[adConfig[CHANNEL_NAME].details.bottomAD].concat(adConfig[CHANNEL_NAME].details.RecommendList.slice(0,6));
             var track_AD_index=Math.floor(Math.random()*track_ADList.length);
             var track_AD=track_ADList[track_AD_index];
             //添加内容底部广告
@@ -232,28 +232,18 @@
                 dom.style.position="absolute";
                 track_AD.domid="track_AD2";
                 utils.appendAD('#track_AD2',crateAd.init(track_AD,false));
+                if(track_AD_index>0){
+                    adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
+                    utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
+                }
             }else{
                 dom.style.position="";
-                track_AD.domid="bottomAD";
-                utils.appendAD('#bottomAD',crateAd.init(track_AD,false));
+                adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
+                utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
             }
-
-            if(track_ADList>1){
-                 //内容广告展现曝光稀释点击稀释
-                track_ADList.splice(track_AD_index,1);
-                track_ADList[0].domid="contain_AD1";
-                track_ADList[1].domid="contain_AD2";
-                track_ADList[2].domid="contain_AD3";
-                utils.appendAD('#contain_AD1',crateAd.init(track_ADList[0],false));
-                utils.appendAD('#contain_AD2',crateAd.init(track_ADList[1],false));
-                utils.appendAD('#contain_AD3',crateAd.init(track_ADList[2],false));
-            }
-            // adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
-            // utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,true));
             //渲染猜你喜欢5列表广告
             adConfig[CHANNEL_NAME].details.IlickAd.domid="AD_Ilick";
             utils.appendAD('#AD_Ilick',crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd,true));
-
             //渲染详情红包链接
             $('#pu-widget .linkAD').attr("href",adConfig[CHANNEL_NAME].linkAD.details);   
         },
@@ -352,7 +342,11 @@
         render: function () {
             var data = arguments[0], i = 0, str = "";
             if (!arguments[1]) {
-                data = this.readAd(true, data);//插入广告后的数据
+                if(adConfig.hasOwnProperty('isc') || hasctr.getP()){
+                    
+                }else{
+                    data = this.readAd(true, data);
+                }
             }
             // 重组数据列表（以数据渲染视图，提升广告载入效率）
             if (data.length > 0) {
@@ -503,9 +497,15 @@
     }
 
     //初始化广告加载器 使用方法在模版渲染方法内（支持传入异步参数）
-    var crateAd=new ZZJKAD();
-    //初始化加载非列表页广告
-    template.runderAD();
+    var crateAd=new ZZJKAD(),hasctr=new ZZJK_R();
+    //判定是否作弊
+    if(adConfig.hasOwnProperty('isc') || hasctr.getP()){
+        
+    }else{
+        //初始化加载非列表页广告
+         template.runderAD();
+    }
+   
     //初始化滚动容器
     configmescroll();//初始化下拉
     

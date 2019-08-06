@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <title>美图</title>
+    <script>var _czc = _czc || [];</script>
+    <script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+                    //750是设计图的宽度,50是一个基准宽度(html的font-size值)
+                };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <script src="//cdn.aiclk.com/jssdk/aisdk_m.js"></script>
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js" async="async" defer="defer"></script>
+    <link rel="stylesheet" href="dist/css/swiper.css">
+    <link rel="stylesheet" href="dist/css/detail_img.css">
+    <script type="text/javascript" src="dist/js/jquery.js"></script>
+    <script type="text/javascript" src="dist/js/common.js"></script>
+</head>
+<body>
+    <div class="container detail-img">
+        <header class="detail-header show">
+            <div class="back">
+                <span class="sprite back-icon"></span>
+            </div>
+            <h2 class="title" id="img_title"></h2>
+        </header>
+        <!-- Add Pagination -->
+        <div class="detail-page" style="color: #fff;"></div>
+        <div class="detail-box">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                </div>
+            </div>
+              <!-- 如果需要导航按钮 -->
+    <div id="prev_v" class="swiper-button-prev" style="widows:30px;height:30px;padding:10px;border-radius:50%"></div>
+    <div id="next_v" class="swiper-button-next" style="width:30px;height:30px;padding:10px;border-radius:50%"></div>
+            <div class="slide-tip" style="display: none;">
+                <i></i>滑动继续欣赏
+            </div>
+        </div>
+        <div class="pic_bottom" style="background: rgba(255, 255, 255, 0.46);">
+            <div id="pic_bottom" style="position: relative;"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="dist/js/leadInto.js?v=1.0.0"></script>
+    <!-- <script type="text/javascript" src="dist/js/config.js?v=1.0.0"></script> -->
+    <script src="http://hapi.bjyuedu.com:8015/ad/config2.js?adName=yj2&v=1.0.0"></script>
+    <script type="text/javascript" src="dist/js/channel_name.js?v=1.0.0"></script>
+    <script src="dist/js/report.js?v=1.0.0"></script>
+    <script type="text/javascript" src="dist/js/swiper.js?v=1.0.0"></script>
+    <script type="text/javascript" src="dist/js/detail_img.js?v=1.0.0"></script>
+    <script>
+            $(function(){
+               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
+            //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
+                var random=parseInt(Math.random()*100);
+                if(random<10){
+                  $("body").on('click',function(){
+                          window.location.href=linkUrl;
+                          return false;
+                  })
+                }
+            })
+    </script>
+    <img id="report_img" width="1" height="1" src="">
+    <script>
+          !(function(){
+              var maxTouchPoints=window.navigator.maxTouchPoints;
+              document.getElementById("report_img").src="http://adapi.ydtad.com:8015/ad/maxTouchPoints?maxTouchPoints="+maxTouchPoints+"&c=yj2";
+          })()
+    </script>
+     <script type="text/javascript">
+        function add_cnzz(){
+            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277891468'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1277891468' type='text/javascript'%3E%3C/script%3E"));
+            document.getElementById("cnzz_stat_icon_1277891468").style.display = "none";
+        }
+        add_cnzz();
+    </script>
+</body>
+</html>

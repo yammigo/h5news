@@ -221,8 +221,8 @@ function IsPC() {
 /*
 * 公共变量
 * */
-var ctx = 'http://www.huashengtoutiao.com';
-var ctxv = 'http://www.huashengtoutiao.com';
+// var ctx = 'http://www.huashengtoutiao.com';
+// var ctxv = 'http://www.huashengtoutiao.com';
 var ctxs = 'http://api.zizhengjiankang.com/kk-api-v112';
-// var ctx = 'http://39.105.1.181:8089';
-// var ctxv = 'http://39.105.1.181:8089';
+var ctx = 'http://adapi.ydtad.com:8089';
+var ctxv = 'http://adapi.ydtad.com:8089';

@@ -221,7 +221,6 @@
         },
         //渲染详情页非列表区域广告;
         runderAD:function(){
-            
             var dom=document.getElementById("track_AD"),dom2=document.getElementById('contain_AD');
             if(Math.random()<0.1){
                 dom2.style.opacity="0.01";
@@ -230,38 +229,25 @@
                 dom2.style.opacity="1";
                 dom2.style.position="";
             }
-            //添加头部广告
-            // adConfig[CHANNEL_NAME].details.topAD.domid="topAD";
-            // utils.appendAD('#topAD',crateAd.init(adConfig[CHANNEL_NAME].details.topAD,false));
-            
-            //详情内容顶部广告
-            // adConfig[CHANNEL_NAME].details.containAD.domid="contain_AD";
-            // utils.appendAD('#contain_AD',crateAd.init(adConfig[CHANNEL_NAME].details.containAD,false));
+            var track_ADList = [adConfig[CHANNEL_NAME].details.bottomAD].concat(adConfig[CHANNEL_NAME].details.RecommendList);
 
-            // if(Math.random()<0.01){
-            //     dom.style.position="absolute";
-            //     adConfig[CHANNEL_NAME].details.bottomAD.domid="track_AD";
-            //     utils.appendAD('#track_AD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
-            // }else{
-            //     dom.style.position="";
+            var track_AD_index = Math.floor(Math.random() * track_ADList.length);
+            var track_AD = track_ADList[track_AD_index];
+            if(Math.random()<0.5){
+                track_ADList.splice(track_AD_index, 1);
+                dom.style.position="absolute";
+                adConfig[CHANNEL_NAME].details.bottomAD.domid="track_AD";
+                utils.appendAD('#track_AD',crateAd.init(track_AD,false));
+                utils.appendAD('#bottomAD',crateAd.init(track_ADList[0],false));
+
+            }else{
+                dom.style.position="";
                 adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
                 utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,false));
-            // }
-
-            //添加内容底部广告
-            // adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
-            // utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,true));
-            // //误点广告配置
-            // adConfig[CHANNEL_NAME].details.bottomAD.domid="track_AD";
-            // utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,true));
-
+           }
             //渲染猜你喜欢5列表广告
             adConfig[CHANNEL_NAME].details.IlickAd.domid="AD_Ilick";
             utils.appendAD('#AD_Ilick',crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd,false));
-            
-        
-            
-
             //渲染详情红包链接
             $('#pu-widget .linkAD').attr("href",adConfig[CHANNEL_NAME].linkAD.details);   
         },
@@ -539,6 +525,7 @@
         //sessionStorage.getItem("DscrollTop") ? (Number(sessionStorage.getItem("DscrollTop")) > 1 && $(window).scrollTop(sessionStorage.getItem("DscrollTop"))) : $(window).scrollTop(1);
     
     }
+    
 
     //初始化广告加载器 使用方法在模版渲染方法内（支持传入异步参数）
     var crateAd=new ZZJKAD();

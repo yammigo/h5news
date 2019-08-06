@@ -47,7 +47,7 @@
             this.baidu=true;
             console.log('百度赖完成注入');
         }else{
-            console.log('百度依赖不在重复加载');
+            console.log('百度ad加载');
         }
         return '<script>(window.slotbydup=window.slotbydup || []).push({id:"' + adid + '",container:"' + domid + '"});</script>';
     }

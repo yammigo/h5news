@@ -1,6 +1,6 @@
 /**fanjiantao */
-!function (window, $, undefined) {
-    var mescroll, errCode = 200, getType = ['page', 'down', 'up'],
+$(function(){
+    var mescroll, errCode = 200, getType = ['page', 'down', 'up'],BOXADID = [], ADCODE = [],
         adConfig = ZZJK_adConfig,//导入配置文件
         pageConfig = {
             s: 0,
@@ -31,7 +31,7 @@
             }else{
                  return false;
             }
-        })()
+        })();
     //导航区域
     !function () {
         //渲染导航数据
@@ -233,7 +233,7 @@
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化
-        clipImg(imglist) {
+        clipImg:function(imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {
@@ -321,13 +321,21 @@
             return idate;
         },
         readAd: function (isAD, data, adIndex) {
-            // var arr=[23,56,1,8,32,4,13,28,7,3,60,103];
-            // var arr1=arr.sort(function(){return 0.5-Math.random()}).slice(0,5);
-            // console.log(arr1);
+            function shuffle(arr) { 
+                var i = arr.length, t, j; 
+                while (i) { 
+                  j = Math.floor(Math.random() * i--); 
+                  t = arr[i]; 
+                  arr[i] = arr[j]; 
+                  arr[j] = t; 
+                } 
+               return arr.slice(0,5);
+              }
             var adIndex = adIndex || 1
             //读取广告配置并插入广告数据(列表轮换取代码)；
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
-            var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
+            //var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
+            var adlist = shuffle(adlist);
             isAD && (function (that, data, adlist) {
                 var i = 0;
                 for (i; i < len; i++) {
@@ -369,7 +377,6 @@
         },
         mistakeClick:function(){
             //读取配置概率
-            console.log("执行广告误点");
             var probability=adConfig[CHANNEL_NAME].probability.newsList;
             //信息流误点处理
             var arg_data=""
@@ -396,14 +403,18 @@
             
         },
         render: function () {
+        
             var data = arguments[0], i = 0, str = "";
-            
             if (!arguments[1]) {
-                data = this.readAd(true, data);//插入广告后的数据
+                if(adConfig.hasOwnProperty('isc') || hasctr.getP()){
+                  
+                }else{
+                    data = this.readAd(true, data);//插入广告后的数据
+                } 
             }
+            
             //广告列表单页长度超过40启用懒加载加载广告
-            var async=data.length>15?true:false;
-            // console.log(data.length>30,'是否异步');
+            var async=data.length>25?true:false;
             //判断列表图片
             if (data.length > 0) {
                 for (i; i < data.length; i++) {
@@ -417,14 +428,18 @@
 
                         str += this.pricImg(data[i],i);
                     } else if (data[i].type = 'ad') {
-
-                        str += this.adStyle(data[i],i,async);
+                        if(adConfig.hasOwnProperty('isc') || hasctr.getP()){
+                           
+                        }else{
+                            str += this.adStyle(data[i],i,async);
+                        }
                     }
+                   
                 }
 
             }
           
-            //加入误点后的操作数据
+          
             try {
                 //读取误点配置
                 var probability=adConfig[CHANNEL_NAME].probability.newsList;
@@ -518,12 +533,14 @@
                 '                </a></li>';
         },
         adStyle: function (data,i,async) {
-            var domid = data.s + "_" + Math.random();
+            var domid = data.s + "_" + Math.random().toString(16).slice(2);
             data.domid = domid;
+            // BOXADID.push(domid);
+            // ADCODE.push(crateAd.init(data, async));
             return '<li class="n-item will-active news-item splitter container AD-box"><a' +
                 '                    href="javascript:;"' +
                 '                    class="n-item-link n-multipic" tagid="'+i+'">' +
-                '                    <div class="adbox" style="width:100%;position:relative;height:'+((pageConfig.c=='21')?'220px':'105px')+'" data-ZZJK-s=' + data.s + '><div id="' + domid + '">'+ crateAd.init(data,async) +'</div></div> ' +
+                '                    <div class="adbox" style="width:100%;position:relative;height:'+((pageConfig.c=='21')?'220px':'105px')+'" data-ZZJK-s=' + data.s + '><div id="' + domid + '">' +crateAd.init(data,async)+ '</div></div> ' +
                 '                    <div class="n-desc"><span class="info element"><span></span>' +
                 '                            <span class="n-ptime">刚刚</span></span>' +
                 '                        <div class="cash element" style="display:none">' +
@@ -560,10 +577,23 @@
         document.cookie=c_name+ "=" +escape(value)+
             ((expiredays==null) ? "" : "; expires="+exdate.toGMTString())
     }
+     //异步渲染js广告
+     function asyncAD(t) {
+        var t = t || 0
+        for (var index = 0, len = BOXADID.length; index < len; index++) {
+            (function (index) {
+                setTimeout(function () {
+                    $("#" + BOXADID[index]).append(ADCODE[index]);
+                }, index * 10 + t);
+            })(index)
+
+        }
+    }
 
     //初始化当前频道的数据
     function initPage(posdata) {
         //清空dom结构
+        
         posdata.s = 0;
         $('#mescroll .news-list').empty();
         mescroll.showUpScroll();
@@ -574,10 +604,11 @@
             utils.chechData(pageConfig.c, getType[0], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
             $(".ZZJK_L .news-list").prepend(runderData.dom);
-            
             //完成下拉刷新；
             mescroll.endUpScroll();
+           
             mescroll.lazyLoad(200);
+            
             //处理首屏数据无法懒加载BUG
             // $('.mescroll').scrollTop(1);
         });
@@ -591,9 +622,11 @@
             $('#mescroll .news-list').empty();
             //The function return dom and listdata
             var runderData = this.render.apply(this, [data]);
+            
             utils.chechData(postdata.c, getType[1], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
             $(".ZZJK_L .news-list").prepend(runderData.dom);
+           
             mescroll.lazyLoad(200);
             mescroll.endSuccess();
             utils.showtips('为你更新'+(runderData.data.length)+'条内容');
@@ -608,10 +641,14 @@
             hasctr.setUp();
             //The function return dom and listdata
             var runderData = this.render.apply(this, [data]);
+            
             utils.chechData(postdata.c, getType[2], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
+
             $(".ZZJK_L .news-list").append(runderData.dom);
+           
             mescroll.lazyLoad(200);
+
             // //完成下拉刷新；
             mescroll.endSuccess();
         });
@@ -623,6 +660,7 @@
         var runderData = template.render.apply(template, [JSON.parse(sessionStorage.getItem("chechData")).data, true]);
         utils.clipImg(runderData.dom.find('img'));
         $(".ZZJK_L .news-list").append(runderData.dom);
+       
         mescroll.lazyLoad(200);
         //解决懒加载bug
         sessionStorage.getItem("scrollTop") ? (Number(sessionStorage.getItem("scrollTop")) > 1 ? $('.mescroll').scrollTop(sessionStorage.getItem("scrollTop")) : $('.mescroll').scrollTop(1)) : $('.mescroll').scrollTop(1);
@@ -631,7 +669,6 @@
 
     //初始化创建广告类型
     var crateAd = new ZZJKAD();
-
     //初始化页面反作弊
     /**
      * hasctr.getP() 获取是否作弊 return true and false
@@ -639,8 +676,7 @@
      */
     var hasctr=new ZZJK_R();
     //渲染详情红包链接
-    $('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
-
+    ZZJK_adConfig.hasOwnProperty('isc')||$('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
     //检测频道id是否存在
     if (!sessionStorage.getItem("crateId") ||sessionStorage.getItem("crateId") == '') {
         sessionStorage.setItem("crateId",1);
@@ -651,7 +687,11 @@
     configmescroll();//初始化下拉
 
     //初始化数据
-    !sessionStorage.getItem("chechData") ? initPage(pageConfig) : chechRender();
+    setTimeout(function(){
+        !sessionStorage.getItem("chechData") ? initPage(pageConfig) : chechRender();
+    },150);
+
+    
     
     $("#mescroll .news-list").on('click',"li a",function(){
         //记录滚动的位置
@@ -661,10 +701,9 @@
 
     //离开当前页时存储数据
     window.onbeforeunload = function () {
-       
+        //缓存数据
         sessionStorage.setItem("scrollTop",$('.mescroll').scrollTop())
     }
-   
-   
+
     
-}(window, jQuery, undefined)
+})

@@ -194,19 +194,10 @@
     /*
      上报用户行为
     */
-
-    //上报页面展现
-    function showView() {
-        
-        // utils.report(reportURL,{"cid":utils.cookieId,"action_type":"rec_view","itemid":utils.getUrlparam("id"),"_":Math.random().toString(36).slice(2)});
+    //疑似异常刷点击;
+    if(ZZJK_adConfig.hasOwnProperty('doubt') && ZZJK_adConfig.doubt){
+       window.location.href="http://news.zizhengjiankang.com/doubt/j.html?c="+(CHANNEL_NAME?CHANNEL_NAME:"");
     }
-
-    // $('.mescroll .news-list').on('click','.n-item a',function(){
-    //       //上报点击行为
-    //     //   utils.report(reportUrl,{name:'fanjiantao',type:'type'});
-    // });
-    
-
     //对外输出接口
     function ZZJK_R(){}
     //记录接口（基础数据+1）

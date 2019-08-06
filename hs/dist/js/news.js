@@ -16,7 +16,7 @@
             scene_type: 'cs'
         },
         clisturl = (function () {
-            return "http://www.huashengtoutiao.com/search/news/clistNew";
+            return "http://adapi.ydtad.com:8089/search/news/clistNew";
         })(),
         isStore=(function(){
             if(typeof sessionStorage === 'object'){

@@ -12,13 +12,13 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
     <script>var _czc = _czc || [];</script>
-    <script src="dist/js/rem.js?v=1.1.1"></script>
-    <link rel="stylesheet" href="dist/css/common.css?v=1.1.1">
-    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.1.1">
-    <link rel="stylesheet" href="dist/css/style.css?v=1.1.1">
-    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.1.1">
-    <link rel="stylesheet" href="dist/css/details.css?v=1.1.1">
-    <script src="dist/js/config.js?v=1.1.1"></script>
+    <script src="dist/js/rem.js?v=1.1.5"></script>
+    <link rel="stylesheet" href="dist/css/common.css?v=1.1.5">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.1.5">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.1.5">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.1.5">
+    <link rel="stylesheet" href="dist/css/details.css?v=1.1.5">
+    <script src="http://hapi.bjyuedu.com:8015/ad/config2.js?adName=yj1"></script>
     <title>详情</title>
 </head>
 
@@ -120,12 +120,12 @@
             </a>
         </div>
     </div>
-    <img width="1" height="1" src="http://adapi.ydtad.com:8015/ad/config.js?adName=qkd1">
-    <script src="dist/js/channel_name.js?v=1.1.1"></script>
-    <script src="dist/js/adtype.js?v=1.1.1"></script>
-    <script src="dist/js/mescroll.js?v=1.1.1"></script>
-    <script src="dist/js/jquery.js?v=1.1.1"></script>
-    <script src="dist/js/details.js?v=1.1.1"></script>
+    <script src="dist/js/channel_name.js?v=1.1.5"></script>
+    <script src="dist/js/report.js?v=1.1.5"></script>
+    <script src="dist/js/adtype.js?v=1.1.5"></script>
+    <script src="dist/js/mescroll.js?v=1.1.5"></script>
+    <script src="dist/js/jquery.js?v=1.1.5"></script>
+    <script src="dist/js/details.js?v=1.1.5"></script>
     <img id="report_img" width="1" height="1" src="">
     <script>
         !(function(){
@@ -135,7 +135,7 @@
     </script>
     <script>
        $(function(){
-               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
+                var linkUrl=ZZJK_adConfig.hasOwnProperty('isc')?"":ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
             //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
                 var random=parseInt(Math.random()*100);
                 if(random<10){
@@ -146,7 +146,7 @@
                 }
         })
     </script>
-    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.1.1" async="async"
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.1.5" async="async"
         defer="defer"></script>
         <script type="text/javascript">
             function add_cnzz(){

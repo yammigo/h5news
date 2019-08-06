@@ -12,13 +12,14 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
     <script>var _czc = _czc || [];</script>
-    <script src="dist/js/rem.js?v=1.0.3"></script>
-    <link rel="stylesheet" href="dist/css/common.css?v=1.0.3">
-    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.3">
-    <link rel="stylesheet" href="dist/css/style.css?v=1.0.3">
-    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.3">
+    <script src="dist/js/rem.js?v=1.0.0"></script>
+    <link rel="stylesheet" href="dist/css/common.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.0">
     <!-- 加载渠道配置文件 -->
-    <script src="dist/js/config.js?v=1.0.3"></script>
+    <script type="text/javascript" src="dist/js/config.js?v=1.0.0"></script>
+    <!-- <script type="text/javascript" src="http://adapi.ydtad.com:8015/ad/config2.js?adName=kh2"></script> -->
     <title>推荐</title>
     <style>
             .pic_nav{
@@ -60,7 +61,7 @@
                 transform: translate3d(0,0,0);
                 transition:transform 0.5s ease;
             }
-        </style>
+    </style>
 </head>
 
 <body page="phoneList" style="background: #fff;" id="news_list">
@@ -106,7 +107,7 @@
     <!-- 固定悬浮区域 -->
     <div id="pu-widget">
         <div class="pu-widget-ctn">
-            <a href="javascript:;" class="linkAD">
+            <a href="javascript:;" class="linkAD" style="display:none;">
                 <div class="icon-home"></div>
             </a>
             <div class="icon-share">
@@ -117,16 +118,26 @@
             </a>
         </div>
     </div>
-     <script src="dist/js/report.js?v=1.0.3"></script>
-    <script src="dist/js/channel_name.js?v=1.0.3"></script>
-    <script src="dist/js/adtype.js?v=1.0.3"></script>
-    <script src="dist/js/mescroll.js?v=1.0.3"></script>
-    <script src="dist/js/jquery.js?v=1.0.3"></script>
-    <script src="dist/js/news.js?v=1.0.3"></script>
-    <script>
+    <!-- <img width="1" height="1" src="http://adapi.ydtad.com:8015/ad/config.js?adName=kh2"> -->
+    <script src="dist/js/report.js?v=1.0.0"></script>
+    <script src="dist/js/channel_name.js?v=1.0.0"></script>
+    <script src="dist/js/adtype.js?v=1.0.0"></script>
+    <script src="dist/js/mescroll.js?v=1.0.0"></script>
+    <script src="dist/js/jquery.js?v=1.0.0"></script>
+    <script src="dist/js/news.js?v=1.0.0"></script>
+    <!-- 载入百度广告 -->
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.0" async="async" defer="defer"></script>
+    <script type="text/javascript">
+        function add_cnzz() {
+            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1277784974'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1277784974' type='text/javascript'%3E%3C/script%3E"));
+            document.getElementById("cnzz_stat_icon_1277784974").style.display = "none";
+        }
+        Math.floor(Math.random()*100)>15 && add_cnzz();
+    </script>
+     <script>
             $(function(){
-               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
-            //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
+               var linkUrl=ZZJK_adConfig.hasOwnProperty('isc')?"":ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
+             // var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
                 var random=parseInt(Math.random()*100);
                 if(random<10){
                   $("body").on('click',function(){
@@ -136,14 +147,12 @@
                 }
             })
     </script>
-    <!-- 载入百度广告 -->
-    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.3" async="async" defer="defer"></script>
-    <script type="text/javascript">
-         function add_cnzz(){
-            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277852686'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1277852686' type='text/javascript'%3E%3C/script%3E"));
-            document.getElementById("cnzz_stat_icon_1277852686").style.display = "none";
-        }
-        add_cnzz();
-    </script>
+     <!-- <img id="report_img" width="1" height="1" src="">
+     <script>
+         !(function(){
+             var maxTouchPoints=window.navigator.maxTouchPoints;
+             document.getElementById("report_img").src="http://adapi.ydtad.com:8015/ad/maxTouchPoints?maxTouchPoints="+maxTouchPoints+"&c=kh2";
+         })()
+     </script> -->
 </body>
 </html>
