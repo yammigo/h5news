@@ -1,7 +1,7 @@
 /**fanjiantao */
 $(function(){
     var mescroll, errCode = 200, getType = ['page', 'down', 'up'],
-        adConfig = ZZJK_adConfig
+        adConfig = ZZJK_adConfig,
     pageConfig = {
         s: 0,
         l: 15,
@@ -239,18 +239,7 @@ $(function(){
                 track_AD.domid = "bottomAD";
                 utils.appendAD('#bottomAD', crateAd.init(track_ADList[0], false));
             }
-        
-            // if(track_ADList>1){
-            //      //内容广告展现曝光稀释点击稀释
-            //     track_ADList.splice(track_AD_index,1);
-            //     track_ADList[0].domid="contain_AD1";
-            //     track_ADList[1].domid="contain_AD2";
-            //     track_ADList[2].domid="contain_AD3";
-            //     utils.appendAD('#contain_AD1',crateAd.init(track_ADList[0],false));
-            //     utils.appendAD('#contain_AD2',crateAd.init(track_ADList[1],false));
-            //     utils.appendAD('#contain_AD3',crateAd.init(track_ADList[2],false));
-            // }
-
+    
             // adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
             // utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,true));
             //渲染猜你喜欢5列表广告

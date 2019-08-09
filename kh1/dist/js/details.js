@@ -1,7 +1,7 @@
 /**fanjiantao */
 $(function(){
     var mescroll, errCode = 200, getType = ['page', 'down', 'up'],
-        adConfig = ZZJK_adConfig
+        adConfig = ZZJK_adConfig,
     pageConfig = {
         s: 0,
         l: 15,

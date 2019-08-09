@@ -142,7 +142,7 @@
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化获得合适的尺寸
-        clipImg(imglist) {
+        clipImg:function(imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {
@@ -372,7 +372,7 @@
             return { dom: $(str), data: data }
         },
         styleDetail: function (data) {
-            var url="http://bjyuedu.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://m.ydtad.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             //详情页推荐列表左图右文模版
             return '  <li class="n-item will-active news-item splitter container single-pic-item"><a' +
                 '                href="'+url+(data.category=="图片"?"?type=pic":"")+'"' +
@@ -388,7 +388,7 @@
                 '            </a></li>';
         },
         styleimg3: function (data,i) {
-            var url="http://bjyuedu.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://m.ydtad.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             return '<li class="n-item will-active news-item splitter container newsBox"><a tagid="'+i+'"' +
                 '                    href="' + url + '"' +
                 '                    class="n-item-link n-multipic" title="' + data.title + '">' +

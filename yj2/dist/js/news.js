@@ -233,7 +233,7 @@
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化
-        clipImg(imglist) {
+        clipImg:function(imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {
@@ -462,7 +462,7 @@
             // return { dom: $(str), data: data }
         },
         styleimg3: function (data,i) {
-            var url="http://bjyuedu.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://m.ydtad.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             return '<li class="n-item will-active news-item splitter container newsBox"><a tagid="'+i+'"' +
                 '                    href="'+ url + '"' +
                 '                    class="n-item-link n-multipic" title="' + data.title + '">' +
@@ -495,7 +495,7 @@
                 '            </li>';
         },
         styleimg1: function (data,i) {
-            var url="http://bjyuedu.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://m.ydtad.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             return '<li class="n-item will-active news-item splitter container single-pic-item newsBox"><a tagid="'+i+'" ' +
                 '                    href="' + url + '"' +
                 '                    class="n-item-link n-single-pic" title="' + data.title + '">' +
@@ -516,7 +516,7 @@
                 '  </li>';
         },
         pricImg: function (data,i) {
-            var url="http://bjyuedu.com/"+CHANNEL_NAME+"File/webview/detail_img.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://m.ydtad.com/"+CHANNEL_NAME+"File/webview/detail_img.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             return '<li class="n-item container will-active splitter image-item big-pic-item"><a' +
                 '                    href="' + url + '?type=pic"  class="n-item-link"' +
                 '                    title="' + data.title + '" tagid="'+i+'">' +

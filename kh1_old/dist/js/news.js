@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: fanjiantao
  * @Date: 2019-07-04 18:38:44
- * @LastEditTime: 2019-07-22 20:29:27
+ * @LastEditTime: 2019-08-07 15:28:12
  * @LastEditors: Please set LastEditors
  */
 
@@ -240,7 +240,7 @@
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化
-        clipImg(imglist) {
+        clipImg:function(imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {

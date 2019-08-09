@@ -177,8 +177,6 @@
     //工具函数
     var utils = {
         showtips:function(msg){
-            console.log(msg);
-    
             $(".freshtip").html(msg).show();
             if(!$(".freshtip").is(':hidden')){
                 setTimeout(function(){

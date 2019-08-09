@@ -1032,10 +1032,14 @@
           //如果加载的是脚本的话
           if(dom.tagName==="SCRIPT"){
                 var smua=dom.getAttribute("smua");
+                var zmua=dom.getAttribute("zmua");
                 var ad=document.createElement('script');
                 ad.type="text/javascript";
                 if(smua){
                   ad.setAttribute('smua',smua);
+                }
+                if(zmua) {
+                  ad.getAttribute('zmua',smua);
                 }
                 ad.src=imgurl;
                 ad.onload=function(){

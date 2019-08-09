@@ -336,7 +336,8 @@
               }
             var adIndex = adIndex || 1;
             //读取广告配置并插入广告数据(列表轮换取代码)；
-            var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
+            var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD.concat(adConfig[CHANNEL_NAME].details.RecommendList));
+        
             //var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
             var adlist = shuffle(adlist);
             isAD && (function (that, data, adlist) {

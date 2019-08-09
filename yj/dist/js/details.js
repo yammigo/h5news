@@ -221,9 +221,9 @@
             adConfig[CHANNEL_NAME].details.topAD.domid = "topAD";
             utils.appendAD('#topAD', crateAd.init(adConfig[CHANNEL_NAME].details.topAD, false));
             var track_ADList = [adConfig[CHANNEL_NAME].details.bottomAD,
-            { type: 'ad', s: 'baiduAD', adid: "u4273384" },
-            { type: 'ad', s: 'baiduAD', adid: "u4273381" },
-            { type: 'ad', s: 'baiduAD', adid: "u4273376" }].concat(adConfig[CHANNEL_NAME].details.RecommendList.slice(0,6));
+            { type: 'ad', s: 'baiduAD', adid: "u4377802" },
+            { type: 'ad', s: 'baiduAD', adid: "u4377810" },
+            { type: 'ad', s: 'baiduAD', adid: "u4377811" }].concat(adConfig[CHANNEL_NAME].details.RecommendList.slice(0,6));
             var track_AD_index = Math.floor(Math.random() * track_ADList.length);
             var track_AD = track_ADList[track_AD_index];
             //添加内容底部广告
@@ -385,7 +385,7 @@
             return { dom: $(str), data: data }
         },
         styleDetail: function (data) {
-            var url = "http://bjyuedu.com/" + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
+            var url = "http://m.ydtad.com/" + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
             //详情页推荐列表左图右文模版
             return '  <li class="n-item will-active news-item splitter container single-pic-item"><a' +
                 '                href="' + url + (data.category == "图片" ? "?type=pic" : "") + '"' +
@@ -401,7 +401,7 @@
                 '            </a></li>';
         },
         styleimg3: function (data, i) {
-            var url = "http://bjyuedu.com/" + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
+            var url = "http://m.ydtad.com/" + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
             return '<li class="n-item will-active news-item splitter container newsBox"><a tagid="' + i + '"' +
                 '                    href="' + url + '"' +
                 '                    class="n-item-link n-multipic" title="' + data.title + '">' +

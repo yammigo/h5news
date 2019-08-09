@@ -142,7 +142,7 @@
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化获得合适的尺寸
-        clipImg(imglist) {
+        clipImg:function(imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {

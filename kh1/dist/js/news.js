@@ -430,11 +430,11 @@ $(function(){
 
                         str += this.pricImg(data[i],i);
                     } else if (data[i].type = 'ad') {
-                        if(adConfig.hasOwnProperty('isc') || hasctr.getP()){
+                        // if(adConfig.hasOwnProperty('isc') || hasctr.getP()){
                            
-                        }else{
+                        // }else{
                             str += this.adStyle(data[i],i,async);
-                        }
+                        // }
                     }
                 }
 

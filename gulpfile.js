@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util');
 var fs = require('fs');
 var config_c = require('./config.js');
-var channelList = ['kh1'];
+var channelList = ['hs'];
 function FileSize(filePath, dir) {
 	var path = filePath;
 	var exists = fs.existsSync(path);
