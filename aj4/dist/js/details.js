@@ -17,7 +17,7 @@ $(function(){
     },
         clisturl = (function () {
             // this is window
-            return "http://www.huashengtoutiao.com/search/news/h5RecommendList";
+            return "http://adapi.ydtad.com:8089/search/news/h5RecommendList";
         })(),
         //预防网站使用无痕浏览报错
         isStore = (function () {
@@ -36,7 +36,7 @@ $(function(){
         })(),
         detailapi = function () {
 
-            return "http://www.huashengtoutiao.com/search/news/detailNew/" + utils.getUrlparam("", 'id') + "/" + utils.getUrlparam("", "pos");
+            return "http://adapi.ydtad.com:8089/search/news/detailNew/" + utils.getUrlparam("", 'id') + "/" + utils.getUrlparam("", "pos");
 
         };
     function configmescroll() {

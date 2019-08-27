@@ -1,5 +1,15 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-14 11:29:21
+ * @LastEditTime: 2019-08-14 11:49:49
+ * @LastEditors: Please set LastEditors
+ -->
+
+
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
@@ -10,18 +20,14 @@
     <meta property="og:url" content="">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
-    <script>
-        if(window.location.host.indexOf('bjyuedu.com') == -1){
-              window.location = window.location.href.replace(window.location.host,'bjyuedu.com');
-        }
-     </script>
     <script>var _czc = _czc || [];</script>
-    <link rel="stylesheet" href="dist/css/common.css?v=1.0.3">
-    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.3">
-    <link rel="stylesheet" href="dist/css/style.css?v=1.0.3">
-    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.3">
+    <script src="dist/js/rem.js?v=1.0.8"></script>
+    <link rel="stylesheet" href="dist/css/common.css?v=1.0.8">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.8">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.0.8">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.8">
     <!-- 加载渠道配置文件 -->
-    <script type="text/javascript" src="dist/js/config.js?v=1.0.3"></script>
+    <script src="dist/js/config.js?v=1.0.8"></script>
     <title>推荐</title>
     <style>
             .pic_nav{
@@ -63,7 +69,7 @@
                 transform: translate3d(0,0,0);
                 transition:transform 0.5s ease;
             }
-    </style>
+        </style>
 </head>
 
 <body page="phoneList" style="background: #fff;" id="news_list">
@@ -109,7 +115,7 @@
     <!-- 固定悬浮区域 -->
     <div id="pu-widget">
         <div class="pu-widget-ctn">
-            <a href="javascript:;" class="linkAD" style="display:none;">
+            <a href="javascript:;" class="linkAD">
                 <div class="icon-home"></div>
             </a>
             <div class="icon-share">
@@ -120,21 +126,16 @@
             </a>
         </div>
     </div>
-    <script src="dist/minjs/main.js?v=1.0.3"></script>
-    <script src="dist/minjs/news.js?v=1.0.3"></script>
-    <!-- 载入百度广告 -->
-    <!-- <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.3" async="async" defer="defer"></script> -->
-    <script type="text/javascript">
-        function add_cnzz(){
-            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277883305'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1277883305' type='text/javascript'%3E%3C/script%3E"));
-            document.getElementById("cnzz_stat_icon_1277883305").style.display = "none";
-        }
-        add_cnzz();
-    </script>
-     <script>
+    <script src="dist/js/channel_name.js?v=1.0.8"></script>
+    <script src="dist/js/report.js?v=1.0.8"></script>
+    <script src="dist/js/adtype.js?v=1.0.8"></script>
+    <script src="dist/js/mescroll.js?v=1.0.8"></script>
+    <script src="dist/js/jquery.js?v=1.0.8"></script>
+    <script src="dist/js/news.js?v=1.0.8"></script>
+    <!-- <script>
             $(function(){
-               var linkUrl=ZZJK_adConfig.hasOwnProperty('isc')?"":ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
-             // var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
+               var linkUrl=ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
+            //    var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
                 var random=parseInt(Math.random()*100);
                 if(random<10){
                   $("body").on('click',function(){
@@ -143,7 +144,15 @@
                   })
                 }
             })
+    </script> -->
+    <!-- 载入百度广告 -->
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.8" async="async" defer="defer"></script>
+    <script type="text/javascript">
+        function add_cnzz(){
+            var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277922677'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1277922677' type='text/javascript'%3E%3C/script%3E"));
+            document.getElementById("cnzz_stat_icon_1277922677").style.display = "none";
+        }
+        add_cnzz();
     </script>
-  
 </body>
 </html>

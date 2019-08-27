@@ -1,6 +1,13 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-08-14 11:29:21
+ * @LastEditTime: 2019-08-14 11:43:42
+ * @LastEditors: Please set LastEditors
+ */
 /**fanjiantao */
-$(function(){
-    var mescroll, errCode = 200, getType = ['page', 'down', 'up'],BOXADID = [], ADCODE = [],
+!function (window, $, undefined) {
+    var mescroll, errCode = 200, getType = ['page', 'down', 'up'],
         adConfig = ZZJK_adConfig,//导入配置文件
         pageConfig = {
             s: 0,
@@ -16,7 +23,7 @@ $(function(){
             scene_type: 'cs'
         },
         clisturl = (function () {
-            return "http://www.huashengtoutiao.com/search/news/clistNew";
+            return "http://adapi.ydtad.com:8089/search/news/clistNew";
         })(),
         isStore=(function(){
             if(typeof sessionStorage === 'object'){
@@ -233,7 +240,7 @@ $(function(){
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化
-        clipImg:function(imglist) {
+        clipImg(imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {
@@ -321,6 +328,7 @@ $(function(){
             return idate;
         },
         readAd: function (isAD, data, adIndex) {
+    
             function shuffle(arr) { 
                 var i = arr.length, t, j; 
                 while (i) { 
@@ -331,10 +339,9 @@ $(function(){
                 } 
                return arr.slice(0,5);
               }
-            var adIndex = adIndex || 1
+            var adIndex = adIndex || 1;
             //读取广告配置并插入广告数据(列表轮换取代码)；
             var data = data.slice(), len = data.length, adlist = (pageConfig.c == '21' ? adConfig[CHANNEL_NAME].priclist : adConfig[CHANNEL_NAME].newsListAD);
-            //var adlist = adlist.sort(function(){return 0.5-Math.random()}).slice(0,5);
             var adlist = shuffle(adlist);
             isAD && (function (that, data, adlist) {
                 var i = 0;
@@ -377,6 +384,7 @@ $(function(){
         },
         mistakeClick:function(){
             //读取配置概率
+            console.log("执行广告误点");
             var probability=adConfig[CHANNEL_NAME].probability.newsList;
             //信息流误点处理
             var arg_data=""
@@ -403,19 +411,13 @@ $(function(){
             
         },
         render: function () {
-        
             var data = arguments[0], i = 0, str = "";
             
             if (!arguments[1]) {
-                if(adConfig.hasOwnProperty('isc') || hasctr.getP()){
-                    //进入了监控状态屏蔽广告
-                }else{
-                    data = this.readAd(true, data);//插入广告后的数据
-                } 
+                data = this.readAd(true, data);//插入广告后的数据
             }
-            
             //广告列表单页长度超过40启用懒加载加载广告
-            var async=data.length>25?true:false;
+            var async=data.length>15?true:false;
             // console.log(data.length>30,'是否异步');
             //判断列表图片
             if (data.length > 0) {
@@ -430,11 +432,8 @@ $(function(){
 
                         str += this.pricImg(data[i],i);
                     } else if (data[i].type = 'ad') {
-                        if(adConfig.hasOwnProperty('isc') || hasctr.getP()){
-                           
-                        }else{
-                            str += this.adStyle(data[i],i,async);
-                        }
+
+                        str += this.adStyle(data[i],i,async);
                     }
                 }
 
@@ -461,7 +460,7 @@ $(function(){
             // return { dom: $(str), data: data }
         },
         styleimg3: function (data,i) {
-            var url="http://www.xinguad.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://news.zizhengjiankang.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             return '<li class="n-item will-active news-item splitter container newsBox"><a tagid="'+i+'"' +
                 '                    href="'+ url + '"' +
                 '                    class="n-item-link n-multipic" title="' + data.title + '">' +
@@ -494,7 +493,7 @@ $(function(){
                 '            </li>';
         },
         styleimg1: function (data,i) {
-            var url="http://www.xinguad.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://news.zizhengjiankang.com/"+CHANNEL_NAME+"File/webview/detail.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             return '<li class="n-item will-active news-item splitter container single-pic-item newsBox"><a tagid="'+i+'" ' +
                 '                    href="' + url + '"' +
                 '                    class="n-item-link n-single-pic" title="' + data.title + '">' +
@@ -515,7 +514,7 @@ $(function(){
                 '  </li>';
         },
         pricImg: function (data,i) {
-            var url="http://www.xinguad.com/"+CHANNEL_NAME+"File/webview/detail_img.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
+            var url="http://news.zizhengjiankang.com/"+CHANNEL_NAME+"File/webview/detail_img.html?id="+data.id+"&staticFile="+CHANNEL_NAME+"File";
             return '<li class="n-item container will-active splitter image-item big-pic-item"><a' +
                 '                    href="' + url + '?type=pic"  class="n-item-link"' +
                 '                    title="' + data.title + '" tagid="'+i+'">' +
@@ -534,14 +533,12 @@ $(function(){
                 '                </a></li>';
         },
         adStyle: function (data,i,async) {
-            var domid = data.s + "_" + Math.random().toString(16).slice(2);
+            var domid = data.s + "_" + Math.random();
             data.domid = domid;
-            // BOXADID.push(domid);
-            // ADCODE.push(crateAd.init(data, async));
             return '<li class="n-item will-active news-item splitter container AD-box"><a' +
                 '                    href="javascript:;"' +
                 '                    class="n-item-link n-multipic" tagid="'+i+'">' +
-                '                    <div class="adbox" style="width:100%;position:relative;height:'+((pageConfig.c=='21')?'220px':'105px')+'" data-ZZJK-s=' + data.s + '><div id="' + domid + '">' +crateAd.init(data,async)+ '</div></div> ' +
+                '                    <div class="adbox" style="width:100%;position:relative;height:'+((pageConfig.c=='21')?'220px':'105px')+'" data-ZZJK-s=' + data.s + '><div id="' + domid + '">' + crateAd.init(data,async) + '</div></div> ' +
                 '                    <div class="n-desc"><span class="info element"><span></span>' +
                 '                            <span class="n-ptime">刚刚</span></span>' +
                 '                        <div class="cash element" style="display:none">' +
@@ -578,18 +575,6 @@ $(function(){
         document.cookie=c_name+ "=" +escape(value)+
             ((expiredays==null) ? "" : "; expires="+exdate.toGMTString())
     }
-     //异步渲染js广告
-     function asyncAD(t) {
-        var t = t || 0
-        for (var index = 0, len = BOXADID.length; index < len; index++) {
-            (function (index) {
-                setTimeout(function () {
-                    $("#" + BOXADID[index]).append(ADCODE[index]);
-                }, index * 10 + t);
-            })(index)
-
-        }
-    }
 
     //初始化当前频道的数据
     function initPage(posdata) {
@@ -605,7 +590,10 @@ $(function(){
             utils.chechData(pageConfig.c, getType[0], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
             $(".ZZJK_L .news-list").prepend(runderData.dom);
-           
+            // runderData.dom.each(function(index,item){
+            //     // console.log(item,"dom元素");
+            //     $(".ZZJK_L .news-list").append(item);
+            // })
             //完成下拉刷新；
             mescroll.endUpScroll();
             mescroll.lazyLoad(200);
@@ -625,7 +613,10 @@ $(function(){
             utils.chechData(postdata.c, getType[1], runderData.data);
             utils.clipImg(runderData.dom.find('img'));
             $(".ZZJK_L .news-list").prepend(runderData.dom);
-           
+            // runderData.dom.each(function(index,item){
+            //     // console.log(item,"dom元素");
+            //     $(".ZZJK_L .news-list").append(item);
+            // })
             mescroll.lazyLoad(200);
             mescroll.endSuccess();
             utils.showtips('为你更新'+(runderData.data.length)+'条内容');
@@ -644,7 +635,10 @@ $(function(){
             utils.clipImg(runderData.dom.find('img'));
 
             $(".ZZJK_L .news-list").append(runderData.dom);
-           
+            // runderData.dom.each(function(index,item){
+            //     // console.log(item,"dom元素");
+            //     $(".ZZJK_L .news-list").append(item);
+            // })
             mescroll.lazyLoad(200);
 
             // //完成下拉刷新；
@@ -658,7 +652,6 @@ $(function(){
         var runderData = template.render.apply(template, [JSON.parse(sessionStorage.getItem("chechData")).data, true]);
         utils.clipImg(runderData.dom.find('img'));
         $(".ZZJK_L .news-list").append(runderData.dom);
-       
         mescroll.lazyLoad(200);
         //解决懒加载bug
         sessionStorage.getItem("scrollTop") ? (Number(sessionStorage.getItem("scrollTop")) > 1 ? $('.mescroll').scrollTop(sessionStorage.getItem("scrollTop")) : $('.mescroll').scrollTop(1)) : $('.mescroll').scrollTop(1);
@@ -667,6 +660,7 @@ $(function(){
 
     //初始化创建广告类型
     var crateAd = new ZZJKAD();
+
     //初始化页面反作弊
     /**
      * hasctr.getP() 获取是否作弊 return true and false
@@ -674,7 +668,8 @@ $(function(){
      */
     var hasctr=new ZZJK_R();
     //渲染详情红包链接
-    ZZJK_adConfig.hasOwnProperty('isc')||$('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
+    $('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.newslist);
+
     //检测频道id是否存在
     if (!sessionStorage.getItem("crateId") ||sessionStorage.getItem("crateId") == '') {
         sessionStorage.setItem("crateId",1);
@@ -685,10 +680,7 @@ $(function(){
     configmescroll();//初始化下拉
 
     //初始化数据
-    setTimeout(function(){
-        !sessionStorage.getItem("chechData") ? initPage(pageConfig) : chechRender();
-    },150);
-    
+    !sessionStorage.getItem("chechData") ? initPage(pageConfig) : chechRender();
     
     $("#mescroll .news-list").on('click',"li a",function(){
         //记录滚动的位置
@@ -698,9 +690,31 @@ $(function(){
 
     //离开当前页时存储数据
     window.onbeforeunload = function () {
+        // alert('页面离开记录滚动位置');
+        // alert($('.mescroll').scrollTop());
+        // console.log()
         //缓存数据
-        location.href.indexOf('detail_list')!==-1 && sessionStorage.setItem("scrollTop",$('.mescroll').scrollTop())
+        sessionStorage.setItem("scrollTop",$('.mescroll').scrollTop())
     }
-
+    //拓展方法在此处去继承完成新模块，新功能的添加尽量别去修改原代码
+    // function removeItem(){
+    //     if(sessionStorage.getItem("Dcontent")&&sessionStorage.getItem("Dcontent")!==""){
+    //         sessionStorage.Dcontent=""
+    //         sessionStorage.removeItem("Dcontent");
+           
+    //     }
+    //     if(sessionStorage.getItem("DchechData")&&sessionStorage.getItem("DchechData")!==""){
+    //         sessionStorage.DchechData=""
+    //         sessionStorage.removeItem("DchechData");
+            
+    //     }
+    //     if(sessionStorage.getItem("DscrollTop")&&sessionStorage.getItem("DscrollTop")!==""){
+    //         sessionStorage.DscrollTop=""
+    //         sessionStorage.removeItem("DscrollTop");
+    //     }
+    // }
+    // //销毁详情页缓存
+    // removeItem();
+   
     
-})
+}(window, jQuery, undefined)

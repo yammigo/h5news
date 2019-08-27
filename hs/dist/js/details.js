@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-18 14:49:05
+ * @LastEditTime: 2019-08-11 22:46:30
+ * @LastEditors: Please set LastEditors
+ */
 /**fanjiantao */
 !function (window, undefined) {
     var mescroll, errCode = 200, getType = ['page', 'down', 'up'],
@@ -220,13 +227,37 @@
         },
         //渲染详情页非列表区域广告;
         runderAD:function(){
+            function shuffle(arr,n) { 
+                var i = arr.length, t, j; 
+                while (i) { 
+                  j = Math.floor(Math.random() * i--); 
+                  t = arr[i]; 
+                  arr[i] = arr[j]; 
+                  arr[j] = t; 
+                } 
+               return arr;
+              }
             //添加头部广告
             adConfig[CHANNEL_NAME].details.topAD.domid="topAD";
             utils.appendAD('#topAD',crateAd.init(adConfig[CHANNEL_NAME].details.topAD,false));
 
             //添加内容底部广告
-            adConfig[CHANNEL_NAME].details.bottomAD.domid="bottomAD";
-            utils.appendAD('#bottomAD',crateAd.init(adConfig[CHANNEL_NAME].details.bottomAD,true));
+            var dom = document.getElementById("track_AD");
+            var track_ADList = [adConfig[CHANNEL_NAME].details.bottomAD].concat(adConfig[CHANNEL_NAME].details.RecommendList);
+            track_ADList=shuffle(track_ADList);
+            var track_AD_index = 0;
+            var track_AD = track_ADList[track_AD_index];
+            //添加内容底部广告
+            if (Math.random() < 0.4) {
+                dom.style.position = "absolute";
+                track_AD.domid = "track_AD2";
+                utils.appendAD('#track_AD2', crateAd.init(track_AD, false));
+            } else {
+                dom.style.position = "";
+                track_ADList.splice(track_AD_index, 1);
+                track_AD.domid = "bottomAD";
+                utils.appendAD('#bottomAD', crateAd.init(track_ADList[0], false));
+            }
 
             //渲染猜你喜欢5列表广告
             adConfig[CHANNEL_NAME].details.IlickAd.domid="AD_Ilick";

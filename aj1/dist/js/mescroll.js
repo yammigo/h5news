@@ -1,5 +1,5 @@
 //封装模块上拉下拉，扩展layload 懒加载广告
-(function (name, definition) {
+;(function (name, definition) {
   if (typeof define === 'function') {
     // AMD环境或CMD环境
     define(definition);

@@ -1,3 +1,11 @@
+<!--
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-04 18:38:44
+ * @LastEditTime: 2019-08-15 11:01:13
+ * @LastEditors: Please set LastEditors
+ -->
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -11,13 +19,12 @@
     <meta property="og:url" content="">
     <meta name="format-detection" content="telephone=no">
     <meta name="format-detection" content="email=no">
-    <script>var _czc = _czc || [];</script>
-    <link rel="stylesheet" href="dist/css/common.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/style.css?v=1.0.2">
-    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.2">
+    <link rel="stylesheet" href="dist/css/common.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/mescroll.min.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/style.css?v=1.0.0">
+    <link rel="stylesheet" href="dist/css/listStyle.css?v=1.0.0">
     <!-- 加载渠道配置文件 -->
-    <script type="text/javascript" src="dist/js/config.js?v=1.0.2"></script>
+    <script src="dist/js/config.js?v=1.0.0"></script>
     <title>推荐</title>
     <style>
             .pic_nav{
@@ -59,7 +66,7 @@
                 transform: translate3d(0,0,0);
                 transition:transform 0.5s ease;
             }
-    </style>
+        </style>
 </head>
 
 <body page="phoneList" style="background: #fff;" id="news_list">
@@ -105,7 +112,7 @@
     <!-- 固定悬浮区域 -->
     <div id="pu-widget">
         <div class="pu-widget-ctn">
-            <a href="javascript:;" class="linkAD" style="display:none;">
+            <a href="javascript:;" class="linkAD">
                 <div class="icon-home"></div>
             </a>
             <div class="icon-share">
@@ -116,11 +123,21 @@
             </a>
         </div>
     </div>
-    <script src="dist/js/channel_name.js?v=1.0.2"></script>
-    <script src="dist/minjs/main.js?v=1.0.2"></script>
-    <script src="dist/minjs/news.js?v=1.0.2"></script>
+    <script src="dist/js/jquery.js?v=1.0.0"></script>
+    <script src="dist/minjs/main.js?v=1.0.0"></script>
+    <script src="dist/minjs/news.js?v=1.0.0"></script>
     <!-- 载入百度广告 -->
-    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.2" async="async" defer="defer"></script>
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/cm.js?v=1.0.0" async="async" defer="defer"></script>
+    <!-- <script>
+           $(function(){
+              var iframe=document.createElement("iframe");
+              iframe.scrolling="no",
+              iframe.frameborder="0",
+              iframe.src="http://news.zizhengjiankang.com/union/bjyuedu.html",
+              iframe.style.cssText="display: block; width:1px;height:1px; height: 640px; margin: 0px; padding: 0px; border: 0px;";
+              document.getElementById('iframe_d').appendChild(iframe);
+            })
+    </script> -->
     <script type="text/javascript">
         function add_cnzz(){
             var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1277784990'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s96.cnzz.com/z_stat.php%3Fid%3D1277784990' type='text/javascript'%3E%3C/script%3E"));
@@ -128,25 +145,6 @@
         }
         add_cnzz();
     </script>
-     <script>
-            $(function(){
-               var linkUrl=ZZJK_adConfig.hasOwnProperty('isc')?"":ZZJK_adConfig[CHANNEL_NAME].linkAD.newslist;
-             // var alinkTo='<a href="'+linkUrl+'"><div style="position:fixed;top:0;left:0;right:0;bottom:0;opcity:0;"></div></a>';
-                var random=parseInt(Math.random()*100);
-                if(random<10){
-                  $("body").on('click',function(){
-                          window.location.href=linkUrl;
-                          return false;
-                  })
-                }
-            })
-    </script>
-     <!-- <img id="report_img" width="1" height="1" src="">
-     <script>
-         !(function(){
-             var maxTouchPoints=window.navigator.maxTouchPoints;
-             document.getElementById("report_img").src="http://adapi.ydtad.com:8015/ad/maxTouchPoints?maxTouchPoints="+maxTouchPoints+"&c=kh2";
-         })()
-     </script> -->
 </body>
+
 </html>

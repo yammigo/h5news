@@ -16,7 +16,7 @@
             scene_type: 'cs'
         },
         clisturl = (function () {
-            return "http://www.huashengtoutiao.com/search/news/clistNew";
+            return "http://adapi.ydtad.com:8089/search/news/clistNew";
         })(),
         isStore=(function(){
             if(typeof sessionStorage === 'object'){
@@ -233,7 +233,7 @@
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化
-        clipImg(imglist) {
+        clipImg:function(imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {

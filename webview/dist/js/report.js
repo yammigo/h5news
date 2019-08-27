@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-30 13:50:27
+ * @LastEditTime: 2019-08-27 11:20:42
+ * @LastEditors: Please set LastEditors
+ */
 
 ;(function(name,definition){
     if (typeof define === 'function') {
@@ -205,8 +212,6 @@
     //       //上报点击行为
     //     //   utils.report(reportUrl,{name:'fanjiantao',type:'type'});
     // });
-    
-
     //对外输出接口
     function ZZJK_R(){}
     //记录接口（基础数据+1）

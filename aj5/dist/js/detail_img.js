@@ -49,7 +49,6 @@ $(function(){
         var dataNum = Number(list.slides[num].dataset.num);
         var dataCount = Number(list.slides[num].dataset.count);
         if(dataNum >= 0){ //滑动非广告
-           
             $('.pic_bottom').removeClass('pic_hide');
             $('.detail-page').text((dataNum + 1) + '/' + dataCount);
             $('#img_title').text(title);
@@ -59,8 +58,7 @@ $(function(){
             if((dataNum+1) > 0 && (dataNum+1) % 3 == 0){
                 var domId = $('.swiper-slide-next').find('div').attr('id');
                 $('#'+domId).children().remove();
-                var adindex=Math.floor(Math.random()*picAdIdsList.length);
-                leadInto[picAdIdsList[adindex].type](domId, picAdIdsList[adindex].uId, picAdIdsList[adindex].coverId, picAdIdsList[adindex].callBack);
+                leadInto[picAdIdsList[0].type](domId, picAdIdsList[0].uId, picAdIdsList[0].coverId, picAdIdsList[0].callBack);
             }
             //重新加载资源
             var poorNum = dataCount - dataNum;
@@ -69,9 +67,7 @@ $(function(){
             }else {
                 addData = true;
             }
-        }else{ 
-            //滑动广告
-           
+        }else{ //滑动广告
             $('.pic_bottom').addClass('pic_hide');
             $('#img_title').text('');
             $('.detail-header').removeClass('show');

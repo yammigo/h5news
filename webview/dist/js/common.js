@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-30 13:50:27
+ * @LastEditTime: 2019-08-26 17:14:27
+ * @LastEditors: Please set LastEditors
+ */
 'use strict';
 
 var toast = function toast(str) {
@@ -221,8 +228,8 @@ function IsPC() {
 /*
 * 公共变量
 * */
-var ctx = 'http://www.huashengtoutiao.com';
-var ctxv = 'http://www.huashengtoutiao.com';
+var ctx = 'http://adapi.ydtad.com:8089';
+var ctxv = 'http://adapi.ydtad.com:8089';
 var ctxs = 'http://api.zizhengjiankang.com/kk-api-v112';
 // var ctx = 'http://39.105.1.181:8089';
 // var ctxv = 'http://39.105.1.181:8089';

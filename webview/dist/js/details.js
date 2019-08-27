@@ -1,23 +1,32 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-30 13:50:27
+ * @LastEditTime: 2019-08-26 17:53:14
+ * @LastEditors: Please set LastEditors
+ */
+
 /**fanjiantao */
-$(function(){
+$(function () {
     var mescroll, errCode = 200, getType = ['page', 'down', 'up'],
         adConfig = ZZJK_adConfig,
-    pageConfig = {
-        s: 0,
-        l: 15,
-        c: 100,
-        t: "asdf",
-        sign: 'asdf',
-        math: Math.random().toString(36).slice(2),
-        appKey: ZZJK_adConfig[CHANNEL_NAME].appKey,
-        appSecret: ZZJK_adConfig[CHANNEL_NAME].appSecret,
-        cid: '1557922176194341',
-        cnt: '10',
-        scene_type: 'cs'
-    },
+        pageConfig = {
+            s: 0,
+            l: 15,
+            c: 100,
+            t: "asdf",
+            sign: 'asdf',
+            math: Math.random().toString(36).slice(2),
+            appKey: ZZJK_adConfig[CHANNEL_NAME].appKey,
+            appSecret: ZZJK_adConfig[CHANNEL_NAME].appSecret,
+            cid: '1557922176194341',
+            cnt: '10',
+            scene_type: 'cs'
+        },
+        pageurl = 'http://news.zizhengjiankang.com/',
         clisturl = (function () {
             // this is window
-            return "http://www.huashengtoutiao.com/search/news/h5RecommendList";
+            return "http://adapi.ydtad.com:8089/search/news/h5RecommendList";
         })(),
         //预防网站使用无痕浏览报错
         isStore = (function () {
@@ -35,9 +44,7 @@ $(function(){
             }
         })(),
         detailapi = function () {
-
-            return "http://www.huashengtoutiao.com/search/news/detailNew/" + utils.getUrlparam("", 'id') + "/" + utils.getUrlparam("", "pos");
-
+            return "http://adapi.ydtad.com:8089/search/news/detailNew/" + utils.getUrlparam("", 'id') + "/" + utils.getUrlparam("", "pos");
         };
     function configmescroll() {
         // init mescroll
@@ -142,7 +149,7 @@ $(function(){
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化获得合适的尺寸
-        clipImg:function(imglist) {
+        clipImg: function (imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {
@@ -174,7 +181,7 @@ $(function(){
                     data: type == getType[0] ? data : type == getType[1] ? data : olddata,
                 }));
             } else {
-                
+
                 sessionStorage.setItem("DchechData", JSON.stringify({
                     key: key,
                     data: data,
@@ -229,7 +236,7 @@ $(function(){
             var track_AD_index = Math.floor(Math.random() * track_ADList.length);
             var track_AD = track_ADList[track_AD_index];
             //添加内容底部广告
-            if (Math.random() < 0.3) {
+            if (Math.random() < adConfig[CHANNEL_NAME].probability.details) {
                 dom.style.position = "absolute";
                 track_AD.domid = "track_AD2";
                 utils.appendAD('#track_AD2', crateAd.init(track_AD, false));
@@ -239,7 +246,7 @@ $(function(){
                 track_AD.domid = "bottomAD";
                 utils.appendAD('#bottomAD', crateAd.init(track_ADList[0], false));
             }
-        
+
             // if(track_ADList>1){
             //      //内容广告展现曝光稀释点击稀释
             //     track_ADList.splice(track_AD_index,1);
@@ -258,7 +265,7 @@ $(function(){
             utils.appendAD('#AD_Ilick', crateAd.init(adConfig[CHANNEL_NAME].details.IlickAd, true));
 
             //渲染详情红包链接
-            ZZJK_adConfig.hasOwnProperty('isc')||$('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.details);
+            ZZJK_adConfig.hasOwnProperty('isc') || $('#pu-widget .linkAD').attr("href", adConfig[CHANNEL_NAME].linkAD.details);
         },
         runderDetails: function () {
             //添加非列表区域广告
@@ -379,7 +386,7 @@ $(function(){
             return { dom: $(str), data: data }
         },
         styleDetail: function (data) {
-            var url = "http://news.zizhengjiankang.com/" + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
+            var url = pageurl + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
             //详情页推荐列表左图右文模版
             return '  <li class="n-item will-active news-item splitter container single-pic-item"><a' +
                 '                href="' + url + (data.category == "图片" ? "?type=pic" : "") + '"' +
@@ -395,7 +402,7 @@ $(function(){
                 '            </a></li>';
         },
         styleimg3: function (data, i) {
-            var url = "http://news.zizhengjiankang.com/" + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
+            var url = pageurl + CHANNEL_NAME + "File/webview/detail.html?id=" + data.id + "&staticFile=" + CHANNEL_NAME + "File";
             return '<li class="n-item will-active news-item splitter container newsBox"><a tagid="' + i + '"' +
                 '                    href="' + url + '"' +
                 '                    class="n-item-link n-multipic" title="' + data.title + '">' +

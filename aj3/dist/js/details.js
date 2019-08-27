@@ -17,7 +17,7 @@ $(function(){
     },
         clisturl = (function () {
             // this is window
-            return "http://www.huashengtoutiao.com/search/news/h5RecommendList";
+            return "http://adapi.ydtad.com:8089/search/news/h5RecommendList";
         })(),
         //预防网站使用无痕浏览报错
         isStore = (function () {
@@ -36,7 +36,7 @@ $(function(){
         })(),
         detailapi = function () {
 
-            return "http://www.huashengtoutiao.com/search/news/detailNew/" + utils.getUrlparam("", 'id') + "/" + utils.getUrlparam("", "pos");
+            return "http://adapi.ydtad.com:8089/search/news/detailNew/" + utils.getUrlparam("", 'id') + "/" + utils.getUrlparam("", "pos");
 
         };
     function configmescroll() {
@@ -142,7 +142,7 @@ $(function(){
             image.src = url + (url.indexOf('?') < 0 ? '?' : '&') + items.join('&');
         },
         //图片裁切优化获得合适的尺寸
-        clipImg(imglist) {
+        clipImg:function(imglist) {
             //图片裁切方案
             imglist.each(function (index, img) {
                 img.onload = function () {

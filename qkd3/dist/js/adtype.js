@@ -1,5 +1,5 @@
 //创建广告类型
-(function (name, definition) {
+;(function (name, definition) {
     if (typeof define === 'function') {
         // AMD环境或CMD环境
         define(definition);

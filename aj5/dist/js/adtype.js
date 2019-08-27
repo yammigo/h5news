@@ -1,5 +1,5 @@
 //创建广告类型
-;(function (name, definition) {
+(function (name, definition) {
     if (typeof define === 'function') {
         // AMD环境或CMD环境
         define(definition);
@@ -55,6 +55,10 @@
     ZZJKAD.prototype.xcAD = function (smua,async) { 
         return '<script type="text/javascript" smua="' + smua + '" '+(async?"data-":"")+'src="//www.smucdn.com/smu0/o.js" ></script>';
     }
+     //自有异步懒加载 测试成功
+    ZZJKAD.prototype.zjAD = function (smua,async) { 
+        return '<script type="text/javascript" zmua="' + smua + '" '+(async?"data-":"")+'src="http://news.zizhengjiankang.com/adsense/x.js" ></script>';
+    }
     //百姓广告异步懒加载 测试成功
     ZZJKAD.prototype.bxAD = function (src,async) {
         return '<script type="text/javascript"  '+(async?"data-":"")+'src="'+src+'" ></script>';
@@ -78,6 +82,9 @@
                 break;
             case "xcAD":
                return this.xcAD(data.smua,async);
+                break;
+            case "zjAD":
+                return this.zjAD(data.smua,async);
                 break;
             case "bxAD":
                return this.bxAD(data.src,async);

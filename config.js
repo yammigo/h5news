@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-10 18:18:07
+ * @LastEditTime: 2019-08-22 13:58:11
+ * @LastEditors: Please set LastEditors
+ */
 const config = {
     webview:{
         //新闻频道
@@ -77,11 +84,11 @@ const config = {
     qkd1:{
         //新闻频道
         newsListAD: [
-            { type: 'ad', s: "xcAD", smua: "d=m&s=b&u=u4077256&h=120" },
+            { type: 'ad', s: "xcAD", smua: "d=m&s=b&u=u4340531&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4239687&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4012787&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4012795&h=120" },
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4127484&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4340530&h=120" },
         ],
         priclist: [
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3689775&h=220" },
@@ -94,11 +101,11 @@ const config = {
         //新闻详情
         details: {
             //顶部广告
-            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4239929&h=120" },
+            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4077256&h=120" },
             //内容底部广告
             bottomAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3689770&h=220" },
             //猜你喜欢5图广告
-            IlickAd: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4118235&h=400" },
+            IlickAd: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4340557&h=400" },
             //推荐阅读列表广告
             RecommendList: [
                 { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4058055&h=120" },
@@ -322,7 +329,7 @@ const config = {
     qkd2: {
         //新闻频道
         newsListAD: [
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4012799&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4340533&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4012800&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4012674&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4012677&h=120" },
@@ -338,7 +345,7 @@ const config = {
         //新闻详情
         details: {
             //顶部广告
-            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u42409314&h=120" },
+            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4306266&h=120" },
             //内容底部广告
             bottomAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4117562&h=220" },
             //猜你喜欢5图广告
@@ -363,24 +370,22 @@ const config = {
         //图片详情
         picDetails: {
             picGroomIdsList: [
-                { uId: { id: 'u4241365', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241365' },
-                { uId: { id: 'u4241365', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241365' },
-                { uId: { id: 'u4241365', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241365' },
-                { uId: { id: 'u4241365', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241365' },
+                { uId: { id: 'u4326500', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4326500' },
+                { uId: { id: 'u4326500', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4326500' },
+                { uId: { id: 'u4326500', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4326500' },
+                { uId: { id: 'u4326500', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4326500' },
             ],
             picBottomAdId: [
                 { uId: { id: 'u4241450', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241450' },
                 { uId: { id: 'u4241450', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241450' },
                 { uId: { id: 'u4241450', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241450' },
                 { uId: { id: 'u4241450', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241450' },
-                { uId: { id: 'u4241450', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241450' },
-                { uId: { id: 'u4241450', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241450' },
             ],
             picAdIdsList: [
-                { uId: { id: 'u4241365', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241365' },
-                { uId: { id: 'u4241365', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241365' },
-                { uId: { id: 'u4241365', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241365' },
-                { uId: { id: 'u4241365', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4241365' },
+                { uId: { id: 'u4326500', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4326500' },
+                { uId: { id: 'u4326500', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4326500' },
+                { uId: { id: 'u4326500', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4326500' },
+                { uId: { id: 'u4326500', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu4326500' },
             ],
             linkList: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=271672',
             linkDetail: 'http://engine.tuicoco.com/index/activity?appKey=KojNnfcjMmWb9NZaTbihqMwBRuc&adslotId=271673',
@@ -722,7 +727,7 @@ const config = {
         //新闻频道
         newsListAD: [
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3741919&h=120" },
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4239905&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4118218&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4118218&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4239912&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4118214&h=120" },
@@ -732,7 +737,7 @@ const config = {
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4118242&h=220" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4118239&h=220" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4144842&h=220" },
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141944&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141946&h=220" }
 
         ],
         //新闻详情
@@ -1028,7 +1033,7 @@ const config = {
         //新闻频道
         newsListAD: [
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4326380&h=120" },
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4326385&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4310098&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4326390&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4326394&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4326402&h=120" },
@@ -1219,7 +1224,7 @@ const config = {
                 { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154001&h=120" },
                 { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154014&h=120" },
                 { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154022&h=120" },
-                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154026&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4306282&h=120" },
                 { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4154033&h=120" },
             ]
 
@@ -1265,7 +1270,7 @@ const config = {
     qkd7:{
         //新闻频道
         newsListAD: [
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141117&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141546&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141497&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141537&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4310081&h=120" },
@@ -1281,7 +1286,7 @@ const config = {
         //新闻详情
         details: {
             //顶部广告
-            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141117&h=120" },
+            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4141537&h=120" },
             //内容底部广告
             bottomAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4142288&h=220" },
             //猜你喜欢5图广告
@@ -1566,7 +1571,6 @@ const config = {
     hs:{
         //新闻频道
         newsListAD: [
-            { type: 'ad', s: "zjAD", smua: "d=m&s=b&u=u4278295&h=120" },
             { type: 'ad', s: "xcAD", smua: "d=m&s=b&u=u4310308&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4309606&h=120" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4310267&h=120" },
@@ -1576,7 +1580,7 @@ const config = {
         ],
         priclist: [
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4309663&h=220" },
-            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4219695&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4219686&h=220" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4219691&h=220" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4309836&h=220" },
             { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4219686&h=220" }
@@ -1586,7 +1590,7 @@ const config = {
             //顶部广告
             topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4220819&h=120" },
             //内容底部广告
-            bottomAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4219700&h=220" },
+            bottomAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4309867&h=220" },
             //猜你喜欢5图广告
             IlickAd: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u4239933&h=400" },
             //推荐阅读列表广告
@@ -2519,9 +2523,162 @@ const config = {
             newsList: 0.5,
             details: 0.2,
         }
-    }
+    },
+    aj5:{
+        //新闻频道
+        newsListAD: [
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715707&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715713&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715722&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715725&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715729&h=120" }
+        ],
+        priclist: [
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715612&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715658&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715663&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715699&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715701&h=220" }
+        ],
+        //新闻详情
+        details: {
+            //顶部广告
+            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3714737&h=120" },
+            //内容底部广告
+            bottomAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715605&h=220" },
+            //猜你喜欢5图广告
+            IlickAd: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3715531&h=400" },
+            //推荐阅读列表广告
+            RecommendList: [
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3708779&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3708783&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3708785&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3708788&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3708803&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3709527&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3709559&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3714310&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3714335&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3714437&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3714438&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3714716&h=120" }
+            ]
 
-    
+        },
+        //图片详情
+        picDetails: {
+            picGroomIdsList: [
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' }
+            ],
+            picBottomAdId: [
+                { uId: { id: 'u3715446', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715446' },
+                { uId: { id: 'u3715446', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715446' },
+                { uId: { id: 'u3715446', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715446' },
+                { uId: { id: 'u3715446', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715446' },
+            ],
+            picAdIdsList: [
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' }
+            ],
+            linkList: '',
+            linkDetail: '',
+        },
+        //红包链接
+        linkAD: {
+            newslist: '',
+            details: '',
+        },
+        //密钥相关
+         //密钥相关
+        appKey: '001100-aj5File',
+        appSecret: '001100-aj5File',
+        probability: {
+            newsList: 0.5,
+            details: 0.2,
+        }
+    },
+    aj6:{
+        //新闻频道
+        newsListAD: [
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707567&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707568&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707570&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707578&h=120" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707600&h=120" }
+        ],
+        priclist: [
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707604&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707647&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707651&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707653&h=220" },
+            { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707656&h=220" }
+        ],
+        //新闻详情
+        details: {
+            //顶部广告
+            topAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707668&h=120" },
+            //内容底部广告
+            bottomAD: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707657&h=220" },
+            //猜你喜欢5图广告
+            IlickAd: { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707663&h=400" },
+            //推荐阅读列表广告
+            RecommendList: [
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707671&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707674&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707676&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707681&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707684&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707687&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707689&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707710&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707713&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707717&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3707766&h=120" },
+                { type: 'ad', s: 'xcAD', smua: "d=m&s=b&u=u3708736&h=120" }
+            ]
+
+        },
+        //图片详情
+        picDetails: {
+            picGroomIdsList: [
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' }
+            ],
+            picBottomAdId: [
+                { uId: { id: 'u3715446', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715446' },
+                { uId: { id: 'u3715446', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715446' },
+                { uId: { id: 'u3715446', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715446' },
+                { uId: { id: 'u3715446', h: '20:4' }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715446' },
+            ],
+            picAdIdsList: [
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' },
+                { uId: { id: 'u3715448', h: "20:15" }, type: 'xc', coverId: '', callBack: '', countId: 'xcu3715448' }
+            ],
+            linkList: '',
+            linkDetail: '',
+        },
+        //红包链接
+        linkAD: {
+            newslist: '',
+            details: '',
+        },
+        //密钥相关
+         //密钥相关
+        appKey: '001100-aj5File',
+        appSecret: '001100-aj5File',
+        probability: {
+            newsList: 0.5,
+            details: 0.2,
+        }
+    }  
 }
-
 module.exports = config;

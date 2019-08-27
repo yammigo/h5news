@@ -1,5 +1,5 @@
 
-;(function(name,definition){
+(function(name,definition){
     if (typeof define === 'function') {
         // AMD环境或CMD环境
         define(definition);
@@ -90,7 +90,6 @@
           //处理时间
           function ctr(){
                 var isc=false;
-                var iscS=false;
                 var CTR=rD.list.nT-rD.list.sT;
                 console.log(rD,CTR);
                 //单位时间内页面刷新异常
@@ -99,15 +98,11 @@
                         console.log("单位时间内页面刷新异常");
                         isc=true;
                         rD.list.isc=isc;
-                        rD.list.iscS=new Date().getTime();
-                        // sessionStorage.removeItem('chechData');
                     }
                     if(rD.list.g/(CTR/config.ctr.api)>=config.ctr.show){
-                        console.log("单位时间内接口请求异常");
+                        console.log("单位时间内接口亲求异常");
                         isc=true;
                         rD.list.isc=isc;
-                        rD.list.iscS=new Date().getTime();
-                        // sessionStorage.removeItem('chechData');
                        
                     }
                     rD.list.s=1;
@@ -115,13 +110,6 @@
                     rD.list.sT=new Date().getTime();
                     rD.list.nT=new Date().getTime(); 
                 }
-                
-                if(rD.list.hasOwnProperty('iscS') && (new Date().getTime()-rD.list.iscS)>60000){
-                    rD.list.isc=false;
-                    delete rD.list.iscS;
-                    console.log('放出来了');
-                }
-
                 setCookie('postData',JSON.stringify(rD));
                 setCookie('ZZJK_userID',cookieId);
                 //是否触发
@@ -229,7 +217,8 @@
     }
     //获取是否触发反作弊规则
     ZZJK_R.prototype.getP=function(){
-        return JSON.parse(getCookie('postData')).list.isc;
+        
+        return isCheat;
     }
     ZZJK_R.prototype.setUp=function(){
         //上报接口获取

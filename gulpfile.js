@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-07-10 18:18:07
+ * @LastEditTime: 2019-07-10 18:18:07
+ * @LastEditors: your name
+ */
 //guulp 自动化任务部署
 //导入工具包 require('node_modules里对应模块')
 var gulp = require('gulp'),
@@ -12,7 +19,7 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util');
 var fs = require('fs');
 var config_c = require('./config.js');
-var channelList = ['hs'];
+var channelList = ['kh1'];
 function FileSize(filePath, dir) {
 	var path = filePath;
 	var exists = fs.existsSync(path);
@@ -89,7 +96,7 @@ gulp.task('concat', function () {
 		(function (dir) {
 			gulp.src([
 				dir + '/dist/js/mescroll.js',
-				dir + '/dist/js/jquery.js',
+				// dir + '/dist/js/jquery.js',
 				dir + '/dist/js/channel_name.js',
 				dir + '/dist/js/rem.js',
 				dir + '/dist/js/report.js',
@@ -115,6 +122,17 @@ gulp.task('concat', function () {
 			   FileSize(dir+'/dist/minjs/news.js',dir+"_news.js");
 
 		})(dir)
+		// ;(function(dir){
+		// 	gulp.src([
+		// 	 dir + '/dist/js/mescroll.js',
+		// 	 // dir + '/dist/js/details.js'
+		// 	])
+		// 	 .pipe(uglify())//压缩
+		// 	 .pipe(gulp.dest(dir + '/dist/minjs/'));
+
+		// 	FileSize(dir+'/dist/minjs/mescroll.js',dir+"_mescroll.js");
+
+	    // })(dir)
 		;(function(dir){
 			gulp.src([
 			//  dir + '/dist/js/news.js',
@@ -129,18 +147,16 @@ gulp.task('concat', function () {
 	})
 })
 
-
-
 gulp.task('mincss', function () {
-	gulp.src('webview/css/*.css')
+	gulp.src('/css/*.css')
 		.pipe(cssUglify())
 		.pipe(gulp.dest('css'));
 });
 
 gulp.task('htmlmin', function () {
-	gulp.src('webview/src/*.html')
+	gulp.src('/src/*.html')
 		.pipe(htmlmin())
-		.pipe(gulp.dest('webview/dist/'));
+		.pipe(gulp.dest('/dist/'));
 });
 //默认任务
 gulp.task('default', ['comless']);
@@ -152,19 +168,19 @@ gulp.task("build", function () {
 	channelList.forEach(function (dir) {
 		(function (dir) {
 			//打包渠道图片
-			gulp.src('webview/dist/img/*')
+			gulp.src('/dist/img/*')
 				.pipe(gulp.dest(dir + '/dist/img'));
 			//打包渠道css
-			gulp.src('webview/dist/css/*')
+			gulp.src('/dist/css/*')
 				.pipe(gulp.dest(dir + '/dist/css'));
 			//打包渠道js
-			gulp.src('webview/dist/js/*')
+			gulp.src('/dist/js/*')
 				.pipe(gulp.dest(dir + '/dist/js'));
 			//打包渠道html
-			gulp.src('webview/*.html')
+			gulp.src('/*.html')
 				.pipe(gulp.dest(dir + '/'));
 			//生成测试html
-			gulp.src('webview/testHTML/*.html')
+			gulp.src('/testHTML/*.html')
 				.pipe(gulp.dest(dir + '/testHTML/'));
 
 		})(dir);
